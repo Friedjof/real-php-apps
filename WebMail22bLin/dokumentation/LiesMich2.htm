@@ -1,0 +1,564 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Juergen Hummel">
+   <title>WebMail</title>
+</head>
+
+<body>
+<h1>Dokumentation zum WebMail-Interface (<small>Teil 2: Detailschablonen</small>)</h1>
+<h4><IMG SRC="letter.gif" ALIGN="right" ALT="letter" BORDER="0">Inhalt</h4>
+<ol>
+ <li><a href="LiesMich.htm#M1">Leistungsmerkmale und Systemvoraussetzungen</a> (Teil 1)</li>
+ <li><a href="LiesMich.htm#M2">Installation</a> (Teil 1)</li>
+ <li><a href="LiesMich.htm#M3">Starten des Webmail-Interface</a> (Teil 1)</li>
+ <li><a href="LiesMich.htm#M4">Demonstrationsm&ouml;glichkeit</a> (Teil 1)</li>
+ <li><a href="LiesMich.htm#M5">Anpassung des Layouts</a> (Teil 1)</li>
+ <ul type="square">
+  <li>5.1. <a href="LiesMich.htm#M51">zentrales Masterlayout</a> (Teil 1)</li>
+  <li>5.2. <a href="#M52"><b>Detailschablonen</b></a></li>
+  <ul type="square">
+   <li><a href="#521">5.2.1.</a> Login-Formular (login.htm)</li>
+   <li><a href="#522">5.2.2.</a> Ordner&uuml;bersicht und Ordnerverwaltungs-Formular (office.htm)</li>
+   <li><a href="#523">5.2.3.</a> MailBox-Seite mit Posteingang auf dem POP3-Server (mailbox.htm)</li>
+   <li><a href="#524">5.2.4.</a> MailBox-Seite f&uuml;r privaten Posteingangs- oder Postausgangs-Archivordner (privbox.htm)</li>
+   <li><a href="#525">5.2.5.</a> Nachrichtendetailanzeige (showmail.htm)</li>
+   <li><a href="#526">5.2.6.</a> Formular zum Verfassen einer Nachricht (writemail.htm)</li>
+   <li><a href="#527">5.2.7.</a> Sendebest&auml;tigung (sendok.htm)</li>
+   <li><a href="#528">5.2.8.</a> Signatur und Textbausteine (textpieces.htm)</li>
+   <li><a href="#529">5.2.9.</a> Adressbuch-Liste (adrlist.htm, abook.htm und adrcent.htm)</li>
+   <li><a href="#5210">5.2.10.</a> Adressbuch-Detailanzeige (adrshow.htm)</li>
+   <li><a href="#5211">5.2.11.</a> &ouml;ffentliche Benutzerdateneingabe (admin.htm)</li>
+   <li><a href="#5212">5.2.12.</a> Benutzerdatenbest&auml;tigung (adminok.htm)</li>
+   <li><a href="#5213">5.2.13.</a> Benutzerverwaltung f&uuml;r den Webmaster (users1.htm, users2.htm)</li>
+  </ul>
+ </ul>
+ <li><a href="LiesMich.htm#M6">Benutzereinrichtung und -verwaltung</a> (Teil 1)</li>
+ <ol>
+  <li><a href="LiesMich.htm#M61">Benutzerdatenverwaltung durch die Benutzer</a> (Teil 1)</li>
+  <li><a href="LiesMich.htm#M62">Benutzerverwaltung durch den Administrator</a> (Teil 1)</li>
+ </ol>
+ <li><a href="LiesMich.htm#M7">Sicherheitshinweise</a> (Teil 1)</li>
+ <li><a href="LiesMich.htm#M8">bekannte Probleme</a> (Teil 1)</li>
+ <li><a href="LiesMich.htm#M9">Vollversion und rechtliche Hinweise</a> (Teil 1)</li>
+</ol>
+
+<h3>5.2. Detailschablonen<a NAME="M52"></a></h3>
+Die Detaillayouts werden durch das <b><font color="#006600">WebMail</font></b>-Interface an der Stelle des
+Platzhalters &lt;#CONTENT> in das Masterlayout eingef&uuml;gt.
+Jede Ausgabeseite von <b><font color="#006600">WebMail</font></b> benutzt ein anderes Detaillayout.
+Jedes Detaillayout verf&uuml;gt seinerseits &uuml;ber spezielle Platzhalter-Tags.
+<p>Bei den Detaillayouts handelt es sich <i>nicht</i> um komplette HTML-Seiten,
+sondern lediglich um HTML-formatierte Sequenzen bzw. Fragmente.
+Das Layout der Detailvorlagen kann wiederum frei ver&auml;ndert werden.
+Die Platzhaltertags, die die Namen etwaiger Formularfelder und die Spaltenzahl angedeuteter Tabellen m&uuml;ssen erhalten bleiben.
+
+<h4>5.2.1. Login-Formular (login.htm)<a name="521"></a></h4>
+Diese Vorlage erzeugt das Seitendetail f&uuml;r das Login-Formular zum
+Webmail-Interface und muss folgende Abschnitte enthalten:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=3 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM ACTION=&quot;&lt;#SCRIPT>&quot; METHOD=&quot;POST&quot;></td>
+<td>Login-Formularaktion</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT&nbsp;TYPE=&quot;hidden&quot;&nbsp;NAME=&quot;Retry&quot;&nbsp;VALUE=&quot;&lt;#RETRY>&quot;></td>
+<td>Z&auml;hler der Loginversuche</td><td>fakultativ</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;User&quot;></td>
+<td>Benutzername</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;password&quot; NAME=&quot;Pass&quot;></td>
+<td>Loginpasswort</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#SCRIPTDIR></td>
+<td>Pfad zu WebMail (hier incl. Programmname)</td><td>fakultativ</td><td>mehrmalig</td>
+</tr></table></center>
+
+<h4>5.2.2. Ordner&uuml;bersicht und Ordnerverwaltungs-Formular (office.htm)<a name="522"></a></h4>
+Diese Vorlage erzeugt die pers&ouml;nliche Archivordner&uuml;bersicht eines Benutzers und erlaubt das Anlegen und L&ouml;schen von individuellen Ordnern.
+Sie soll folgende Abschnitte enthalten:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=3 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT&gt;/office&quot;&nbsp;METHOD=&quot;POST&quot;&gt;</td>
+<td>Formularaktion der Buttons zum Neuanlegen oder L&ouml;schen von Ordnern</td>
+<td>obligatorisch</td>
+<td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USERDATA&gt;</td>
+<td>Benutzerdaten zum Ausf&uuml;hren der Buttonaktion<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td>
+<td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TABLE&gt;&lt;#LINES&gt;&lt;/TABLE&gt;</td>
+<td>tabellarische Auflistung der individuellen Ordner<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td>
+<td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td>
+<td>einmalig</td>
+</tr></table></center>
+
+<h4>5.2.3. MailBox-Seite mit Posteingang (mailbox.htm)<a name="523"></a></h4>
+Der Posteingangsteil verf&uuml;gt &uuml;ber folgende spezifische Elemente:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#INMAILS></td>
+<td>Anzahl der Nachrichten</td>
+<td>fakultativ</td>
+<td>mehrmalig</td>
+</tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT&gt;/mailbox&quot;&nbsp;METHOD=&quot;POST&quot;&gt;</td>
+<td>Formularaktion zum L&ouml;schen von e-Mails</td>
+<td>obligatorisch</td>
+<td>mehrmalig</td>
+</tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USERDATA></td>
+<td>Benutzerdaten zum Ausf&uuml;hren der L&ouml;schaktion<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td>
+<td>mehrmalig</td>
+</tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TABLE><br>&nbsp;&lt;TR>&lt;TD>&lt;/TD>&lt;TD>Absender&lt;/TD>&lt;TD>Betreff&lt;/TD><div align=right>&nbsp;&lt;TD>Datum/Zeit&lt;/TD>&lt;TD>Gr&ouml;sse&lt;/TD>&lt;/TR></div>&nbsp;&lt;#LINES><br>&lt;/TABLE></td>
+<td>Tabelle mit 5 Spalten zur Anzeige der auf dem Mailserver vorhandenen Nachrichten<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td>
+<td>einmalig</td>
+</tr>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td>
+<td>einmalig</td>
+</tr>
+</table></center>
+<p>In die Schablone &quot;mailbox.htm&quot; ist eine Java-Script-Funktion namens <i>isClicked()</i> eingearbeitet.
+Diese Funktion wird beim Klick auf einen Link im Posteingang zum Abruf einer Nachricht aktiviert.
+&Uuml;ber diese Funktion k&ouml;nnen Sie ein animiertes Wartefenster einblenden,
+das ungeduldige Benutzer auf den laufenden Nachrichtenempfang hinweist.
+Dazu ist lediglich das Kommetarzeichen &quot;//&quot; am Anfang der zweiten Zeile dieser Funktion <i>isClicked()</i> zu entfernen.
+Falls Sie das tun, m&uuml;ssen Sie aber auch in der Schablone "showmail.htm" (siehe <a href="#525">5.2.5</a>) daf&uuml;r sorgen, dass das Wartefenster wieder ausgeblendet wird.</p>
+
+<h4>5.2.4. MailBox-Seite f&uuml;r privaten Posteingangs- oder Postausgangs-Archivordner (privbox.htm)<a name="524"></a></h4>
+Diese Seitenschablone ist sehr &auml;hnlich zum Posteingangsteil von &quot;<I>mailbox.htm</I>&quot;.
+Sie kann &uuml;ber folgende spezifische Elemente verf&uuml;gen:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#INMAILS></td>
+<td>Anzahl der Nachrichten</td>
+<td>fakultativ</td>
+<td>mehrmalig</td>
+</tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT>/box&quot;&nbsp;METHOD=&quot;POST&quot;></td>
+<td>Formularaktion zum L&ouml;schen von e-Mails</td>
+<td>obligatorisch</td>
+<td>mehrmalig</td>
+</tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USERDATA></td>
+<td>Benutzerdaten zum Ausf&uuml;hren der L&ouml;schaktion<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td>
+<td>mehrmalig</td>
+</tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TABLE><br>&nbsp;&lt;TR>&lt;TD>&lt;/TD>&lt;TD>Adresse&lt;/TD>&lt;TD>Betreff&lt;/TD><div align=right>&nbsp;&lt;TD>Datum/Zeit&lt;/TD>&lt;TD>Gr&ouml;sse&lt;/TD>&lt;/TR></div>&nbsp;&lt;#LINES><br>&lt;/TABLE></td>
+<td>Tabelle zur Anzeige der auf dem Mailserver vorhandenen Nachrichten<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td>
+<td>einmalig</td>
+</tr>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td>
+<td>einmalig</td>
+</tr>
+</table></center>
+
+<h4>5.2.5 Die Nachrichtenanzeige (showmail.htm)<a name="525"></a></h4>
+Die Seite zur Anzeige einer empfangenen bzw. einer im Archiv gespeicherten Nachricht verarbeitet folgende Spezial-Tags:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99">
+<td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#HEADER></td>
+<td>Kopfzeilen der Nachricht</td>
+<td>obligatorisch</td>
+<td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BODY></td>
+<td>Textinhalt der Nachricht</td>
+<td>obligatorisch</td>
+<td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#ATTACHMENT></td>
+<td>Liste der Anh&auml;nge</td>
+<td>fakultativ</td>
+<td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#EML></td>
+<td>Downloadlink f&uuml;r den Quelltext der Nachricht</td>
+<td>fakultativ</td>
+<td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#PRINT></td>
+<td>Link f&uuml;r Druckansicht der Nachricht</td>
+<td>fakultativ</td>
+<td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BUTTONDEL></td>
+<td>Erzeugt einen Formularbutton (einschlie&szlig;lich des kompletten Formularcodes) zum L&ouml;schen der Nachricht aus dem Ordner</td>
+<td>fakultativ</td><td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BUTTONSAVE></td>
+<td>Erzeugt einen Formularbutton und eine Drop-Down-Liste (einschlie&szlig;lich des kompletten Formularcodes) zum Verschieben der Nachricht in einen anderen Ordner</td>
+<td>fakultativ</td><td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BUTTONFORWARD></td>
+<td>Erzeugt einen Formularbutton (einschlie&szlig;lich des kompletten Formularcodes) zum Weiterleiten der angezeigten Nachricht</td>
+<td>fakultativ</td><td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BUTTONANSWER></td>
+<td>Erzeugt einen Formularbutton (einschlie&szlig;lich des kompletten Formularcodes) zum Beantworten der angezeigten Nachricht</td>
+<td>fakultativ</td><td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BUTTONADDR></td>
+<td>Erzeugt einen Formularbutton (einschlie&szlig;lich des kompletten Formularcodes) zum &Uuml;bername der e-Mail-Adresse der angezeigten Nachricht in das Adressbuch</td>
+<td>fakultativ</td><td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#MAILBOX></td>
+<td>Link zur jeweils aufrufenden Mailboxseite zur&uuml;ck<br>(erzeugt nur die innere Phrase zwischen den Anf&uuml;hrungszeichen von &lt;a&nbsp;href=&quot;&quot;&gt;)</td>
+<td>fakultativ</td>
+<td>mehrmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td>
+<td>einmalig</td>
+</tr>
+</table></center>
+<p>Die Schablone &quot;showmail.htm&quot; enth&auml;lt eine Java-Script-Zeile zum Schlie&szlig;en
+des Wartezeit-Animantionsfensters nach dem Abrufen langer Nachrichten.
+Diese Zeile ist standardm&auml;&szlig;ig durch einen Kommentarvorsatz ausgeschaltet.
+Falls Sie in der Schablone &quot;mailbox.htm&quot; die Animation eingeschaltet haben (siehe <a href="#523">5.2.3.</a>),
+dann entfernen Sie das Kommentarzeichen &quot;//&quot; vor der Java-Script-Zeile <i>WMLoad</i>.</p>
+
+<h4>5.2.6. Das Formular zum Verfassen einer Nachricht (writemail.htm)<a name="526"></a></h4>
+Dieses Formular &auml;hnelt dem Postausgangsteil der Mailboxseite.
+Es kann beim Aufruf als Antwortformular bereits teilweise vorbelegt sein.
+Es mu&szlig; folgende Elemente enthalten:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT>/send&quot;&nbsp;METHOD=&quot;POST&quot;&nbsp;&nbsp;<div align=right>&nbsp; ENCTYPE=&quot;multipart/form-data&quot;></div></td>
+<td>Formularaktion zum Versenden der e-Mail<BR>(Der Zusatz <I>ENCTYPE</I> ist nur notwendig, wenn Dateianh&auml;nge vorgesehen sind.)</td>
+<td>obligatorisch</td><td>mehrmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC"><td>&lt;#USERDATA></td>
+<td>Benutzerdaten zum Ausf&uuml;hren des Sendens<br>(muss im FORM-Abschnitt stehen)</td><td>obligatorisch</td><td>mehrmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;MailTo&quot;<div align="right">VALUE=&quot;&lt;#MAILTO&gt;&quot;&gt;</div><div align="center">oder</div>&lt;TEXTAREA NAME=&quot;MailTo&quot;&gt;VALUE=&quot;&lt;#MAILTO&gt;&quot;<div align="right">&lt;/TEXTAREA&gt;</div></td>
+<td>Adressen der Empf&auml;nger</td>
+<td>obligatorisch<br>(&lt;#MAILTO><div align=right>ist fakultativ)</div></td>
+<td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;CC&quot;&gt;</div></td>
+<td>CC-Empf&auml;nger</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;BCC&quot;&gt;</div></td>
+<td>BCC-Empf&auml;nger</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot;&nbsp;NAME=&quot;Sender&quot;&nbsp;<div align=right>&nbsp;VALUE=&quot;&lt;#SENDER>&quot;&gt;</div></td>
+<td>(Real-)Name des Absenders</td>
+<td>obligatorisch<br>(&lt;#SENDER><div align=right>ist fakultativ)</div></td>
+<td>mehrmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot;&nbsp;NAME=&quot;ReplyTo&quot;&nbsp;<div align=right>&nbsp;VALUE=&quot;&lt;#REPLYTO>&quot;&gt;</div></td>
+<td>R&uuml;ckantwort-Adresse</td>
+<td>fakultativ</td>
+<td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;checkbox&quot; NAME=&quot;Receipt&quot;></td>
+<td>Empfangsquittung anfordern</td>
+<td>fakultativ</td>
+<td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC"><td>&lt;INPUT TYPE=&quot;text&quot; NAME=&quot;Subject&quot;&nbsp;<div align=right>&nbsp;VALUE=&quot;&lt;#SUBJECT>&quot;&gt;</div></td>
+<td>Betreff der Nachricht</td><td>obligatorisch<br>(&lt;#SUBJECT><div align=right>ist fakultativ)</div></td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;FILE&quot; NAME=&quot;Attachment1&quot;><br>&lt;INPUT TYPE=&quot;FILE&quot; NAME=&quot;Attachment2&quot;><br>&nbsp; &nbsp; &nbsp;:</td>
+<td>eventuelle Dateianh&auml;nge der Nachricht (maximal 5 St&uuml;ck)</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TEXTAREA NAME=&quot;Text&quot;&nbsp;<div align=right>ROWS=&quot;20&quot; COLS=&quot;75&quot;&gt;&lt;#TEXT&gt;&lt;/TEXTAREA&gt;</div></td>
+<td>Nachrichtentext</td><td>obligatorisch<br>(&lt;#TEXT&gt;<div align=right>ist fakultativ)</div></td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#ADRBOOK&gt;</td>
+<td>Mini-Grafik des Adressbuches. Der Link mit der Javascript-Funktion zum &Ouml;ffnen des Adressbuches mu&szlig; in der Vorlage enthalten sein.</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#SIGN1&gt;<br>&lt;#SIGN2&gt;</td>
+<td>Mini-Grafiken f&uuml;r Unterschriften/Signaturen.<br>Der Link mit der Javascript-Funktion <i>SetSign( )</i> setzt die erste/zweite Signatur unter den Text.</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#SIGNAT1&gt;<br>&lt;#SIGNAT2&gt;</td>
+<td>Platzhalter im Javascript-Text der Funktion <i>SetSign( )</i></td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td>
+<td>einmalig</td></tr>
+</table></center>
+<p>Diese Vorlage enth&auml;lt zwei Javascript-Funktionen zum bequemen Zugriff auf das Adressbuch, die original beibehalten werden sollte.</p>
+
+<h4>5.2.7. Die Sendebest&auml;tigung (sendok.htm)<a name="527"></a></h4>
+Die Sendebest&auml;tigung f&uuml;r abgeschickte Nachrichten kann folgende Elemente enthalten:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#SENDER></td><td>Absender der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#MAILTO></td><td>Empf&auml;nger der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#CC></td><td>CC-Empf&auml;nger der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#BCC></td><td>BCC-Empf&auml;nger der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#SUBJECT></td><td>Betreff der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#ATTACHMENT></td><td>Name des Anhangs der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr BGCOLOR="#FFFFCC"><td>&lt;#TEXT></td><td>Inhalt der Nachricht</td><td>fakultativ</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC"><td>&lt;#MAILBOX></td>
+<td>Link zum Postausgang zur&uuml;ck<br>(erzeugt nur die innere Phrase zwischen den Anf&uuml;hrungszeichen von &lt;a&nbsp;href=&quot;&quot;&gt;)</td>
+<td>fakultativ</td><td>mehrmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td><td>einmalig</td></tr>
+</table></center>
+
+<h4>5.2.8. Signatur und Textbausteine (textpieces.htm)<a name="528"></a></h4>
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM ACTION=&quot;&lt;#SCRIPT>/parts&quot;<div align="right">METHOD=&quot;POST&quot;></div></td>
+<td>Formularaktion zum &Auml;ndern der Bausteine</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USERDATA></td>
+<td>Benutzerdaten zum Ausf&uuml;hren des Formulars<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TEXTAREA&nbsp;NAME=&quot;Sign&quot;&nbsp;ROWS=&quot;8&quot;<div align="right">COLS=&quot;71&quot;&gt;&lt;#SIGN&gt;&lt;/TEXTAREA&gt;</div></td>
+<td>Eingabebereich f&uuml;r die Signatur unter ausgehenden Textnachrichten</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TEXTAREA NAME=&quot;Sig2&quot; ROWS=&quot;8&quot;<div align="right">COLS=&quot;71&quot;&gt;&lt;#SIG2&gt;&lt;/TEXTAREA&gt;</div></td>
+<td>Eingabebereich f&uuml;r die alternative Signatur unter ausgehenden Textnachrichten</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TEXTAREA NAME=&quot;Tx1&quot; ROWS=&quot;4&quot;<div align="right">COLS=&quot;71&quot;&gt;&lt;#TX1&gt;&lt;/TEXTAREA&gt;</div></td>
+<td>Eingabebereich f&uuml;r den Textbaustein Nummer 1,<br>gleicherma&szlig;en f&uuml;r Textbaustein 2 bis 5 vorhanden</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#BUTTON&gt;</td>
+<td>Formularschalter<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td><td>einmalig</td></tr>
+</table></center>
+
+
+<h4>5.2.9. Adressbuch-Liste (adrlist.htm, abook.htm und adrcent.htm)<a name="529"></a></h4>
+Die Schablone f&uuml;r das Adressbuch <i>adrbook.htm</i> kann folgende Eintr&auml;ge enthalten:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT>/write&quot;&nbsp;METHOD=&quot;POST&quot;></td>
+<td>Formularaktion zum Eintragen einer Adresse in das Postausgangsformular</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USERDATA></td>
+<td>Benutzerdaten zum Ausf&uuml;hren von Aktionen<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td><td>mehrmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TABLE><br>&nbsp;&lt;TR><br>&nbsp;&nbsp;&lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>Name&lt;/TD>&lt;TD>eMail&lt;/TD><br>&nbsp;&nbsp;&lt;TD>&lt;#COL3>&lt;/TD>&lt;TD>&lt;#COL4>&lt;/TD><br>&nbsp;&nbsp;&lt;TD>&lt;#COL5>&lt;/TD>&lt;TD>&lt;#COL6>&lt;/TD><br>&nbsp;&lt;/TR><br>&lt;#LINES><br>&lt;/TABLE></td>
+<td>Tabelle zur Anzeige der Kontaktadressen<br>(muss im FORM-Abschnitt stehen)<br>(die Felder 1..3 k&ouml;nnen Sie in Ihrem Adressbuch nach Belieben umbenennen und verwenden)</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#MESSAGE&gt;</td>
+<td>Hinweise f&uuml;r den Benutzer &uuml;ber den Erfolg der Adressbuch-Aktion</td>
+<td>empfohlen</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td><td>einmalig</td></tr>
+</table></center>
+<p>Die Vorlage <i>adrcent.htm</i> ist die Listenform des zentralen Adressbuches f&uuml;r den Administrator. Sie enth&auml;lt den zus&auml;tzlichen Platzhalter &lt;#SESSION>.</p>
+<p>Die Vorlage <i>abook.htm</i> ist eine Kurzform des Adressbuches, in der nur die Anzeige vorhandener Adressen zur Auswahl erfolgt und keine &Auml;nderungen am Adressbuch m&ouml;glich sind.
+Diese Vorlage enth&auml;lt als einzigen Platzhalter den Tag &lt;#LINES> sowie einige Javascript-Funktionen.</p>
+
+<h4>5.2.10. Adressbuch-Detailanzeige (adrshow.htm)<a name="5210"></a></h4>
+<p>Die Adressbuch-Detailanzeige zeigt einen Datensatz mit allen Einzelheiten und erlaubt das Bearbeiten des Kontakteintrages.</p>
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT>/ashow&quot;&nbsp;METHOD=&quot;POST&quot;></td>
+<td>Formularaktion zum Eintragen von Daten in das Kontaktformular</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USERDATA></td>
+<td>Benutzerdaten zum Ausf&uuml;hren von Aktionen<br>(muss im FORM-Abschnitt stehen)</td>
+<td>obligatorisch</td><td>mehrmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;TABLE><br>&nbsp;&lt;TR>&lt;TH>Feld&lt;/TH>&lt;TH>&lt;#COL2>&lt;/TH><div align="right">&lt;TH>&lt;#COL3>&lt;/TH>&lt;/TR></div><br>&lt;#LINES><br>&lt;/TABLE></td>
+<td>Tabelle zur Anzeige der Kontaktadressen<br>(muss im FORM-Abschnitt stehen)<br>(die Felder 1..3 k&ouml;nnen Sie in Ihrem Adressbuch nach Belieben umbenennen und verwenden)</td>
+<td>obligatorisch</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#MESSAGE&gt;</td>
+<td>Hinweise f&uuml;r den Benutzer &uuml;ber den Erfolg der Adressbuch-Aktion</td>
+<td>empfohlen</td><td>einmalig</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#FOLDERS&gt;</td>
+<td>vertikale Navigationsleiste mit: Posteingang, Postausgang, Gesendet, ... Papierkorb, Adressbuch</td>
+<td>empfohlen</td><td>einmalig</td></tr>
+</table></center>
+
+<h4>5.2.11. &ouml;ffentliche Benutzerdateneingabe (admin.htm)<a name="5211"></a></h4>
+Auf dieser Seite werden mit folgenden Spezial-Tags neue Benutzer angemeldet:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;FORM&nbsp;ACTION=&quot;&lt;#SCRIPT>&quot;&nbsp;METHOD=&quot;POST&quot;></td>
+<td>Admin-Formularaktion</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;hidden&quot; NAME=&quot;Ident&quot;<br><div align="right">VALUE=&quot;&lt;#IDENT&gt;&quot;&gt;</div></td>
+<td>von der Datenbank generierte interne Benutzernummer</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=15 NAME=&quot;User&quot;<br><div align="right">VALUE=&quot;&lt;#USER&gt;&quot;&gt;</div></td>
+<td>Username f&uuml;r das Login in die Benuzerdatenbank von WebMail</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;password&quot; SIZE=15 NAME=&quot;PassU&quot;<br><div align="right">VALUE=&quot;&lt;#PASSU&gt;&quot;&gt;</div></td>
+<td>Benutzerpasswort f&uuml;r das Login zum Webmail-Interface</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;password&quot; SIZE=15 NAME=&quot;PassW&quot;<br><div align="right">VALUE=&quot;&lt;#PASSU&gt;&quot;&gt;</div></td>
+<td>Wiederholung f&uuml;r das Benutzerpasswort</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=40 NAME=&quot;Sender&quot;<br><div align="right">VALUE=&quot;&lt;#SENDER&gt;&quot;&gt;</div></td>
+<td>(Real-)Name des Benutzers</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=30 NAME=&quot;eMail&quot;<br><div align="right">VALUE=&quot;&lt;#EMAIL&gt;&quot;&gt;</div></td>
+<td>e-Mail-Adresse des Benutzers</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=30 NAME=&quot;Pop3&quot;<br><div align="right">VALUE=&quot;&lt;#POP3&gt;&quot;&gt;</div></td>
+<td>Name des POP3-Servers f&uuml;r das Postfach</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=30 NAME=&quot;Smtp&quot;<br><div align="right">VALUE=&quot;&lt;#SMTP&gt;&quot;&gt;</div></td>
+<td>Name des SMTP-Servers f&uuml;r das Postfach</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=15 NAME=&quot;Konto&quot;<br><div align="right">VALUE=&quot;&lt;#KONTO&gt;&quot;&gt;</div></td>
+<td>Kontoname f&uuml;r den e-Mail-Account auf dem POP3-Server</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;password&quot; SIZE=15 NAME=&quot;Pass&quot;<br><div align="right">VALUE=&quot;&lt;#PASS&gt;&quot;&gt;</div></td>
+<td>Passwort  f&uuml;r den e-Mail-Account auf dem POP3-Server</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;checkbox&quot; NAME=&quot;PbefS&quot;<br><div align="right">VALUE=&quot;1&quot;[#PBEFS]&gt;</div></td>
+<td>Aktiviert die Methode &quot;Mailboxcheck vor Senden&quot;;<br>nur wenn zum Senden notwendig</td><td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;text&quot; SIZE=30 NAME=&quot;AuthK&quot;<br><div align="right">VALUE=&quot;&lt;#AUTHK&gt;&quot;&gt;</div></td>
+<td>Identifikation/Kontoname nur bei authentifiziertem Senden</td><td>fakultativ</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;password&quot; SIZE=15 NAME=&quot;AuthP&quot;<br><div align="right">VALUE=&quot;&lt;#AUTHP&gt;&quot;&gt;</div></td>
+<td>Passwort nur bei authentifiziertem Senden</td><td>fakultativ</td><td>einmalig</td>
+
+</tr></table></center>
+<p>Abweichend davon k&ouml;nnte beispielsweise der POP3- oder SMTP-Server in dieser Maske statt mit editierbaren Eingabefeldern
+&uuml;ber versteckte Felder fest vorgegeben werden, um nur Zugriffe auf den eigenen Mailserver zu erlauben
+und <b><font color="#006600">WebMail</font></b> als Provider nur eigenen Kunden zur Verf&uuml;gung zu stellen.
+Falls Sie diese Einschr&auml;nkung w&uuml;nschen, &auml;ndern Sie die Zeilen in der Schablone <i>admin.htm</i> f&uuml;r die Mailserver in:
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;hidden&quot; NAME=&quot;Pop3&quot; VALUE=&quot;&lt;#POP3&gt;&quot;&gt; &lt;#POP3&gt;</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;hidden&quot; NAME=&quot;Smtp&quot; VALUE=&quot;&lt;#SMTP&gt;&quot;&gt; &lt;#SMTP&gt;</td>
+</tr>
+</table></center>
+oder mit fest vorbelegter Vorgabe in:
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;hidden&quot; NAME=&quot;Pop3&quot; VALUE=&quot;pop3.mydomain.de&quot;&gt; pop3.mydomain.de</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;INPUT TYPE=&quot;hidden&quot; NAME=&quot;Smtp&quot; VALUE=&quot;mail.mydomain.de&quot;&gt; mail.mydomain.de</td>
+</tr>
+</table></center></p>
+Der Benutzer kann dann diese Angaben nicht &uuml;ber die Benutzerdatenverwaltung ver&auml;ndern.</p>
+<p>Wollen Sie den Usern ganz und gar verbieten die Benutzerdaten zu ver&auml;ndern,
+dann entfernen Sie in der Schablone <i>admin.htm</i> einfach den Formularbutton zum <i>Daten absenden</i>
+oder l&ouml;schen die gesamte Schablone <i>admin.htm</i> aus dem Programmverzeichnis.</p>
+<p>Der Administrator hingegen kann &uuml;ber die gesch&uuml;tzte Administration
+mittels <a href="http://localhost/wmprog/webmail.xxx/users">http://www.mydomain.de/wmprog/webmail.xxx/users</a>
+(wobei <i>xxx</i> die zu Ihrer Variante passende Endung ist) ohne Einschr&auml;nkungen auf die Benutzerdateneinstellung zugreifen oder mit dem offline-Tool <i>WMUsers</i> (nur
+f&uuml;r registrierte Webmaster) die Datenbank direkt editieren.</p>
+
+<h4>5.2.12. Benutzerdatenbest&auml;tigung (adminok.htm)<a name="5212"></a></h4>
+Die Best&auml;tigung der in die Userdatenbank eingetragenen Angaben kann folgende Elemente enthalten:
+<br>&nbsp;
+<center><table CELLSPACING=3 CELLPADDING=2 WIDTH="90%">
+<tr BGCOLOR="#FFFF99"><td>Element</td><td>Beschreibung</td><td>Status</td><td>Verwendung</td></tr>
+<tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#USER&gt;</td><td>Username f&uuml;r das Login in die Benuzerdatenbank von WebMail</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#PASSU&gt;</td><td>Benutzerpasswort f&uuml;r das Login zum Webmail-Interface</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#IDENT&gt;</td><td>von der Datenbank generierte interne Benutzernummer</td>
+<td>fakultativ</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#SENDER&gt;</td><td>(Real-)Name des Benutzers</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#EMAIL&gt;</td><td>e-Mail-Adresse des Benutzers</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#POP3&gt;</td><td>Name des POP3-Servers f&uuml;r das Postfach</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#SMTP&gt;</td><td>Name des SMTP-Servers f&uuml;r das Postfach</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#KONTO&gt;</td><td>Kontoname f&uuml;r den e-Mail-Account auf dem POP3-Server</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#PASS&gt;</td><td>Passwort f&uuml;r den e-Mail-Account auf dem POP3-Server</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#PBEFS&gt;</td><td>vor Senden identifizieren durch Postfachcheck</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#AUTHK&gt;</td><td>Identifikation f&uuml;r authentifiziertes Senden</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr><tr VALIGN=TOP BGCOLOR="#FFFFCC">
+<td>&lt;#AUTHP&gt;</td><td>Passwort f&uuml;r authentifiziertes Senden</td>
+<td>obligatorisch</td><td>einmalig</td>
+</tr></table></center>
+
+<h4>5.2.13. Benutzerverwaltung f&uuml;r den Webmaster (users1.htm, users2.htm)<a name="5213"></a></h4>
+<p>Beide Schablonen bekommt nur der Webmaster w&auml;hrend der Aktionen zur gesch&uuml;tzten Benutzerverwaltung zu sehen und
+es gibt deshalb keinen wichtigen Grund, diese im Layout anzupassen.</p>
+
+
+<hr>
+<p><b><font color="#009900">Allzeit nur gute Nachrichten in der Mailbox!!</font></b>
+<p>J&uuml;rgen Hummel
+<br>Internet: <a href="http://www.hummel1.de/">www.hummel1.de</a>
+<br>e-Mail: <a href="mailto:post@hummel1.de?subject=WebMail">post@hummel1.de</a>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+/* kal - Kalender-Script ------------------------------------------- */
+
+/* Diese CSS-Datei kann von Hand editiert werden. Sie wird jedoch auch
+   von der online-Farbeinstellung automatisch veraendert.
+   Deshalb sollten alle vorhandenen CSS-Klassen separat erhalten
+   bleiben und keine Platzoptimierungen/Zusammenlegungen von Klassen
+   erfolgen, selbst wenn bei Ihnen mehrere Klassen optisch identisch
+   sein sollten.
+
+   Jedes CSS-Attribut MUSS wegen der Bearbeitungsmoeglichkeit ueber die
+   online-Administration mit einem Semikolon abschliessen, selbst wenn
+   es unmittelbar vor der schliessenden geschweiften Klammer steht.
+   Farbwerte muessen generell in der Form '#rrggbb' angegeben werden.
+   Einzige Ausnahme ist der Farbwert 'transparent'.
+
+   Angaben zu Rahmen MUESSEN im Format 'border:1px linienart farbe;'
+   erfolgen.
+
+   Aufzaehlungen mehrerer Klassen unmittelbar hintereinander wegen
+   gemeinsamer Merkmale wie beispielsweise div.kalTbSp1,div.kalTbSp2
+   muessen OHNE Leerzeichen dazwischen erhalten bleiben.
+
+   Auch die Kommentarzeilen, besonders die zur Trennung der einzelnen
+   Abschnitte MUESSEN erhalten bleiben.
+
+   Anderenfalls werden die Farben-Dialoge in der Administration nicht
+   funktionieren!!
+
+   Die Schriftgroessen sind meist in 'em' oder mit Prozentwerten
+   bezogen auf die Basisgroesse 16 px angegeben:
+   100% entspricht 16px;  75% entspricht 12px;  69% entspricht 11px; */
+
+/* = ------------------------------------------------------------- = */
+
+body.kalSeite{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ color:#ffffff; background-color:#111100;
+}
+
+body.kalEMail{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:99%;
+ color:#f7f7f7; background-color:#070707;
+}
+
+/* = div-Container um die gesamte Ausgabe des Kalender-Scripts herum = */
+
+div.kalBox{
+ font-size:75%;  /* 75% sollte einer 12px Schrift als Normalmass entsprechen */
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ width:98%; max-width:850px;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+
+@media screen and (min-width:50em){ /* abweichende Schriftgroesse fuer grosse Displays */
+ div.kalBox{font-size:79%;}
+}
+
+/* = Hinweis-, Fehler- und Erfolgs-Meldungen ueber den Ausgaben = */
+
+p.kalMeld{color:#eeeeee;} /* Hinweismeldung, Aufforderung */
+p.kalFehl{color:#ee0066;} /* Fehlermeldung, Korrekturaufforderung */
+p.kalErfo{color:#008811;} /* Erfolgsmeldung, Bestaetigung */
+p.kalMeld,p.kalFehl,p.kalErfo{ /* Meldungen */
+ font-size:1.1em; font-weight:bold;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+
+/* = allgemeine Hilfsklassen = */
+
+div.kalTabl{ /* allgemeine Tabelle */
+ display:table; border-collapse:collapse;
+ width:100%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ border:1px none #cccccc;
+}
+div.kalTbZl1{ /* ungerade Tabellen-Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#002233;
+}
+div.kalTbZl2{ /* gerade Tabellen-Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#003322;
+}
+div.kalTbSpa{ /* Standard-Tabellen-Zelle */
+ display:table-cell; text-align:center; vertical-align:middle; padding:2px;
+ border:1px solid #cccccc;
+}
+form.kalForm{margin:0px;}
+img.kalIcon{ /* Icons als Klickschalter */
+ width:16px; height:16px; vertical-align:text-top;
+ border:0px none #cccccc;
+}
+img.kalPunkt{ /* rot gelb gruener Punkt  */
+ width:12px; height:12px; vertical-align:middle;
+ border:0px none #cccccc;
+}
+img.kalSorti{ /* Sortierdreiecke fuer aufwaerts/abwaerts sortieren */
+ width:10px; height:10px;
+ border:0px none #cccccc;
+}
+div.kalSchalter{text-align:center; margin:8px;}
+input.kalSchalter{ /* Schalter unter den Formularen */
+ font-size:1.05em; text-align:center;
+ width:80px; height:20px; margin-bottom:12px;
+ border:1px none #cccccc;
+ color:#000000; background-color:transparent;
+ background-image:url(grafik/schalter.gif); background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+input[type=image].kalIcon{ /* diverse Klickschalter als Icon */
+ width:16px; height:16px; vertical-align:top;
+ border:0px none #cccccc;
+}
+
+/* = Aktionsmenue oberhalb/unterhalb der Kalenderseiten = */
+
+ul.kalMnuO{
+ list-style:none;
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px solid #aaaaaa;
+ background-color:#dddddd;
+}
+ul.kalMnuO li{
+ display:inline-block;
+ width:7.5em; margin:2px; padding:0px;
+ border:1px solid #aaaaaa;
+}
+ul.kalMnuO a{
+ display:inline-block;
+ width:100%;
+ color:#336688; background-color:#eeeeee;
+ text-decoration:none;
+}
+ul.kalMnuO a:hover{
+ color:#cc3300; background-color:#eedd55;
+}
+ul.kalMnuO a::before{content:'';}
+ul.kalMnuO a::after {content:'';}
+
+ul.kalMnuU{
+ list-style:none;
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px solid #888888;
+ background-color:#332211;
+}
+ul.kalMnuU li{
+ display:inline-block;
+ width:7.5em; margin:2px; padding:0px;
+ border:1px solid #aaaaaa;
+}
+ul.kalMnuU a{
+ display:inline-block;
+ width:100%;
+ color:#336688; background-color:#eeeeee;
+ text-decoration:none;
+}
+ul.kalMnuU a:hover{
+ color:#cc3300; background-color:#eedd44;
+}
+ul.kalMnuU a::before{content:'';}
+ul.kalMnuU a::after {content:'';}
+
+/* == Navigationszeile mit dem Seitenzaehler und dem Navigator ueber der Terminliste == */
+
+div.kalNavL{ /* Navigator der Terminliste */
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px none #cccccc;
+ background-color:transparent;
+}
+div.kalSZhl{ /* Seitenzaehler im Navigator */
+ float:left; margin:0px; padding:0px;
+ color:#bbddff; background-color:transparent;
+}
+div.kalNavi{ /* Navigator zum Blaettern */
+ float:right; margin:0px; padding:0px;
+}
+ul.kalNavi{
+ list-style:none;
+ width:auto; margin:0px; padding:0px;
+ border:1px none #cccccc;
+}
+ul.kalNavi li{ /* Schalterfeld zum Blaettern */
+ display:inline-block; text-align:center; margin:0px; padding:0px;
+ width:1.7em; min-width:20px; height:20px;
+ border:1px none #cccccc;
+ background-image:url(grafik/naviLinks.gif);
+ background-repeat:no-repeat; background-position:0;
+ background-color:transparent;
+}
+ul.kalNavi li.kalNavL{ /* Schalterfeld zum Blaettern auf den Anfang */
+ width:20px;
+ background-image:url(grafik/naviLinks.gif);
+ background-repeat:no-repeat; background-position:0;
+}
+ul.kalNavi li.kalNavR{ /* Schalterfeld zum Blaettern auf das Ende */
+ width:20px;
+ background-image:url(grafik/naviRechts.gif);
+ background-repeat:no-repeat; background-position:0;
+}
+ul.kalNavi a{
+ display:inline-block;
+ width:100%; min-width:20px; padding-top:2px;
+ color:#000033;
+ text-decoration:none;
+}
+ul.kalNavi a:hover{
+ color:#cc3300;
+}
+
+/* == Navigationszeile mit den Schaltern zum Blaettern auf der Detailseite == */
+
+div.kalNavD{ /* Navigator ueber den Termindetails und ueber der Monatsliste */
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px none #cccccc;
+ color:#111122; background-color:transparent;
+}
+div.kalNavR{ /* rueckwaerts blaettern */
+ float:left; margin:0px; padding:0px;
+}
+div.kalNavV{ /* vorwaerts blaettern */
+ float:right; margin:0px; padding:0px;
+}
+a.kalDetV{
+ background-image:url(grafik/knopfVor.gif);
+ background-repeat:repeat; background-position:0;
+}
+a.kalDetV::before{content:'';} /* muss erhalten bleiben, notfalls leer '' */
+a.kalDetR{
+ background-image:url(grafik/knopfZur.gif);
+ background-repeat:repeat; background-position:0;
+}
+a.kalDetR::after{content:'';} /* muss vorhanden sein, notfalls leer als '' */
+a.kalDetV,a.kalDetR{
+ display:inline-block; width:32px; height:16px;
+ border:1px none #cccccc;
+ color:#000033;
+ text-decoration:none;
+ background-color:transparent;
+}
+a.kalDetV:hover,a.kalDetR:hover{
+ color:#ff8800;
+}
+
+/* === Intervallfilter und Suchfilter ueber der Terminliste === */
+
+div.kalFilt{
+ width:100%; margin:6px; margin-left:auto; margin-right:auto;
+ border:1px none #cccccc;
+ color:#f3f3f3; background-color:transparent;
+}
+div.kalSFlt{ /* Suchfilterblock allein mittig */
+ text-align:center;
+}
+div.kalSFltL{ /* Suchfilterblock links */
+ float:left; text-align:center;
+}
+div.kalSFltR{ /* Suchfilterblock rechts */
+ float:right; text-align:center;
+}
+div.kalIFlt{ /* Intervallfilterblock allein */
+ margin:0px; text-align:center;
+}
+div.kalIFltL{ /* Intervallfilterblock bei Suchfilterblock rechts */
+ float:left; margin:0px; text-align:center;
+ width:30%; margin-left:35%; /* width + (2 * left) = 100% */
+}
+div.kalIFltR{ /* Intervallfilterblock bei Suchfilterblock links */
+ float:right; margin:0px; text-align:center;
+ width:30%; margin-right:35%; /* width + (2 * right) = 100% */
+}
+form.kalFilt{
+ margin:0px;
+}
+select.kalIFlt{ /* Intervallfilter */
+ font-size:1.0em; font-family:Verdana,Arial,Helvetica;
+ width:auto; margin-left:auto; margin-right:auto;
+ border:1px solid #cccccc;
+ color:#000011; background-color:#ddddcc;
+}
+input.kalSFlt{ /* Suchbegriff */
+ font-size:1.0em; font-family:Verdana,Arial,Helvetica;
+ width:8em;
+ border:1px solid #cccccc;
+ color:#000011; background-color:#ddddcc;
+}
+input.kalKnopf{ /* kleiner Schalter am Suchfeld */
+ width:16px; height:16px; margin-left:2px;
+ vertical-align:text-bottom;
+ border:1px none #cccccc;
+ background-color:transparent;
+ background-image:url(grafik/knopfVor.gif);
+ background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+
+/* =============== Terminliste =============== */
+
+div.kalTbZl0{ /* Kopfzeile */
+ border-bottom:1px solid #cccccc; border-collapse:collapse;
+ color:#ffffff; background-color:#446688; font-weight:bold;
+}
+div.kalTbZlAktE{ /* Zeile aktuelles Ereignis */
+ color:#ffffff; background-color:#662211;
+}
+div.kalTbZlLfdE{ /* Zeile laufendes Ereignis */
+ color:#ffffff; background-color:#114444;
+}
+
+/* schmale Anzeige der Terminliste mit Spalten untereinander */
+
+div.kalTbZl0{ /* Kopfzeile ausblenden */
+ display:none;
+}
+div.kalTbZlT{ /* Trennzeile fuer Monat/Woche */
+ font-weight:bold; font-size:0.95em;
+ display:block; text-align:left; vertical-align:middle; padding:2px;
+ border:1px solid #cccccc; border-bottom:0px none #cccccc;
+ color:#ddddff; background-color:transparent;
+}
+div.kalTbZlX{ /* optische Trennzeile zwischen Terminen */
+ display:block; height:5px;
+ border:1px none #cccccc;
+}
+div.kalTbLst{ /* normale Tabellen-Zelle in der Liste */
+ display:block; width:auto; text-align:left; vertical-align:middle; padding:2px; padding-left:9.5em; text-indent:-9.5em;
+ border:1px solid #cccccc; border-bottom:0px none #cccccc;
+}
+div.kalTbLsL,div.kalTbLsM,div.kalTbLsR{ /* mittige und rechtsbuendige Zelle ignorieren, hier alles linksbuendig */
+ text-align:left;
+}
+span.kalTbLst{ /* Feldname an Anfang jeder Zelle */
+ display:inline-block; text-align:left; text-indent:0em; vertical-align:top;
+ width:1%; min-width:9em; margin:0px; padding:0px; padding-right:5px;
+}
+
+/* breite Anzeige der Terminliste mit Spalten nebeneinander */
+
+@media screen and (min-width:650px){
+div.kalTbZl0{ /* Kopfzeile */
+ display:table-row;
+}
+div.kalTbZlT{ /* Trennzeile fuer Monat/Woche */
+ display:table-cell; border:1px solid #cccccc;
+}
+div.kalTbZlX{ /* optische Trennzeile in der schmalen Anzeige */
+ display:none;
+}
+div.kalTbLst{ /* normale Zelle in der Liste */
+ display:table-cell; border:1px solid #cccccc; padding:2px; text-indent:0em;
+}
+div.kalTbLsL{ /* linksbuendige Listen-Zelle */
+ text-align:left;
+}
+div.kalTbLsM{ /* mittige Listen-Zelle */
+ text-align:center;
+}
+div.kalTbLsR{ /* rechsbuendige Listen-Zelle */
+ text-align:right;
+}
+span.kalTbLst{ /* Feldname am Anfang jeder Zelle */
+ display:none;
+}
+} /* Ende breite Anzeige Terminliste */
+
+a.kalDetl,a.kalDetl:link,a.kalDetl:active,a.kalDetl:visited{ /* Link zu den Details */
+ display:inline;
+ color:#ffffdd;
+ text-decoration:none;
+}
+a.kalDetl:hover{
+ color:#ff6633;
+ text-decoration:none;
+}
+
+div.kalVBld{ /* evt. Rahmen um Vorschaubilder der Terminliste */
+ border:1px dashed #cccccc;
+}
+div.kalVBld,div.kalTBld{ /* evt. Rahmen um Vorschaubilder der Terminliste */
+ display:inline-block; text-align:center; width:auto; text-indent:0;
+}
+
+p.kalText{ /* Textabsaetze innerhalb von Memofeldern */
+ color:#ffffff; text-indent:0;
+}
+ul.kalText,ol.kalText{ /* Listen in Memofeldern */
+}
+li.kalText{ /* Listentext in Memofeldern */
+ color:#ffffff;
+}
+a.kalText,a.kalText:link,a.kalText:active,a.kalText:visited{ /* Links in Memofeldern und Linkfeldern */
+ color:#ffffdd;
+ text-decoration:none;
+}
+a.kalText:hover{
+ color:#ffaa66;
+ text-decoration:none;
+}
+
+/* ======= Termindetails ======= */
+
+div.kalTbSp1,div.kalTbSp2{ /* Zellen der 1. und 2. Spalte */
+ display:table-cell; width:auto; text-align:left; vertical-align:middle; padding:2px;
+ border:1px solid #cccccc;
+}
+div.kalTbSp1{
+ max-width:15em; vertical-align:top;
+}
+img.kalBild{
+ width:100%; height:auto; max-width:650px;
+}
+
+/* ============= Monatsliste ============= */
+
+div.kalTZ0M{ /* Kopfzeile */
+ border:1px solid #cccccc; border-left:1px none #cccccc; border-right:1px none #cccccc;
+ color:#ffffff; background-color:#446688;
+}
+div.kalTbZlM{ /* Zeilen */
+ display:table-row;
+ border:1px solid #cccccc; border-left:1px none #cccccc; border-right:1px none #cccccc;
+}
+div.kalTbSpW{ /* Wochen-Zelle links */
+ color:#ffffff; background-color:#666677;
+}
+div.kalTbSpW,div.kalTbSp0{ /* Wochen-Zelle links */
+ display:table-cell; text-align:center; vertical-align:top;
+ width:2.0em; margin:0px; padding:2px;
+ border:1px none #cccccc; border-left:1px solid #cccccc;
+}
+div.kalTbSpG{ /* Zellengruppe rechts */
+ display:table-cell; vertical-align:top;
+ margin:0px; padding:0px; border:0px none #cccccc;
+}
+div.kalTabT{ /* Zellengruppentabelle rechts */
+ display:table; border-collapse:collapse; table-layout:fixed; width:100%;
+}
+
+/* schmale Anzeige Monatsliste */
+
+div.kalTZ0M,div.kalTbSpK{ /* Kopfzeile,Kopfzelle */
+ display:none;
+}
+div.kalTbSpT{ /* Tages-Zelle */
+ display:block; text-align:left; margin:0px; padding:0px;
+ border:1px solid #cccccc; border-top:1px none #cccccc;
+ color:#ffffff; background-color:#002233;
+}
+div.kalMDat{ /* Tagesdatum normal */
+ color:#eeeeee; background-color:transparent;
+}
+div.kalMHte{ /* heutiges Datum */
+ color:#ffffff; background-color:#663300;
+}
+div.kalMFtg{ /* ToDo: Feiertagsdatum */
+ color:#eeeeee; background-color:#995500;
+}
+div.kalMDat,div.kalMHte,div.kalMFtg{
+ float:left; width:5.3em; padding:2px;
+}
+div.kalMClr{clear:left;}
+div.kalMDet{ /* Details in der Monatszelle */
+ text-align:left;
+ margin:0px; margin-left:5.8em; padding:2px;
+ color:#ffeeff; background-color:transparent;
+}
+div.kalMIcon{text-align:left;}
+span.kalWoTg{}
+a.kalMDat,a.kalMDat:link,a.kalMDat:active,a.kalMDat:visited{ /* Link vom Datum zu den Terminen */
+ font-weight:bold;
+ color:#ffffdd;
+ text-decoration:none;
+}
+a.kalMDat:hover{
+ color:#ff6633;
+ text-decoration:none;
+}
+a.kalMHte,a.kalMHte:link,a.kalMHte:active,a.kalMHte:visited{ /* Link vom heutigen Datum zu den Terminen */
+ font-weight:bold;
+ color:#ddffee;
+ text-decoration:none;
+}
+a.kalMHte:hover{
+ color:#ffdd77;
+ text-decoration:none;
+}
+a.kalMFtg,a.kalMFtg:link,a.kalMFtg:active,a.kalMFtg:visited{ /* Link vom Feiertags-Datum zu den Terminen */
+ font-weight:bold;
+ color:#22aa22;
+ text-decoration:none;
+}
+a.kalMFtg:hover{
+ color:#ffdd77;
+ text-decoration:none;
+}
+a.kalMDet,a.kalMDet:link,a.kalMDet:active,a.kalMDet:visited{ /* Link von Detailangaben zum Termin */
+ color:#fff7ee;
+ text-decoration:none;
+}
+a.kalMDet:hover{
+ color:#ffaa77;
+ text-decoration:none;
+}
+
+/* breite Anzeige Monatsliste mit Spalten nebeneinander */
+
+@media screen and (min-width:630px){
+div.kalTZ0M{ /* Kopfzeile */
+ display:table-row;
+}
+div.kalTbSpK{ /* Kopf-Zelle */
+ display:table-cell; text-align:center; width:auto; padding:2px;
+ border:1px solid #cccccc; border-top:1px none #cccccc; border-bottom:1px none #cccccc;
+}
+div.kalTbSpT{ /* Tages-Zelle */
+ display:table-cell; text-align:center; height:6em;
+ border-bottom:1px none #cccccc;
+}
+div.kalMDat,div.kalMHte,div.kalMFtg{float:none; width:auto; padding:2px;}
+div.kalMClr{clear:none;}
+div.kalMDet{text-align:left; margin:2px;}
+div.kalMIcon{text-align:center;}
+span.kalWoTg{display:none;}
+
+} /* Ende breite Anzeige Monatsliste */
+
+div.kalMTrn{ /* Trennlinie zwischen mehreren Details an einem Tag */
+ border-top:1px dotted #cccccc;
+}
+div.kalGrey{color:#777777; background-color:#333333;} /* monatsfremde ausgegraute Zellen */
+
+div#kalVBox{ /* Vorschaubox auf Termine innerhalb der Monatsansicht per Ajax-Box */
+ display:none; position:absolute; top:0px; left:0px; padding:8px;
+ color:#000000; background-color:#ffffee;
+ border:2px solid #999999; border-radius:8px;
+ text-align:center;
+}
+
+/* ======= Termineingabe-Formular ======= */
+
+form.kalEing{
+ width:98%; max-width:44em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+div.kalEing{ /* unsichtbarer Rahmen um Eingabefelder */
+ margin:0px; padding:0px;
+ border:1px solid transparent;
+}
+div.kalFhlt{ /* notwendige Eingabe fehlt, roter Rahmen */
+ margin:0px; padding:0px;
+ border:1px solid #bb0066;
+}
+div.kalTS2R{
+ text-align:right;  /*  ToDo: Wozu??? */
+}
+input.kalEing,input.kalTCal,input.kalTime,select.kalEing,textarea.kalEing,input.capAnsw{
+ font-family:Verdana,Arial,Helvetica; font-size:0.95em;
+ width:98%;
+ border:1px solid #888888;
+ color:#222222; background-color:#ddddcc;
+}
+textarea.kalEing{
+ height:7em;
+}
+select.kalAuto{
+ width:auto;
+}
+input[type=file].kalEing{
+ border:1px solid #888888;
+ color:#222222; background-color:transparent;
+}
+input.kalTCal,input.kalTime{
+ width:8em;
+}
+input.kalRadio,input.kalCheck{ /* Radioschalter und Checkboxen in Formularen */
+ margin:0px; padding:0px;
+ color:#000011;
+}
+select.kalTool{ /* Auswahl fuer Farbe und Groesse */
+ width:55px; font-family:Verdana,Arial,Helvetica; font-size:11px; font-weight:bold;
+ color:#000011; background-color:#ddddcc;
+}
+img.kalTool{ /* Symbole der Formatierungsschater */
+ width:20px; height:20px;
+ border:1px none #888888;
+ background-image:url(grafik/tool.gif);
+ background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+
+/* ======= Loginformular ======= */
+
+form.kalLogi{
+ width:98%; max-width:32em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+
+/* ======= Infoformulare ======= */
+
+form.kalInfo{
+ width:98%; max-width:44em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+/* ======= Suchformular ======= */
+
+form.kalSuch{
+ width:98%; max-width:47em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+
+/* ======= Nutzerzentrum ======= */
+
+div.kalTbNz{
+ width:98%; max-width:24em;
+}
+
+/* ======= ICal-Export ======= */
+
+div.kalCalBtn{ /* Zelle mit dem Export-Schalter */
+ width:81px; min-width:81px; max-width:81px; text-align:center; vertical-align:top; padding-top:4px; padding-bottom:12px;
+ background-image:url(grafik/schalter.gif); background-position:2px 2px; background-repeat:no-repeat;
+}
+
+/* ======= Druckausgabe ======== */
+
+div.kalDrTab{ /* DruckTabelle */
+ display:table; border-collapse:collapse;
+ width:100%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ border:1px none #000000;
+ color:#000000;
+}
+div.kalTbZlDr{ /* DruckZeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #888888; background-color:#777788;
+}
+div.kalTbDr,div.kalTbDr1,div.kalTbDr2{ /* Druckzellen der 1. und 2. Spalte */
+ display:table-cell; text-align:left; vertical-align:middle; padding:2px;
+ border:1px solid #aaaaaa; background-color:#888888;
+}
+div.kalTbDr1{
+ width:15%; vertical-align:top;
+}
+div.kalTbMDr{display:table-cell; vertical-align:top; width:14%; height:6em;}
+
+@media print{
+ div.kalMDat,div.kalMHte{float:none; width:auto; padding:2px;}
+ div.kalMDet{text-align:left; margin:2px; color:#ffee00;}
+ div.kalMDat,div.kalMDet,p.kalMeld{color:#333333}
+}
+
+/* ===== MiniKalender ===== */
+
+body.kalMinikalender{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ background-color:#eeffdd;
+}
+
+table.kalMini{ /* Monatskalender */
+ width:auto; margin-left:auto;
+ font-size:0.96em; font-weight:normal;
+ background-color:#F7F7F7;
+ border:1px solid #8888cc; border-collapse:collapse;
+ margin-top:3px; margin-right:3px; table-layout:auto;
+}
+
+div.kalMini{ /* Container um jeden Monat */
+ padding:5px;
+}
+
+td.kalMinD,td.kalMinL,td.kalMinH,td.kalMinX,td.kalMinK{
+ /* gemeinsame Merkmale ALLER Minikalenderzellen, werden weiter unten ueberschrieben */
+ font-size:1.0em; font-weight:normal;
+ border:1px solid #8888cc;
+ padding:1px; text-align:center;
+}
+
+td.kalMinD{ /* normale Datumszelle im MiniKalender ohne hinterlegten Termin */
+ color:#330099; background-color:#f7f7f7;
+}
+td.kalMinL{ /* aktive Datumszelle im MiniKalender mit hinterlegtem Termin */
+ color:#000000; background-color:#ffffcc;
+}
+td.kalMinH{ /* Datumszelle des heutigen Tages im MiniKalender */
+ color:#006600; background-color:#ffcccc;
+ font-weight:bold;
+}
+td.kalMinX{ /* Datunszelle im MiniKalender gehoert nicht zum aktuellen Monat */
+ color:#aaaaaa; background-color:#f7f7f7;
+}
+td.kalMinK{ /* Kopfzeilenzelle im MiniKalender mit Monat oder Wochentag */
+ color:#996699; background-color:#e7e7e7;
+ font-weight:bold;
+}
+
+a.kalMinL,a.kalMinL:link,a.kalMinL:active,a.kalMinL:visited{ /* Links in Datumszellen des MiniKalender */
+ color:#66cc66;
+ font-weight:bold; text-decoration:none;
+}
+a.kalMinL:hover{
+ color:#9900cc;
+ font-weight:bold; text-decoration:none;
+}
+a.kalMinK,a.kalMinK:link,a.kalMinK:active,a.kalMinK:visited{ /* Links im Kopf des MiniKalender */
+ color:#003366;
+ font-weight:bold; text-decoration:none;
+}
+a.kalMinK:hover{
+ color:#9900cc;
+ font-weight:bold; text-decoration:none;
+}
+
+/* ===== aktuelle Termine ===== */
+
+body.kalAktuelle{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ background-color:#ffffdd;
+}
+div.kalTabA{ /* Tabelle aktuelle Termine */
+ display:table; border-collapse:collapse;
+ width:100%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ font-size:0.8em; font-weight:normal;
+ border:1px none #cccccc;
+}
+div.kalTbAZl0{ /* Kopfzeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#fffff7; background-color:#aa6688;
+}
+div.kalTbAZl1{ /* ungerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#001100; background-color:#fff7ff;
+}
+div.kalTbAZl2{ /* gerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#001100; background-color:#f7ffff;
+}
+div.kalTbAZlX{ /* Trennzeile */
+ display:table-row; border-collapse:collapse;
+ font-size:1px;
+ border:0px none #cccccc;
+}
+
+/* schmale Anzeige der aktuellen Termine */
+
+div.kalTbAZl0{ /* Kopfzeile */
+ display:none;
+}
+div.kalTbALst{ /* normale Zelle in der Liste */
+ display:block; width:auto; text-align:left; padding:2px;
+ border:1px solid #cccccc; border-bottom:0px none #cccccc;
+}
+div.kalTbALsL,div.kalTbALsM,div.kalTbALsR{ }/* mittige und rechtsbuendige Zelle */
+span.kalTbALst{ /* Feldname in der Zelle */
+ display:inline-block; text-align:left; vertical-align:top;
+ width:1%; min-width:9em;
+ margin:0px; padding:0px; padding-right:5px;
+}
+
+/* breite Anzeige der aktuellen Termine mit Spalten nebeneinander */
+
+@media screen and (min-width:480px){
+div.kalTbAZl0{ /* Kopfzeile */
+ display:table-row;
+}
+div.kalTbALst{ /* normale Zelle in der Liste */
+ display:table-cell; vertical-align:middle; border:1px solid #cccccc;
+}
+span.kalTbALst{ /* Feldname in der Zelle */
+ display:none;
+}
+div.kalTbALsL{ /* linksbuendige Zelle */
+ text-align:left;
+}
+div.kalTbALsM{ /* mittige Zelle */
+ text-align:center;
+}
+div.kalTbALsR{ /* rechsbuendige Zelle */
+ text-align:right;
+}
+} /* Ende breite Anzeige Terminliste */
+
+a.kalAktu,a.kalAktu:link,a.kalAktu:active,a.kalAktu:visited{ /* Links in den Zellen der aktuellen Ereignisse */
+ color:#333399;
+ font-weight:bold; text-decoration:none;
+}
+a.kalAktu:hover{
+ color:#9900dd;
+ font-weight:bold; text-decoration:none;
+}
+
+/* ===== laufende Termine ===== */
+
+body.kalLaufende{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ background-color:#ffffdd;
+}
+div.kalTabL{ /* Tabelle laufende Termine */
+ display:table; border-collapse:collapse;
+ width:auto; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ font-size:0.92em; font-weight:normal;
+ border:1px none #cccccc;
+}
+div.kalTbLZl0{ /* Kopfzeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#77bb88;
+}
+div.kalTbLZl1{ /* ungerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#001100; background-color:#fff7ff;
+}
+div.kalTbLZl2{ /* gerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#001100; background-color:#fff7fe;
+}
+div.kalTbLZlX{ /* Trennzeile */
+ display:table-row; border-collapse:collapse;
+ font-size:1px;
+ border:0px none #cccccc;
+}
+
+/* schmale Anzeige der laufenden Termine */
+
+div.kalTbLZl0{ /* Kopfzeile */
+ display:none;
+}
+div.kalTbLLst{ /* normale Zelle in der Liste */
+ display:block; width:auto; text-align:left; padding:2px;
+ border:1px solid #cccccc; border-bottom:0px none #cccccc;
+}
+div.kalTbLLsL,div.kalTbLLsM,div.kalTbLLsR{ }/* mittige und rechtsbuendige Zelle */
+span.kalTbLLst{ /* Feldname in der Zelle */
+ display:inline-block; text-align:left; vertical-align:top;
+ width:1%; min-width:9em;
+ margin:0px; padding:0px; padding-right:5px;
+}
+
+/* breite Anzeige der laufenden Termine mit Spalten nebeneinander */
+
+@media screen and (min-width:475px){
+div.kalTbLZl0{ /* Kopfzeile */
+ display:table-row;
+}
+div.kalTbLLst{ /* normale Zelle in der Liste */
+ display:table-cell; vertical-align:middle; border:1px solid #cccccc;
+}
+span.kalTbLLst{ /* Feldname in der Zelle */
+ display:none;
+}
+div.kalTbLLsL{ /* linksbuendige Zelle */
+ text-align:left;
+}
+div.kalTbLLsM{ /* mittige Zelle */
+ text-align:center;
+}
+div.kalTbLLsR{ /* rechsbuendige Zelle */
+ text-align:right;
+}
+} /* Ende breite Anzeige Terminliste */
+
+a.kalLfnd,a.kalLfnd:link,a.kalLfnd:active,a.kalLfnd:visited{ /* Links in den Zellen der laufenden Ereignisse */
+ color:#333399;
+ font-weight:bold; text-decoration:none;
+}
+a.kalLfnd:hover{
+ color:#9900dd;
+ font-weight:bold; text-decoration:none;
+}
+
+/* ===== neue Termine ===== */
+
+body.kalNeue{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ background-color:#ffffee;
+}
+div.kalTabN{ /* Tabelle neue Termine */
+ display:table; border-collapse:collapse;
+ width:99%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ font-size:0.92em; font-weight:normal;
+ border:1px none #cccccc;
+}
+div.kalTbNZl0{ /* Kopfzeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#7788bb;
+}
+div.kalTbNZl1{ /* ungerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#001100; background-color:#fff7ff;
+}
+div.kalTbNZl2{ /* gerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#001100; background-color:#f7ffff;
+}
+div.kalTbNZlX{ /* Trennzeile */
+ display:table-row; border-collapse:collapse;
+ font-size:1px;
+ border:0px none #cccccc;
+}
+
+/* schmale Anzeige der neuen Termine */
+
+div.kalTbNZl0{ /* Kopfzeile */
+ display:none;
+}
+div.kalTbNLst{ /* normale Zelle in der Liste */
+ display:block; width:auto; text-align:left; padding:2px;
+ border:1px solid #cccccc; border-bottom:0px none #cccccc;
+}
+div.kalTbNLsL,div.kalTbNLsM,div.kalTbNLsR{ }/* mittige und rechtsbuendige Zelle */
+span.kalTbNLst{ /* Feldname in der Zelle */
+ display:inline-block; text-align:left; vertical-align:top;
+ width:1%; min-width:9em;
+ margin:0px; padding:0px; padding-right:5px;
+}
+
+/* breite Anzeige der neuen Termine mit Spalten nebeneinander */
+
+@media screen and (min-width:505px){
+div.kalTbNZl0{ /* Kopfzeile */
+ display:table-row;
+}
+div.kalTbNLst{ /* normale Zelle in der Liste */
+ display:table-cell; vertical-align:middle; border:1px solid #cccccc;
+}
+span.kalTbNLst{ /* Feldname in der Zelle */
+ display:none;
+}
+div.kalTbNLsL{ /* linksbuendige Zelle */
+ text-align:left;
+}
+div.kalTbNLsM{ /* mittige Zelle */
+ text-align:center;
+}
+div.kalTbNLsR{ /* rechsbuendige Zelle */
+ text-align:right;
+}
+} /* Ende breite Anzeige Terminliste */
+
+a.kalNeue,a.kalNeue:link,a.kalNeue:active,a.kalNeue:visited{ /* Links in den Zellen der neuen Ereignisse */
+ color:#333399;
+ font-weight:bold; text-decoration:none;
+}
+a.kalNeue:hover{
+ color:#9900dd;
+ font-weight:bold; text-decoration:none;
+}
+
+/* ======== allgemeine Hilfsklassen am Ende ======== */
+
+div.kalNorm{ /* Falls normale DIV's manipuliert sind hier normalisieren */
+ display:block; width:auto; margin:0px; padding:0px;
+ border:0px none #cccccc;
+}
+table.kalBlnd{ /* blinde Tabelle als Container an wenigen Stellen */
+ font-size:1.0em; font-weight:normal; border:0px none #cccccc;
+}
+td.kalBlnd{
+ margin:0; padding:0; border:0px none #cccccc;
+}
+
+div.kalMini,span.kalMini{font-size:0.90em;}   /* kleine Schrift */
+div.kalNoBr,span.kalNoBr{white-space:nowrap;} /* kein Umbruch */
+div.kalClear{clear:both;}
+div.kalTbSpL{text-align:left;} /* linksbuendige Tabellenzelle */
+div.kalTbSpM{text-align:center;} /* mittige Tabellenzelle */
+div.kalTbSpR{text-align:right;} /* rechsbuendige Tabellenzelle */
+div.kalTbRow{display:table-row;}
+div.kalTbCell{display:table-cell;}
+div#kalTCal,div#kalTime{color:#111111;} /* Datums- und Zeitpicker */
+
+/* hier Farben weiterer Terminkategorien bei Bedarf ergaenzen */
+div.kalTrmKatA{ /* Termin der Kategorie A */
+ color:#fcfcfc; background-color:#001727;
+}
+div.kalTrmKatB{ /* Termin der Kategorie B */
+ color:#fcfcfc; background-color:#002717;
+}
+div.kalTrmKatC{ /* Termin der Kategorie C */
+ color:#fcfcfc; background-color:#003700;
+}
+div.kalTrmKatD{ /* Termin der Kategorie D */
+ color:#fcfcfc; background-color:#000037;
+}
+div.kalTrmKatE{ /* Termin der Kategorie E */
+ color:#fcfcfc; background-color:#002711;
+}
+div.kalTrmKatF{ /* Termin der Kategorie F */
+ color:#fcfcfc; background-color:#001127;
+}
+div.kalTrmKatG{ /* Termin der Kategorie G */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatH{ /* Termin der Kategorie H */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatI{ /* Termin der Kategorie I */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatJ{ /* Termin der Kategorie J */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatK{ /* Termin der Kategorie K */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatL{ /* Termin der Kategorie L */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatM{ /* Termin der Kategorie M */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatN{ /* Termin der Kategorie N */
+ color:#fcfcfc; background-color:#001717;
+}
+div.kalTrmKatO{ /* Termin der Kategorie O */
+ color:#fcfcfc; background-color:#001717;
+}
+
+/* =========== Captcha-Styles =========== */
+
+span.capQry{ } /* Platzhalter fuer die Captcha-Frage oder den Eingebehinweis */
+span.capImg{ } /* Platzhalter fuer das Captcha-Bild */
+input.capAnsw{ /* Zweitklasse des Eingabefelds fuer Captcha-Antwort*/
+ width:10em;
+}
+img.capImg{ /* Captcha-Bild */
+ width:116px; height:24px; margin:1px;
+ border:1px none #888888;
+ vertical-align:middle;
+}
+button.capReload{ /* Schalter zum Erneuern des Captchas */
+ height:22px; width:22px; padding:0; margin:0;
+ background:transparent url(grafik/reload.gif) center no-repeat;
+ border:0px none #cccccc;
+}
+/* = Ende = */

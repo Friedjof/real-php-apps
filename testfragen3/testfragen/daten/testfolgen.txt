@@ -1,0 +1,2 @@
+Folge;Fragen;ProSeite;GAktiv;BAktiv;Code;VorAuswertung;NachAuswertung
+Probetest;1xVerkehrszeichen,1xGefahrenlehre;1;0;1;5070

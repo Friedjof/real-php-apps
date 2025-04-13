@@ -1,0 +1,1 @@
+Nummer_0;aktiv;Benutzer;Passwort;e-Mail;Anrede;Vorname + Name;PLZ Ort;Strasse;Telefon, Mobil;Fax

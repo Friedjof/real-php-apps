@@ -1,0 +1,1 @@
+Nummer_3;aktiv;Benutzer;Passwort;E-Mail;Anrede;Vorname + Name;PLZ Ort;Strasse;Telefon, Mobil;Fax;GUELTIG_BIS

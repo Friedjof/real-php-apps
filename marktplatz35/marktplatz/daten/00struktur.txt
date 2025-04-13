@@ -1,0 +1,20 @@
+FeldName    : Nummer;Ablauf;Artikel;Beschreibung;Preis;Datenblatt;Bild;Zustand;PLZ;E-Mail;Inserent;eingetragen
+FeldTyp     : 1;1;t;m;w;f;b;a;o;e;u;@
+ListenFeld  : 1;0;1;0;3;4;0;0;2;0;0;0
+NutzerLF    : 1;5;1;0;3;0;0;0;2;0;0;4
+SortierFeld : 0;0;1;0;1;0;0;0;1;0;0;0
+LinkFeld    : 0;0;1;0;0;0;1;0;0;0;0;0
+SpaltenStil : ;;font-style:bold`,;;;;;;;;;
+DetailFeld  : 1;1;1;1;1;1;1;1;1;1;1;1
+NutzerDF    : 1;1;1;1;1;1;1;1;1;1;1;1
+ZeilenStil  : ;;font-weight:bold`,;;;;;;;;;
+SuchFeld    : 1;0;1;0;1;0;0;1;1;0;0;0
+EingabeFeld : 1;1;1;1;1;1;1;1;1;1;0;1
+NutzerEF    : 1;1;1;1;1;1;1;1;1;1;0;1
+PflichtFeld : 1;1;1;1;0;0;0;1;1;0;1;1
+TrennZeile  : 0;0;0;0;0;0;0;0;0;0;0;0
+EingabeTexte: ;100;;kurze Beschreibung;;soweit verfügbar;;;;;;
+AuswahlWerte: ;;;;;;;neu|wie neu|gebraucht|verbraucht|defekt;;;;
+Kategorien  :
+Symbole     :
+EingabeLang : 0;0;0;0;0;0;0;0;0;0;0;0

@@ -1,0 +1,15 @@
+<table width="100%" cellpadding="4" cellspacing="1"><tr>
+<td class="navbar">
+<#FOLDERS>
+</td>
+<td width="99%" align="center" valign="top">
+<h3>Adressbuch &nbsp; ( <small><#MESSAGE></small> )</h3>
+<form action="<#SCRIPT>/ashow" method="POST">
+<#USERDATA>
+ <table class="dat" cellpadding="2" cellspacing="1">
+ <tr><th>Feld</th><th><#COL2></th><th><#COL3></th></tr>
+<#LINES>
+ </table>
+</form>
+</td>
+</tr></table>

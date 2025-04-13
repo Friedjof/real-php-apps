@@ -1,0 +1,73 @@
+<table width="100%" cellpadding="4" cellspacing="1"><tr>
+<td class="navbar">
+<#FOLDERS>
+</td>
+<td width="99%" align="center" valign="top">
+<table width="470" cellpadding="0" cellspacing="0"><tr><td align="center">
+<h3>private Einstellungen</h3>
+
+<form action="<#SCRIPT>/tune" method="POST">
+<#USERDATA>
+ <table width="100%" class="dat" cellpadding="3" cellspacing="1">
+ <tr><th colspan="2">beim Login zeigt WebMail</th></tr>
+ <tr><td><input type="Radio" name="LogAct" value="LogOv">die &Uuml;bersicht und Verwaltung</td><td><input type="Radio" name="LogAct" value="LogIn">den Posteingang</td></tr>
+ </table>
+ <p><input type="submit" name="ButLogin" value="Speichern"></p>
+</form>
+
+<form action="<#SCRIPT>/tune" method="POST">
+<#USERDATA>
+ <table width="100%" class="dat" cellpadding="3" cellspacing="1">
+ <tr><th colspan="2">Sicherheitseinstellungen bei HTML-formatierten Nachrichten</th></tr>
+ <tr><td valign="top"><input type="checkbox" name="PictEx" value="Y"></td><td>externe verlinkte Grafiken anzeigen<br><small>(Dadurch k&ouml;nnen manche Absender registrieren, dass Sie die Nachricht gelesen haben!)</small></td></tr>
+ <tr><td valign="top"><input type="checkbox" name="PictIn" value="Y"></td><td>eingebettete GIF-, JPG- PNG- und BMP-Grafiken direkt anzeigen<br><small>(Inline-Anlagen innerhalb der Nachricht, die als ungef&auml;hrliche Grafik gelten)</small></td></tr>
+ <tr><td valign="top"><input type="checkbox" name="JavaSc" value="Y"></td><td>Ausf&uuml;hrung von Scripts in Nachrichtentexten erlauben<br><small>(Java-Script u.&auml;. sind zum Lesen empfangener Nachrichten nicht notwendig)</small></td></tr>
+ <tr><td valign="top"><input type="checkbox" name="JavaAp" value="Y"></td><td>Ausf&uuml;hrung von Java-Applets in Nachrichtentexten erlauben<br></td></tr>
+ </table>
+ <p><input type="submit" name="ButSecure" value="Speichern"></p>
+</form>
+
+<form action="<#SCRIPT>/tune" method="POST">
+<#USERDATA>
+ <table width="100%" class="dat" cellpadding="3" cellspacing="1">
+ <tr><th colspan="2">Nachrichten des Posteingangs auf dem POP3-Server belassen</th></tr>
+ <tr><td valign="top"><input type="checkbox" name="LvOnS" value="Y"></td><td>Nachrichten auf dem POP3-Server belassen<br><small>(Gilt nur beim Abholen von Nachrichten aus dem Posteingang durch Umspeichern in einen anderen Ordner.)</small></td></tr>
+ </table>
+ <p><input type="submit" name="ButLeave" value="Speichern"></p>
+</form>
+
+<form action="<#SCRIPT>/tune" method="POST">
+<#USERDATA>
+ <table width="100%" class="dat" cellpadding="4" cellspacing="1">
+ <tr><th colspan="2">zus&auml;tzliche Headerzeilen beim Anzeigen von Nachrichten&nbsp; <small>(maximal 5)</small></th></tr>
+ <tr><td valign="top">Zeilen 1..5</td><td>
+  <input type="text" name="RecvHead1" size="72"><br>
+  <input type="text" name="RecvHead2" size="72"><br>
+  <input type="text" name="RecvHead3" size="72"><br>
+  <input type="text" name="RecvHead4" size="72"><br>
+  <input type="text" name="RecvHead5" size="72"><br>
+  <small>zus&auml;tzlich zu:&nbsp; <i>From:</i>, <i>To:</i>, <i>Cc:</i>, <i>Subject:</i>, <i>Date:</i>, <i>Envelope</i>, <i>Return</i>, <i>Reply-To:</i></small>
+ </td></tr>
+ </table><br>
+ <input type="submit" value="Speichern">
+</form>
+
+<form action="<#SCRIPT>/tune" method="POST">
+<#USERDATA>
+ <table width="100%" class="dat" cellpadding="4" cellspacing="1">
+ <tr><th colspan="2">zus&auml;tzliche Headerzeilen beim Versenden* von Nachrichten&nbsp; <small>(maximal 5)</small></th></tr>
+ <tr><td valign="top">Zeilen 1..5</td><td>
+  <input type="text" name="SendHead1" size="72"><br>
+  <input type="text" name="SendHead2" size="72"><br>
+  <input type="text" name="SendHead3" size="72"><br>
+  <input type="text" name="SendHead4" size="72"><br>
+  <input type="text" name="SendHead5" size="72">
+ </td></tr>
+ </table>
+ <div align="right">* <small>nur f&uuml;r Kommunikations-Profis</small></div>
+ <input type="submit" value="Speichern">
+</form>
+
+</td></tr></table>
+</td>
+</tr></table>

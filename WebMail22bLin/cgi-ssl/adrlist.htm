@@ -1,0 +1,64 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+ function SelectAll(bStatus) {
+  for (var i=0; i<self.document.wmbox.length; ++i)
+   if (self.document.wmbox.elements[i].type=='checkbox') self.document.wmbox.elements[i].checked=bStatus;
+ }
+// -->
+</script>
+<table width="100%" cellpadding="4" cellspacing="1"><tr>
+<td class="navbar">
+<#FOLDERS>
+</td>
+<td width="96%" align="center" valign="top">
+<h3>pers&ouml;nliches Adressbuch &nbsp; ( <small><#MESSAGE></small> )</h3>
+<table cellpadding="0"><tr><td align="center">
+
+<form action="<#SCRIPT>/afind" method="POST" style="margin-top:6px;">
+<#USERDATA>
+<table class="dat" width="100%" cellpadding="3" cellspacing="1">
+ <tr><th width="50%">Schnellsuche</th><th>Detailsuche</th></tr>
+ <tr>
+  <td><nobr><input type="text" name="Find" size="40">&nbsp;<input type="submit" class="button" name="Button8Fnd" value="Suchen"></nobr></td>
+  <td align="center"><input type="submit" class="button" name="Button1Sea" value="Suchen"></td>
+ </tr>
+</table>
+</form>
+
+<table class="dat" width="100%" cellpadding="3" cellspacing="1">
+ <tr><th width="20%">Gruppen</th><th width="20%">&nbsp;</th><th width="20%">&nbsp;</th><th width="20%">&nbsp;</th><th width="20%">&nbsp;</th></tr>
+ <#GROUPS>
+</table>
+
+<form name="wmbox" action="<#SCRIPT>/write" method="post">
+<#USERDATA>
+ <table class="dat" width="100%" cellpadding="3" cellspacing="1">
+ <tr><th>&nbsp;</th><th width="150">Name</th><th width="150">e-Mail</th><th width="80"><#COL3></th><th width="80"><#COL4></th><th><#COL5></th><th><#COL6></th></tr>
+ <#LINES>
+ </table>
+</form>
+
+<table><tr><!-- <td>
+ <form action="<#SCRIPT>/afind" method="post">
+ <#USERDATA><input type="submit" class="button" name="Button1Sea" value="Eintrag suchen">&nbsp;
+ </form>
+</td> --><td>
+ <form action="<#SCRIPT>/ashow" method="post">
+ <#USERDATA><input type="hidden" name="ln" value="0|0"><input type="submit" class="button" name="Button2New" value=" neuer Eintrag ">&nbsp;
+ </form>
+</td><td>
+ <form action="<#SCRIPT>/ashow" method="post">
+ <#USERDATA><input type="submit" class="button" name="Button3Set" value="Buch einrichten">
+ </form>
+</td><td>
+ <form action="<#SCRIPT>/aimex" method="post" target="AB_in">
+ <#USERDATA><input type="submit" class="button" name="Button4Imp" value=" Daten-Import " onClick=window.open("about:blank","AB_in","width=640,height=450,left=40,top=70,scrollbars=yes,resizable=yes")>
+ </form>
+</td><td>
+ <form action="<#SCRIPT>/aimex" method="post" target="AB_ex">
+ <#USERDATA><input type="submit" class="button" name="Button5Exp" value=" Daten-Export " onClick=window.open("about:blank","AB_ex","width=560,height=320,left=150,top=110,status=yes")>
+ </form>
+</td></tr></table>
+
+</td></tr></table>
+</td></tr></table>

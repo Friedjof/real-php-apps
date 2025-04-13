@@ -1,0 +1,1 @@
+Name;eMail;Vorname;Nachname;Strasse;Ort;Plz;Land;Telefon1;Telefon2;Fax;Webseite;Firma;Abteilung;Position;F-Strasse;F-Ort;F-Plz;F-Land;F-Telefon1;F-Telefon2;F-Fax;F-Webseite;Gruppe;Bemerkung

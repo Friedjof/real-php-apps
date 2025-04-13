@@ -1,0 +1,373 @@
+Marktplatz-Script 3.5 - Veränderungen
+
+29.05.23 Korrektur
+Die Formatierungen auf der Startseite des Marktes wurden überarbeitet
+
+10.04.23 Korrektur
+Probleme mit Umlauten und Sonderzeichen in den Dateinamen hochgeladener
+Anhänge wurden bereinigt.
+
+25.03.23 Korrektur
+Unter PHP 8.2 wurden selten erscheinende Warnungen beim Kopieren und Ändern
+von Inseraten beseitigt.
+Unter PHP 8.x wird bei fehlenden HTML-Schablonen wieder die entsprechende 
+Fehlermeldung ausgegeben.
+
+11.02.23 Korrektur
+Unter PHP 8.2 wurden die dort auftretenden Warnungen vom Typ "Deprecated" 
+beseitigt. Es wurden insgesamt 26 Script-Dateien geändert.
+
+01.10.22 Ergänzung
+Bei Karten von OpenStreetMap kann jetzt auch auf eine Satelliten-Ansicht
+umgeschaltet werden.
+
+04.06.22 Korrektur
+Beim Senden von HTML-formatierten E-Mails wurde in seltenen Fällen ein Punkt
+verschluckt. Das ist bereinigt.
+
+03.04.22 Aktualisierung
+Die Freischaltung (zugleich Update) wurde auf die Demo-Version vom 31.03.22
+abgestimmt.
+
+20.03.22 Korrekturen
+Der physische Verzeichnispfad zum Programm kann nun auch eine Servervariable wie
+beispielsweise "DOCUMENT_ROOT" enthalten.
+Wegen PHP-8 wurden nochmals einige Dateien geändert.
+
+10.04.21 Korrekturen
+Darstellungsprobleme infolge fehlerhaft eingegebenem BB-Code wurden bereinigt.
+Ein Zusatzscript zur Freischaltung von Inseraten per E-Mail-Link wurde ergänzt.
+Die Mail-Sende-Datei wurde für das Versenden mit TLS-Verschlüsselung auch ohne
+Authentifizierung nachgebessert.
+
+27.01.21 Korrektur
+Bei Inserateeintrag im Besucherbereich wird jetzt das Eintragsdatum auch dann
+gespeichert, wenn es als Eingabefeld ausgeblendet ist.
+
+24.01.21 Erweiterung
+Für eindeutigere Kommunikation kann den Inseratenummern wahlweise die
+Segmentnummer vorangestellt werden.
+
+23.01.21 Korrekturen
+Seit dem Update vom 15.01.21 konnten keine neuen Segmente mehr angelegt werden.
+Die Funktion ReCaptcha funktioniert nun auch von Subdomains aus.
+Erste Fehler unter PHP-8 wurden beseitigt.
+
+15.01.21 Ergänzungen
+Inserate können im Admin-Bereich aus einem Marktsegment in ein anderes
+Segment kopiert werden.
+Das Suchmaschinenverhalten wurde verbessert.
+ - abgelaufene oder gelöschte Inserate werden mit dem Status HTTP-410 ausgegeben
+ - kanonische Links für den Suchmaschinenindex können generiert werden
+Über das eigene Layout kann die Inserateliste jetzt auch im Flexbox-Layout
+dargestellt werden.
+Benutzer können ihr Benutzerkonto selbst löschen oder die Löschung beantragen.
+Der Administrator kann nach Benutzern suchen, die lange nicht mehr angemeldet waren.
+Für eine bessere Einbindung per PHP-include kann die HTML-Ausgabe des Programmes
+ausgeschaltet und statt dessen in einer globalen Variablen $sMpOut gesammelt werden.
+
+06.10.20 Korrektur
+Der E-Mail-Versand per SMTP wurde nochmals an neue Bedingungen angepasst.
+
+27.09.20 Aktualisierung
+Beim Bild-Upload drehen moderen Browser querliegende Fotos nun automatisch
+in die richtige Orientierung. In diesem Fall dreht das Marktplatz-Script
+nun nicht noch ein zweites mal.
+
+05.07.20 Korrektur
+Der Mailversand wurde korrigiert, damit der auf wenigen Mailservern
+auftretende "bare LF"-Fehler gemäß http://pobox.com/~djb/docs/smtplf.html
+nicht mehr vorkommt.
+
+28.06.20 Korrektur
+Die MySQL-Befehle wurden wegen MySQL 8 überarbeitet.
+
+23.05.20 Korrektur
+Unter MySQL wurde die Änderung der Inseratestruktur sicherer gestaltet.
+
+26.04.20 Ergänzung
+Der Export der Benutzerdaten ist möglich.
+Für die Formulare der Inserateeingabe können die akzeptierten Textlängen
+pro Eingabefeld variabel begrenzt werden.
+
+15.03.20 Korrektur
+Die Warnmeldungen unter PHP 7.4 "Array and string offset access syntax with
+curly braces is deprecated" wurden wegprogrammiert.
+
+21.09.19 Korrektur
+In Feldern vom Typ Link werden jetzt die Umlaute einstellbar konvertiert.
+
+08.09.19 Ergänzung
+Ein Muster für eine dunkes Styling per CSS-Datei wurde hinzugefügt.
+
+28.07.19 Verbesserung
+Das Marktplatz-Script arbeitet unter MySQL nun auch im SQL-STRICT-Modus.
+
+15.06.19 Korrektur
+Unter MySQL-Datenbank ist es jetzt möglich, das MySQL-Passwort zu ändern.
+
+27.01.19 Korrektur
+In der schmalen Darstellung für Mobilgeräte wurden Feldnamen mit Umlauten
+fehlerhaft ausgegeben.
+
+01.01.19 Weiterentwicklung
+Das Layout wurde komplett überarbeitet und für Mobilgeräte optimiert. Das
+Marktplatz-Script wird nun unter Versions-Nummer 3.5 geführt.
+
+08.12.18 Korrektur
+Ein Fehler bei Hochformatbildern beim browserseitigen Bildverkleinern wurde
+beseitigt
+
+14.11.18 Ergänzung
+Neben Google-Maps kann jetzt die Kartendarstellung auch mit OpenStreetMap
+erfolgen. Das Programm kann einfach auf diesen Kartenanbieter umgeschaltet
+werden. Alle früher unter Google-Maps eingetragenen Koordinaten werden unter
+OpenStreetMap weiterhin dargestellt.
+
+28.10.18 Korrektur
+Beim Inserateeintrag unter dem Zeichensatz ISO-Standard kann es seit der
+Ergänzung vom 18.10.18 zu Umlautproblemen kommen. Das wurde korrigiert.
+
+18.10.18 Ergänzung
+Beim Inserateeingeben, Ändern und Kopieren werden Bilder bereits VOR dem Upload
+auf den Server per Java-Script im Browser verkleinert.
+
+12.07.18 Ergänzung
+Der Link-Präfix tel: wird in Datenfeldern vom Typ Link sowie in Memofeldern
+unterstützt.
+
+30.05.18 Ergänzung
+Beim E-Mailversand via SMTP wurde die TLS-Verschlüsselung ergänzt.
+
+19.05.18 Aktualisierung
+Irritationen mit https:// in der Pfandangabe im Setup wurden bereinigt.
+
+05.05.18 Aktualisierung
+Unter allen Formularen zur Dateneingabe können jetzt ein oder zwei Zeilen
+mit Kontrollkästchen als Pflichtfeld bezüglich Datenschutzerklärung eingeblendet
+werden.
+
+13.01.18 Aktualisierung
+Das Programm wurde für PHP 7.2 angepasst, indem create_function() bei Mailversand
+ersetzt wurde
+
+26.12.17 Anpassung
+Das Programm wurde für PHP 7.2 angepasst
+
+27.07.16 Anpassung:
+- Google-Maps erfordern neuerdings wieder einen Freischalt-Schlüssel von Google.
+  Die Konfiguration für die Google-Karten wurde entsprechend angepasst.
+- Die Eingabe des Ortes für Google-Maps kann über eine Geolocations-Suche
+  erfolgen.
+
+22.05.16 Bereinigung:
+Beim Direkteintrag neuer Inserate unter Textdatenbank werden die Inserate nicht
+mehr in der Anzahl verdoppelt.
+
+27.03.16 Aktualisierung:
+- der Datenbanktreiber wurde auf mysqli umgestellt
+- das Captcha wurde für PHP 7 aktualisiert
+- die HTML-Schablonen wurden auf HTML-5 umgestellt
+  und die CSS-Style-Datei mpStyle.css entsprechend angepasst
+
+24.01.16 Korrektur:
+- die Prüfung eingegebener E-Mail-Adressen wurde im TLD-Teil angepasst
+
+19.01.2015 Korrektur
+Der E-Mail-Versand läuft jetzt auch wieder unter PHP 5.2 und älter
+
+04.01.15 Nachbesserung:
+- Korrektur an der Seitencodierung wegen UTF-8 in PHP-Version 5.6
+- Korrektur an den E-Mail-Bibliotheken wegen PHP ab Version 5.5
+
+31.10.14 Verbesserung:
+Der Inserateexport in der Administration kann wahlweise alle Segmente exportieren
+
+13.06.14 Erweiterung:
+Eine Importfunktion für Inserate wurde im Administrationsbereich zugefügt
+
+20.05.14 Aktualisierung:
+Bei Feldern vom Typ GoogleMaps wurde auf die aktuelle Google-API-Version 3
+umgestellt
+
+03.08.13 Nachbesserung:
+Mehrfache Felder vom Typ E-Mail in der Inseratestruktur werden jetzt korrekt
+unterstützt.
+
+22.06.13 Nachbesserung:
+kleines Passwortproblem in der Administration bereinigt
+
+28.04.13 Nachbesserung:
+- Umlautprobleme unter UTF-8 in den Hilfetexten der Eingabeformulare bereinigt
+- Die Formatierung [url] im Text verträgt ein vorangestelltes http://
+
+09.02.13: Sicherheitsupdate:
+ein Sicherheitsproblem bei Nutzung der MySQL-Datenbank wurde bereinigt.
+Bisher bestand die Möglichkeit mit einem Angriff blind vermutete Daten
+aus den MySQL-Tabellen des Marktplatzes zu ermitteln.
+
+19.01.13: Korrektur:
+- das Terminfreischalten durch den Administrator funktioniert jetzt auch in der
+  Betriebsart "Änderungsvorschlag mit Sichtbarlassen des Originals".
+- beim Captcha wurden gelegentliche unbedeutende Warnungen unterdrückt.
+
+14.01.13: Nachbesserung:
+Für PHP 5.4 musste die Umcodiernung der Sonderzeichen nachgebessert werden, was
+aber nur bei eingestelltem Zeichensatz "HTML-&-maskiert" gestört hätte.
+
+27.12.12 Bereinigung: das Setzen der Standardzeitzone für PHP-5 wurde verbessert
+
+18.05.12 Bereinigung
+- der Cron-Job wurde berichtigt
+- Benutzerangaben mit Umlauten in den Inseraten unter UTF-8 werden jetzt
+  korrekt dargestellt
+- Benutzernamen länger als 15 Zeichen werden akzeptiert
+
+21.04.12 Bereinigung: eine Standardzeitzone für PHP-5 wird bei Bedarf gesetzt
+
+21.01.12 Weiterentwicklung
+- der Modus für Inserateänderungen ist nun unabhängig vom Modus für
+  Inserateeintragungen zwischen Direktänderung und Änderung mit Freischaltung
+  durch den Webmaster einstellbar
+- es gibt einen zusätzlichen Änderungsmodus, bei dem das geänderte Inserat für
+  den Webmaster vorgemerkt auf Freischaltung wartet während das Original
+  vorerst unverändert sichtbar bleibt
+- in den Eingabeformularen kann die Zeile online/offline ausgeblendet werden
+- in der Inserateliste des Administrators lassen sich Inserate direkt
+  online/offline schalten
+- Linkfelder können nun das Format Linkziel oder Linkziel|Linktext
+  oder Linkziel|Linktext|Target haben
+- Protokollangabe wie https:// oder ftp:// in Linkfeldern möglich
+- eingegebene E-Mail-Adressen dürfen auch mit einer Ziffer beginnen
+- Klickschalter zum Blättern in der Detailansicht wurden anders bezeichnet
+
+14.12.11 Fehlerbereinigung
+- bei Memofeldern unter MySQL-Datenbank wurden die Zeilenschaltungen korrigiert
+- bei einzeiligen Textfeldern funktioniert ein Zeilenumbruch mit \n  wieder
+- unter MySQL-Datenbank funktioniert das online-/offline-Schalten von Inseraten
+
+20.11.11 offizielle Versionsfreigabe der Version 3.3
+
+13.11.11 Fehlerbereinigung
+Das Hinzufügen eines neuen Feldes zu den Benutzerdaten unter MySQL funktioniert
+
+08.11.11 Fehlerbereinigung
+Unter der Inserateliste des Administrators steht nichts mehr irrtümlich
+von "Terminen".
+Das Eingabeformular für Google-Maps-Koordinaten wurde bereinigt.
+
+22.10.11 Fehlerkorrektur
+Ein eingebettes Zusatzprogramm neueInserate.php unter MySQL-Datenbank
+gibt bei der Schnellsuche keine Warnmeldungen mehr aus
+
+18.10.11 Verbesserung
+leere Zahlen (Nullwerte) können über einen neuen Parameter
+wahlweise als 0 dargestellt oder ausgeblendet werden
+
+08.10.11 Fehlerkorrektur
+auch mehrere Segmentnamen dürfen jetzt Klammern () im Segmentnamen enthalten
+
+04.09.11 Weiterentwicklung zur Version 3.3
+- der Administrator-Bereich wurde komplett neu gegliedert
+- ein wahlweiser scriptseitiger Passwortschutz zur Administration wurde
+  realisiert
+- angemeldete Benutzer können eigene Inserate offline/online schalten
+- Benutzer können auch vorgemerkte noch unveröffentlichte Inserate ändern
+- Administrator/Autoren können Inserate offline/online schalten
+- Memofeldinhalte, die in der Inserateliste oder in der Druckliste angezeigt
+  werden, können bei einer einzustellenden Zeichenanzahl abgeschnitten werden
+- Vorschaubilder in den Inseratelisten können mit einem einheitlich großen
+  Bildrahmen versehen werden
+- der Cron-Job kann kurz vor Ablauf eines Inserats den Inserenten informieren,
+  dass sein Inserat demnächst ausläuft.
+- e-Mails können vom System statt wie bisher ausschließlich per PHP-mail()
+  alternativ auch über SMTP-Server versandt werden
+- Änderungen an den Benutzerdaten eines Benutzers ändern nicht mehr den
+  Sessionswert
+- Google-Maps bieten jetzt wahlweise auch die Satelliten-Ansicht
+- der Cron-Job kann nach stattgefundenen Aktionen einen Report per e-Mail
+  versenden
+
+
+01.05.11 Weiterentwicklung
+Bei einer Benutzerselbstfreischaltung über den Link in der zugesandten
+e-Mail kann zwischen direkter Freischaltung oder Freigabe durch den
+Webmaster unterschieden werden.
+
+30.04.11 Überarbeitung
+- Ablaufdatum kann generell/überall unsichtbar eingestellt werden
+- variable Sizungsdauer einstellbar
+- verbesserte Ausgabe des EUR-Zeichens und typografischer Anführungszeichen
+- Captcha erzeugt keinen Buchstaben "O" mehr
+
+25.04.11 Weiterentwicklung und Freigabe als Version 3.1
+Ein Zusatzprogramm "neueInserate.php" kann die neu eingetragenen Inserate
+quer über alle Segmente auflisten.
+
+24.04.11 Fehlerkorrektur
+- Kategorien auch über Z (AA, AB, AC...) funktionieren
+- Segmentnamen dürfen auch Klammern ( ) enthalten
+
+28.03.11 kleine Fehlerkorrektur beim oberen Link [Anmelden]
+
+27.03.11 Weiterentwicklung
+- Segmente können inaktiv geschaltet werden oder nur für Benutzer sichtbar sein
+- Benutzerlimit bei der Inserateeingabe (Credits) kann nicht nur eine Anzahl
+  von Inseraten sein sondern auch ein Stichtag ablaufender Eingabeberechtigung
+- Im Suchformular kann ein zusätzliches Sortierkriterium eingetragen werden
+- über den Inseratelisten kann die Gesamtanzahl der Inserate angezeigt werden
+
+27.03.11: Fehlerkorrektur
+Info-Formular und Benachrichtigungs-Formular versenden keine Sessions-Nummer
+mehr
+
+19.03.11 Sicherheitsupdate
+Das Script wurde noch sicherer gegen Angriffe gemacht.
+
+16.02.11 Fehlerbereinigung
+In der Benutzerliste der Administration klappt das Anlegen neuer Benutzer
+jetzt bei allen MySQL-Varianten.
+
+15.02.11 Fehlerbereinigung
+Die Einstellung "beliebige Postleitzahllänge" wird nicht mehr fälschlich als
+"null Stellen" interpretiert.
+E-Mail-Adressen mit nur einem Buchstaben vor einem Punkt im Privatteil werden
+akzeptiert.
+
+12.02.11 Weiterentwicklung
+Auf der Startseite kann ein Schnellsuchfeld eingeblendet werden,
+das quer über alle Segmente sucht.
+ACHTUNG: Bei eingeschaltetem search-engine-friendly-URL (SEF) muss die
+Datei .htaccess ergänzt werden!
+
+Fehlerbereinigung:
+In der Benutzerliste wurde ein Anzeigefehler bei e-Mail-Adressen
+korrigiert, falls diese das letzte Feld der Benutzerliste ist.
+
+Fehlerbereinigung:
+In den HTML-Schablonen "mpListen01Zeile.htm-Muster" und
+"mpListen01Kopf.htm-Muster" wurden falsche CSS-Klassen ersetzt
+
+16.01.11 Weiterentwicklung
+Freischaltungen vorgemerkter Inserate durch den Administratior können jetzt
+bei entsprechender Einstellung auch segmentübergreifend vorgenommen werden.
+
+29.12.10 Fehlerkorrektur
+Die Ändern-Liste funktioniert jetzt auch, falls kein Datumsfeld in der Liste
+ist.
+
+23.12.10 Weiterentwicklung
+- im Benutzerdatenformular und/oder in den Eingabeformularen kann ein
+  Kontrollkästchen zur zwangsweisen Bestätigung eingeblendet werden
+- bis zu 7 individuelle Zusatz-Seiten für AGB, Impressum usw. können aus
+  HTML-Schablonen eingebunden werden
+- Inserate im Archiv werden auf der Startseite nicht mehr mitgezählt
+
+19.12.10 Fehlerkorrekturen
+- missliebige PHP-Funktion ereg() ersetzt
+- Iconsymbol bei Feldern vom Typ Link korrigiert
+- Platzhalter # im Betreff der Benutzer-e-Mails ersetzt durch #A
+- Probleme mit dem Platzhalter {Aendern} in eigener Datailschablone bereinigt
+
+21.11.10
+Freigabe als Vorabversion 3.0

@@ -1,0 +1,4 @@
+# .htaccess-Datei fuer Admin-Ordner
+#
+RewriteEngine Off
+#

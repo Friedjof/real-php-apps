@@ -1,0 +1,12 @@
+Marktplatz-Script 3.5
+Demoversion
+29.05.2023
+
+
+Die Einschränkungen dieser Demoversion bestehen darin, 
+dass eingegebene Inserate nachträglich nicht mehr geändert werden können.
+
+
+
+(c) Jürgen Hummel
+www.marktplatz-script.de

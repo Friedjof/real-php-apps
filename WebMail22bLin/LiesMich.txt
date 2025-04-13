@@ -1,0 +1,13 @@
+
+LiesMich-Datei zur Software "WebMail"
+=====================================
+
+Dieses Archiv enthält die Webservererweiterung "WebMail-Interface" für 
+Linux-Webserver in der Version 2.2b-Lin vom 08/Sep/2004.
+
+Lesen Sie bitte die Dokumentation im Unterverzeichnis "Dokumentation".
+
+
+
+
+***   Jürgen Hummel   ***   www.hummel1.de   ***   post@hummel1.de   *** 

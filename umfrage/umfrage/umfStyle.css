@@ -1,0 +1,411 @@
+/* umf - Umfrage-Script */
+
+/* Diese CSS-Datei kann von Hand editiert werden. Sie wird jedoch auch
+   von der online-Layout- und Farbeinstellung automatisch veraendert.
+   Deshalb sollten alle vorhandenen CSS-Klassen separat erhalten
+   bleiben und keine Platzoptimierungen/Zusammenlegungen von Klassen
+   erfolgen, selbst wenn bei Ihnen mehrere Klassen optisch indentisch
+   sein sollten.
+
+   Jedes CSS-Attribut MUSS wegen der Bearbeitungsmoeglichkeit ueber die
+   online-Administration mit einem Semikolon abschliessen, selbst wenn
+   es unmittelbar vor der schliessenden geschweiften Klammer steht.
+   Farbwerte muessen generell in der Form #RRGGBB angegeben werden.
+
+   Anderenfalls wird der Layout/Farben-Dialog in der Administration
+   nicht funktionieren!!
+
+   Die Schriftgroessen des umhuellenden Containers div.umfBox ist im Original
+   mit einer Prozentangabe versehen:
+   100% entspricht 16px,  75% entspricht 12px,  69% entspricht 11px,
+   sofern nicht vorher durch eine andere CSS-Definition bereits an der
+   Schriftgroesse korrigiert wurde.
+
+   Alle untergeordneten Klassen, die in diesem Container liegen sind meist
+   in der Schriftgroesseneinheit 'em' bezogen auf den umhuellenden Container
+   der Klasse div.umfBox angegeben. 1em entspricht Normalgroesse (also etwa
+   12px bei obiger Prozentangabe), 0.9em entspricht einer verkleinerten
+   Schrift (also etwa 10px bei obiger Prozentangabe.) */
+
+/* = --------------------------------------------------------------- = */
+
+body.umfSeite{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ color:#000000; background-color:#FFFFF7; font-size:100.1%;
+}
+
+/* = div-Container um die gesamte Ausgabe des Umfragen-Scripts herum = */
+
+div.umfBox {
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:75%;  /* 75% sollte einer 12px Schrift als Normalmass entsprechen */
+}
+
+/* = Hinweis-, Fehler- und Erfolgs-Meldungen ueber den Formularen und Listen = */
+
+p.umfMeld{ /* normale Hinweismeldung, Aufforderung */
+ font-size:1.1em; font-weight:bold;
+ color:#111111;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+p.umfErfo{ /* gruene Erfolgsmeldung, Bestaetigung */
+ font-size:1.1em; font-weight:bold;
+ color:#008811;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+p.umfFehl{ /* rote Fehlermeldung, Korrekturaufforderung */
+ font-size:1.1em; font-weight:bold;
+ color:#BB0033;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+div.umfFehl{ /* roter Rahmen um fehlerhafte Eingabefelder */
+ color:inherit; background-color:inherit;
+ border-color:#BB0066; border-style:solid; border-width:1px;
+}
+
+/* kleinerer Hinweis-Text an diversen Stellen, ca. 10px gross */
+span.umfMini{
+ font-size:0.9em;
+}
+/* Textabschnitt ohne Umbruch */
+span.umfNoBr{
+ white-space:nowrap;
+}
+
+/* blinde Tabelle als Container an diversen Stellen */
+
+table.umfBlnd{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+}
+tr.umfBlnd{
+ font-size:1.0em; font-weight:normal;
+ color:inherit; background-color:inherit;
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+}
+td.umfBlnd{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+}
+
+tr.umfTr{ /* normale Tabellenzeile */
+ font-size:1.0em; font-weight:normal;
+ color:inherit; background-color:inherit;
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+}
+
+/* alle Formulare */
+form.umfForm{
+ margin:3px;
+}
+
+/* = Text-Block mit Fragezeile, Antwortzeilen, Infozeile usw. = */
+div.umfTxBl{
+ width:100%; max-width:350px; margin:0px;
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#E7E7E7; border-style:dotted; border-width:2px;
+}
+div.umfFrag{ /*Zeile fuer die Frage*/
+ font-size:1.1em; font-weight:normal;
+ color:#000000; background-color:#C7C7F0;
+ width:auto; margin:0px; padding:5px;
+ text-align:left;
+}
+div.umfAntw{ /*Zeilen mit einer Antwort*/
+ font-size:1em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ width:auto; margin:0px; padding:5px;
+ padding-left:25px; text-indent:-20px;
+ text-align:left;
+}
+input.umfAntw{ /*Kaestchen vor der Auswahlantwort*/
+ font-size:1em; font-weight:normal;
+ color:#000011; background-color:#FFFFFF;
+ width:15px; height:15px; vertical-align:inherit;
+}
+div.umfFrNr{ /*Zeile mit der Nummer der Frage*/
+ font-size:0.95em; font-weight:normal;
+ color:#000077; background-color:#E7ECFF;
+ width:auto; margin:0px; padding:5px;
+ text-align:right;
+}
+div.umfAnmk{ /*Zeile mit der Anmerkung zur Frage*/
+ font-size:1em; font-weight:normal;
+ color:#333333; background-color:#E0E0F0;
+ width:auto; margin:0px; padding:5px;
+ text-align:left;
+}
+div.umfCapt{ /*Zeile mit der Anmerkung zur Frage*/
+ font-size:1em; font-weight:normal;
+ color:#010101; background-color:#F0F0F7;
+ width:auto; margin:0px; padding:5px;
+ text-align:left;
+}
+
+div.umfScha{ /*Zelle fuer den Formular-Schalter*/
+ padding-top:8px; padding-bottom:8px;
+ text-align:center;
+}
+input.umfScha{ /*Formularschalter*/
+ width:96%; min-width:75px; max-width:128px; height:20px; font-size:0.95em;
+ margin-left:auto; margin-right:auto;
+ color:#111111; background-color:#CCCCCC;
+ background-image:url(schalter.gif); background-repeat:no-repeat; background-position:0; background-size:100% 100%;
+ border-style:none; border-width:0;
+ cursor:pointer;
+}
+
+ul.umfText,ol.umfText{ /*Listen als BB-Code mitten im Frage- oder Antworttext*/
+ margin-top:3px; margin-bottom:3px; margin-left:32px; padding:0;
+}
+li.umfText{ /*Listen als BB-Code mitten im Frage- oder Antworttext*/
+ margin-top:3px; margin-bottom:3px;
+}
+a.umfText,a.umfText:link,a.umfText:active,a.umfText:visited{ /*Links als BB-Code*/
+ text-decoration:none;
+}
+a.umfText:hover{
+ color:#D04050; text-decoration:underline;
+}
+img.umfText{ /*Bild als BB-Code mitten im Frage- oder Antworttext */
+ border-width:0px; border-style:none;
+ vertical-align:text-bottom;
+}
+
+/* = Gesamtlayout mit Bildcontainer, Textcontainerzelle, Schalterzelle = */
+div.umfGsmt{
+ margin-left:auto; margin-right:auto; padding:5px;
+ width:98%; max-width:530px;
+ background-color:#FFFFFF;
+ border-color:#CCCCEE; border-width:2px; border-style:dotted;
+}
+div.umfBldO{ /* Container Bild oben */
+ width:auto;
+}
+div.umfBldL{ /* Container Bild links */
+ border-color:#CCCCCC; border-width:1px; border-style:solid;
+}
+div.umfTBlR{ /* Textblock rechts daneben */
+ width:auto;
+}
+div.umfBldR{ /* Container Bild rechts */
+ width:auto;
+}
+div.umfTBlL{ /* Textblock links daneben */
+ width:auto;
+}
+img.umfBild{ /* Bild */
+ margin:0;
+}
+
+@media screen and (min-width:520px){ /* = Gesamtlayout auf breiten Displays = */
+ div.umfBldO{ /* = Container Bild oben = */
+  width:auto;
+ }
+ div.umfBldL{ /* = Container Bild links = */
+  float:left; width:auto;
+ }
+ div.umfTBlR{ /* = Textblock rechts daneben = */
+  float:right; width:auto;
+ }
+ div.umfBldR{ /* = Container Bild rechts = */
+  float:right; width:auto;
+ }
+ div.umfTBlL{ /* = Textblock links daneben = */
+  float:left; width:auto;
+ }
+}
+div.umfClrB{ /* = Floaten aufheben = */
+ clear:both;
+}
+
+/* = Tabelle fuer die Grafikanzeige = */
+table.umfGraf{ /* Grafiktabelle */
+ width:98%; max-width:350px; margin-top:15px; margin-bottom:15px;
+ font-size:1.0em; font-weight:normal;
+ background-color:#FFFFFF;
+ border-color:#AAAAEE; border-width:2px; border-style:dotted; border-collapse:collapse;
+ table-layout:auto;
+}
+td.umfGraF{ /* Zelle mit der Frage */
+ font-size:1.0em; font-weight:normal;
+ border-style:none;
+ color:#000066; background-color:#FCFCFC;
+ padding:4px;
+ text-align:left;
+}
+td.umfGrAB{ /* Balken-Zelle mit der Antwort */
+ text-align:left; vertical-align:middle;
+}
+td.umfGrAS{ /* Saeulen-Zelle mit der Antwort */
+ text-align:center; vertical-align:middle;
+}
+td.umfGrAB,td.umfGrAS{ /* Zelle mit der Antwort */
+ font-size:1.0em; font-weight:normal;
+ border-style:none;
+ color:#000000; background-color:#FCFCFC;
+ padding:4px;
+}
+td.umfGraE{ /* Zelle mit der Ergebniszahl */
+ font-size:1.0em; font-weight:normal;
+ border-style:none;
+ color:#000066; background-color:#FCFCFC;
+ padding:4px;
+ text-align:center; vertical-align:middle;
+}
+td.umfGrGB{ /* Balken-Zelle mit der Grafik */
+ text-align:left; vertical-align:middle;
+}
+td.umfGrGS{ /* Saeulen-Zelle mit der Grafik */
+ text-align:center; vertical-align:bottom;
+}
+td.umfGrGB,td.umfGrGS{ /* Zellen mit Grafikbalken/Grafiksaeule */
+ border-style:none;
+ background-color:#FFFFFF;
+ padding:4px;
+}
+div.umfGrNr{ /* Zeile mit den Fragenummern zum Weiterschalten */
+ font-size:1.0em; font-weight:normal;
+ color:#000066; background-color:inherit;
+}
+
+/* = Text-Block fuer den Fertig-Text = */
+div.umfFrtg{
+ width:98%; max-width:350px; margin:0px; padding:10px;
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#E7E7E7; border-style:dotted; border-width:2px;
+}
+
+/* = Formular Login oder Teilnehmererfassung = */
+table.umfLogi{ /* Logintabelle */
+ width:96%; max-width:400px; margin-left:auto; margin-right:auto; table-layout:auto;
+ margin-bottom:12px;
+ font-size:1.0em; font-weight:normal;
+ background-color:#F3F3F3;
+ border-color:#CCCCCC; border-style:dotted; border-width:2px; border-collapse:collapse;
+}
+td.umfLogi{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:4px; text-align:left; vertical-align:middle;
+}
+input.umfLogi{ /* Eingabefelder im Formular */
+ width:97%;
+ font-size:0.95em;
+ color:#000011; background-color:#FFFFFF;
+}
+
+td.umf15Bs{width:9em;} /* ca. 15 Buchstaben breit */
+
+/* = Formular Benutzerzentrum = */
+table.umfMenu{ /* Menuetabelle */
+ width:auto; max-width:98%; margin-bottom:10px; margin-left:auto; margin-right:auto; table-layout:auto;
+ font-size:1.0em; font-weight:normal;
+ background-color:#F7F7F0;
+ border-color:#AAAAE0; border-style:dotted; border-width:2px; border-collapse:collapse;
+}
+td.umfMenu{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:6px; vertical-align:middle;
+}
+td.umfMen2{
+ width:50%; text-align:center;
+}
+td.umfMenu form{margin:0}
+a.umfMenu,a.umfMenu:link,a.umfMenu:active,a.umfMenu:visited{ /*Links im Menueschalter*/
+ color:#111177; text-decoration:none;
+ font-size:0.95em; font-weight:normal;
+}
+a.umfMenu:hover{
+ color:#00BB11; text-decoration:none;
+}
+
+/* = Formular zur Parametrierung der Druckliste = */
+table.umfDrck{ /* Druckparameterformular */
+ width:auto; margin-top:15px; margin-bottom:15px; margin-left:auto; margin-right:auto; table-layout:auto;
+ font-size:1.0em; font-weight:normal;
+ border-color:#AAAAE0; border-style:dotted; border-width:2px; border-collapse:collapse;
+ background-color:#F7F7F0;
+}
+td.umfDrck{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:4px; text-align:left; vertical-align:middle;
+}
+input.umfDrck{ /* Eingabefelder im Formular */
+ width:150px;
+ font-size:0.95em;
+ color:#000011; background-color:#FFFFFF;
+}
+
+/* = ausgegebene Druckliste = */
+table.umfDru{ /* Drucktabelle */
+ width:auto; margin-top:15px; margin-bottom:15px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#BBBBBB; border-width:1px; border-style:solid; border-collapse:collapse;
+ background-color:#FFFFFF;
+ table-layout:auto;
+}
+tr.umfDru{ /* Zeile in der Drucktabelle */
+}
+td.umfDru{ /* Zelle in der Drucktabelle */
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#BBBBBB; border-width:1px; border-style:solid;
+ padding:3px; text-align:left; vertical-align:top;
+}
+div.umfDru{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+ color:#000000;
+}
+td.umfDrHd{
+ width:64px; vertical-align:top;
+ background-image:url(drucken.gif); background-repeat:no-repeat;
+}
+
+/* Verweise aus dem Umfragescript */
+
+a.umfLink,a.umfLink:link,a.umfLink:active,a.umfLink:visited{ /*Links*/
+ color:#000099; text-decoration:none;
+}
+a.umfLink:hover{
+ color:#CC4455; text-decoration:underline;
+}
+
+/* = Captcha-Styles = */
+td.capCell{ /* Zweitklasse der Zellen in der Captcha-Zeile */
+ vertical-align:top;
+ padding-top:3px;
+}
+span.capQuest{ /* Ausgabefeld der Captcha-Frage */
+ font-size:0.92em;
+}
+input.capAnsw{ /* Zweitklasse des Eingabefelds fuer Captcha-Antwort*/
+ width:9.6em;
+ color:#101010; background-color:#FCFCFC;
+}
+span.capImg{ /* Platzhalter fuer das Captcha-Bild */
+}
+img.capImg{ /* Captcha-Bild */
+ margin:1px;
+ vertical-align:middle;
+}
+button.capReload{ /* Schalter zum Erneuern des Captchas */
+ height:22px; width:22px;
+ background:transparent url(reload.gif) center no-repeat;
+ border:0; padding:0; margin:0;
+ font-size:8px; color:transparent;
+}
+/* Ende */

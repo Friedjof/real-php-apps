@@ -1,0 +1,10 @@
+<div align="center">
+<#HEADER>
+<form action="<#SCRIPT>/users?do" method="POST">
+<table class="dat" border cellpadding="2" cellspacing="1">
+ <tr><th>&nbsp;</th><th>ID</th><th>User</th><th>Name</th><th>e-Mail</th><th>POP3-Server</th><th>SMPT-Server</th><th>max.&nbsp;Speicher</th></tr>
+<#LINES></table>
+<p><#USERDATA><input type="submit" name="Button1" value="neuer Benutzer"> &nbsp; <input type="submit" name="Button2" value="Passwort &auml;ndern"> &nbsp; <input type="submit" name="Button3" value="Speicher &auml;ndern">&nbsp;<input type="text" name="Size" value="5" size="2">&nbsp;MB &nbsp; <input type="submit" name="Button4" value="Daten editieren"> &nbsp; <input type="submit" name="Button5" value="Benutzer l&ouml;schen" onClick="return confirm('Really delete?')"></p>
+</form>
+[ <a href="<#SCRIPT>/login?id=0">Logout</a> ]
+</div>

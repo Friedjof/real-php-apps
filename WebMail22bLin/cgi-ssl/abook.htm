@@ -1,0 +1,56 @@
+
+<form action="<#SCRIPT>/abook" method="POST" style="margin-top:6px;">
+<#USERDATA>
+<table class="dat" width="98%" cellpadding="3" cellspacing="1">
+ <tr><th>Schnellsuche</th><th width="80%">&nbsp;</th></tr>
+ <tr><td><input type="text" name="sw" value="<#SEARCH>" size="40"></td><td><input type="submit" class="button" value="Suchen"></td></tr>
+</table>
+</form>
+
+<table class="dat" width="98%" cellpadding="3" cellspacing="1">
+ <tr><th width="20%">Gruppen</th><th width="20%">&nbsp;</th><th width="20%">&nbsp;</th><th width="20%">&nbsp;</th><th width="20%">&nbsp;</th></tr>
+ <#GROUPS>
+</table>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+ function MailTo(sAdr) {
+  if (opener.document.forms[0].MailTo) {
+   var sVal = opener.document.forms[0].MailTo.value; if (sVal) sVal = sVal + "\n";
+   opener.document.forms[0].MailTo.value = sVal + sAdr;
+  }
+  close();
+ }
+ function MailCc(sAdr) {
+  if (opener.document.forms[0].CC) {
+   var sVal = opener.document.forms[0].CC.value; if (sVal) sVal = sVal + "\n";
+   opener.document.forms[0].CC.value = sVal + sAdr;
+  }
+  close();
+ }
+ function MailBc(sAdr) {
+  if (opener.document.forms[0].BCC) {
+   var sVal = opener.document.forms[0].BCC.value; if (sVal) sVal = sVal + "\n";
+   opener.document.forms[0].BCC.value = sVal + sAdr;
+  }
+  close();
+ }
+ function InsAdresses(sSrc) {
+  var sVal = "";
+  for (var i=0; i<self.document.forms[1].length-2; ++i) {
+   if (self.document.forms[1].elements[i].checked) {
+    if (sVal) sVal = sVal + "\n"; sVal = sVal + self.document.forms[1].elements[i].value;
+   }
+  }
+  if (sSrc == "MailTo") MailTo(sVal);
+  if (sSrc == "MailCc") MailCc(sVal);
+  if (sSrc == "MailBc") MailBc(sVal);
+ }
+// -->
+</script>
+<form action="" method="POST">
+ <table class="dat" width="98%" cellpadding="2" cellspacing="1">
+ <tr><th>&nbsp;</th><th>Name</th><th>e-Mail</th><th><#COL3></></th><th><#COL4></th><th><#COL5></th><th><#COL6></th></tr>
+<#LINES>
+ </table>
+</form>

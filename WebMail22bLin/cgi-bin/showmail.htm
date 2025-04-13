@@ -1,0 +1,29 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+ // WMLoad=window.open("","WMLoad","width=1,height=1,left=1290,top=1025"); self.focus(); WMLoad.close();
+ function DetailWin() { newWin = window.open("about:blank","WMDetl","width=720,height=470,menubar=yes,toolbar=yes,scrollbars=yes"); newWin.focus(); }
+// -->
+</script>
+
+<table width="100%" cellpadding="4" cellspacing="1"><tr>
+<td class="navbar">
+<#FOLDERS>
+</td>
+<td width="99%" valign="top">
+<table><tr><td valign="top"><#BUTTONDEL></td><td valign="top"><#BUTTONSAVE></td><td valign="top"><#BUTTONANSWER></td><td valign="top"><#BUTTONFORWARD></td><td valign="top"><#BUTTONADDR></td></tr></table>
+<table><tr>
+ <td valign="top" width="350"><b>Nachrichtenkopf:</b><br><#HEADER></td>
+ <td valign="top">
+  <table cellpadding="4">
+   <tr><td align="right" width="100"><b>Quelltext:</b></td><td><#EML></td></tr>
+   <tr><td align="right"><b>Druckversion:</b></td><td><#PRINT></td></tr>
+   <tr><td align="right" valign="top"><b>Anlagen:</b></td><td><#ATTACHMENT></td></tr>
+  </table>
+ </td>
+</tr><tr><td colspan="2"><b>Nachrichteninhalt:</b></td></tr></table>
+
+<#BODY>
+
+<p align="center">[ <a href="<#MAILBOX>"><small>zur&uuml;ck zum Ordner</small></a> ]</p>
+</td>
+</tr></table>

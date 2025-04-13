@@ -1,0 +1,394 @@
+Testfragen-Script 3.3
+=====================
+
+10.06.23 Korrektur
+Unrer PHP 8.2 und Zeichensatz UTF-8 wurden einige Ungereimtheiten mit Umlauten
+beseitigt.
+
+11.02.23 Korrektur
+Unter PHP 8.2 wurden die dort auftretenden Warnungen vom Typ "Deprecated" 
+beseitigt. Es wurden etliche Script-Dateien geändert.
+
+28.08.22 Korrektur
+Es wurden weitere Stellen gefunden, die wegen PHP-8 geändert werden mussten.
+
+20.08.22 Ergänzung
+Die Fragen und Anmerkungen können jetzt alternativ auch mit dem CKEditor
+bearbeitet werden statt dem bisherigen BB-Editor. Das ist in der Administration
+einstellbar.
+
+20.08.22 Korrektur
+Beim Versenden der PDF-Urkunde im optionalen Zusatzmodul mit der Funktion 
+PHP-Mail() wurde ein eventuelles Problem beseitigt, das in seltenen Fällen zu 
+Fehldarstellungen in der E-Mail-Nachricht führen konnte.
+
+18.07.22 Ergänzung
+In die Fragen können jetzt Videos und Audios eingebaut werden.
+
+17.06.22 Korrektur
+In den Administrator-Formularen wurden die Feldbreiten korrigiert.
+ 
+02.06.22 Ergänzung
+Nach dem Test kann eine PDF-Urkunde (Zertifikat) generiert werden. 
+(optionales Zusatzmodul)
+
+02.04.22 Aktualisierung
+Wegen der neuen Demo-Version vom 31.03.22 wurde Freischaltung (zugleich 
+Update) erneuert.
+
+22.01.22 Korrektur
+In der Administration wurde kleine Anpassungen an PHP-8 vorgenommen.
+
+10.05.21 Ergänzung
+Für jede Konfiguration kann eine separate HTML-Schablone "fraSeiteXX.htm" 
+sowie eine eigene Style-Datei "fraStyleXX.css" benutzt werden.
+
+22.03.21 Korrektur
+Mehrere Dateien wurden für PHP-8 angepasst.
+Der Mailversand wurde für das Versenden mit TLS-Verschlüsselung auch ohne 
+Authentifizierung nachgebessert.
+
+25.10.20 Korrektur
+Am E-Mail-Versand per SMTP wurde nachgebessert.
+
+05.07.20 Korrektur
+Der Mailversand wurde korrigiert, damit der auf wenigen Mailservern 
+auftretende "bare LF"-Fehler gemäß http://pobox.com/~djb/docs/smtplf.html 
+nicht mehr vorkommt.
+
+28.06.20 Korrektur
+Die MySQL-Befehle wurden wegen MySQL 8 überarbeitet.
+
+28.03.2020 Erweiterung:
+- Bei Wiedervorlage falsch beantworteter Fragen kann über die Anmerkung ein 
+Lösungshinweis vorgegeben werden.
+- Im Lernmodus kann nun auch die Anmerkung angezeigt werden.
+
+15.03.20 Korrektur:
+Die Warnmeldungen unter PHP 7.4 "Array and string offset access syntax with 
+curly braces is deprecated" wurden wegprogrammiert.
+
+09.02.20: Bereinigung:
+Seit dem Update 26.10.2019 war ein Aufruf der Benutzerselbstfreischaltung 
+mittels des zugesandten Links nicht mehr möglich.
+Seit der Korrektur vom 18.01.2020 erschien bei der Registrierung ein 
+"xxxx" über der Überschrift. Beides ist bereinigt.
+
+18.01.20: Korrektur:
+Wenn Benutzerlogin und Teilnehmerregistrierung vor dem Test gleichzeitig 
+auf der Startseite aktiv sind, funktionierte die Teilnehmerregistrierung 
+nicht. Das ist nun bereinigt.
+
+31.10.19: Korrektur:
+In der Bestenliste/Statistik wird der Parameter "Listenlänge" nicht länger 
+ignoriert.
+
+26.10.19 Ergänzung:
+Drucken der Ergebnisse aus der Ergebnisliste heraus durch Administratoren 
+oder Benutzer wurde ermöglicht.
+Das Script wurde sicherer gegen Seiteneinstiege vorbei am Login gemacht.
+
+06.10.19 Ergänzung:
+Bei der Testzuweisung an die Benutzer können jetzt die Kriterien 
+"Stichtag" und "begrenzte Durchführungsanzahl" kombiniert werden.
+
+28.07.19 Korrektur:
+Das Script arbeitet unter MySQL nun auch im SQL-STRICT-Modus.
+Die Administration der Testfragenauswahl unter MySQL wurde korrigiert.
+Eine Textmeldung bei fehlendem Benutzercode wurde ergänzt.
+Die statistische Auswertung im Benutzerbereich wurde korrigiert.
+
+15.06.19 Korrektur:
+Unter MySQL-Datenbank ist es jetzt möglich, das MySQL-Passwort zu ändern.
+
+09.02.19 Ergänzung:
+Die Bestenliste kann jetzt besser nach 2 Kriterien sortiert werden.
+
+25.01.19 Fehlerkorrektur:
+Beim Versand von Benutzerfreischaltungen aus der Administration heraus wird die
+Absender-Domain im Text nicht mehr verstümmelt.
+
+20.01.19 Ergänzung
+Es kann eingestellt werden, dass bei der Frageneingabe auch Fragen ganz ohne
+Auswahlantworten zugelassen werden können. Das ist jedoch lediglich für den 
+Druck von Fragenlisten zur offline-Bearbeitung sinvoll.
+Warnmeldungen in der Ergebnisliste und der Detailanzeige des Administrators
+wurden beseitigt.
+
+30.05.18 Ergänzung
+Beim E-Mailversand via SMTP wurde die TLS-Verschlüsselung ergänzt.
+
+27.05.18 Korrektur
+Ein eventuelle Störung im Update vom 05.05.18 wurde bereinigt
+
+10.05.18 Aktualisierung
+Einige unsaubere Verlinkungen unter https:// wurden bereinigt.
+
+05.05.18 Aktualisierung
+Unter allen Formularen zur Dateneingabe können jetzt ein oder zwei Zeilen 
+mit Kontrollkästchen als Pflichtfeld bezüglich Datenschutzerklärung eingeblendet
+werden.
+
+13.01.18 Aktualisierung
+Das Programm wurde für PHP 7.2 angepasst, indem create_function() bei Mailversand 
+ersetzt wurde
+
+26.12.17 Anpassung:
+Das Programm wurde für PHP 7.2 angepasst
+In der Administration wir der aktive Menüpunkt farbig hervorgehoben
+
+14.05.17 Korrektur:
+- kleine Korrektur zu den {Feldname}-Platzhaltern in der Ergebnisliste
+
+30.04.17 Ergänzung:
+- In den Ergebnis-E-Mails und in der Bildschirmbewertung können 
+  jetzt auch die Benutzerdaten über Platzhalter der Form {Feldname} 
+  dargestellt werden
+- In der Ergebnisliste des Administrators kann das Feld mit den
+  Benutzerdaten ebenfalls über Platzhalter der Form {Feldname}
+  angepasst werden
+- In der Ergebnisliste des Administrators kann nach der Verbalbewertung
+  gefiltert werden
+
+11.09.16 Bereinigung:
+kleiner Fehler im Sitzungsmanagement bereinigt
+
+20.05.16 Ergänzung:
+- Bei der Bewertung gespeicherter Fragenfolgen kann ein Vor- oder
+  Nachtext auf dem Bildschirm und in der E-Mail eingefügt werden.
+
+20.03.16 Ergänzung:
+Beim Drucken der Fragenliste kann die Nummerierungsreihenfolge auf
+natürlich oder chronologisch eingestellt werden
+
+13.02.16 Korrektur/Ergänzung:
+- im Benutzerzentrum werden die Angaben zu altertnativen Konfigurationen
+  mit dem Parameter fra_Ablauf nicht mehr ignoriert
+- beim Anzeigen der Lösungsseiten nach dem Test unter der Einstellung 
+  "nur falsch gelöste" erscheint nach der letzten falschen Frage keine 
+  leere Seite mehr
+- beim Drucken der Fragenliste im Besucherbereich kann eine zufällige
+  Antwortreihenfolge eingestellt werden
+
+07.02.16 Korrektur:
+- unter PHP 7 erzeugt das Captcha keine Warnmeldung mehr
+- kleines Layoutproblem am Ende der Ergebnisliste korrigiert
+
+24.01.16 Korrektur:
+- die Prüfung eingegebener E-Mail-Adressen wurde im TLD-Teil angepasst
+
+08.11.15 Ergänzung:
+- in der Bewertungsliste des Administrators kann die verbale Bewertung 
+  erscheinen und das Format der Punktedarstellung individualisiert werden
+- ein seltener Fehler bei der Verschlüsselung der Ergebnisliste wurde bereinigt
+
+14.07.15 Ergänzung:
+Über den optionalen URL-Parameter fra_TestZeit kann einem Testaufruf ein 
+individuelles Zeitlimit mitgegeben werden.
+
+01.02.15 Ergänzung:
+- der Benutzername/Teilnehmername kann auf den Fragenseiten eingeblendet 
+  werden
+- das Programm läßt sich für Benutzer und/oder Teilnehmer generell sperren
+- auch für Teilnehmer kann es eine Listenseite mit vorbereiteten Tests zur 
+  Auswahl geben
+- aus dem Benutzerzentrum/Testliste heraus können Tests mit einem vier-
+  stelligen Zahlencode vor nicht autorisiertem Start geschützt werden
+
+19.01.15 Korrektur:
+Der E-Mail-Versand läuft jetzt auch wieder unter PHP 5.2 und älter
+
+21.12.14 Anpassung:
+- Korrektur an der Seitencodierung wegen UTF-8 in PHP-Version 5.6
+- Korrektur an den E-Mail-Klassen wegen PHP-Version 5.6
+- barrierefreies alternatives Captcha hinzugefügt
+
+11.10.14 Korrektur:
+- das Drucken der Fragenliste für Benutzer kann in einer eigenen Schablone 
+  "kalDrucken.htm" eingehüllt erfolgen
+- Farbprobleme beim Drucken wurden beseitigt
+- Bewertungszenarien ohne Richtig/Falsch-Bewertung wurden korrigiert
+- im Autorenbereich ist die fehlende Datei "autorenLogin.php" nachgereicht
+
+30.08.14 Weiterentwicklung:
+- Ergebnisse mit Fragen und Antworten können im Benutzerzentrum jederzeit 
+  und wiederholt aufgedeckt werden
+- statt Checkboxen können auch Klickbutton zur Direktbeantwortung benutzt 
+  werden 
+- eine Bestenliste kann über das Benutzerzentrum oder direkt aufgerufen werden
+- nach dem Login kann ein Benutzer auch ohne Umweg über das Benutzerzentrum 
+  sofort zum individuellen Test geleitet werden
+- auf eine Teilnehmerregistrierung/Benutzerlogin nach dem Test kann in
+  Abhängigkeit vom Resultat verzichtet werden, falls ein einstellbares Limit 
+  nicht erreicht wurde
+
+12.04.14 Nachbesserung und Ergänzung:
+- In der Kategorieauswertung wurden Richtige von Fehlern getrennt
+- kleine Anzeige- und Rechenfehler in der Auswertung wurden bereinigt
+- ein Zusatzprogramm zum Dateiupload wurde ergänzt
+
+01.02.14 Umstellung wegen PHP-5.5 auf mysqli
+
+10.11.13 Freigabe als Demoversion 3.3
+
+03.11.13 Fehlerkorrektur Version 3.3:
+- springende laufende Fragenummern und Fragenzahl beim Aufdecken beseitigt
+- Zeitbegrenzung wird auch beim Aufdecken wirksam
+- nicht beantwortete Fragen nach Zeitbegrenzung werden auch nicht bewertet
+- Programmausgang nach dem Lernmodus wurde korrigiert
+
+15.10.13 neue Version 3.3:
+Die Version 3.3 mit vielen Neuheiten wird testweise in der Update-Variante 
+freigegeben. Einzelheiten siehe
+http://www.multiple-choice-script.de/version33.html
+
+22.02.13 Nachbesserung:
+Die Formatierung [url] im Text verträgt ein vorangestelltes http://
+
+02.02.13 Ergänzung:
+Die Formatierungen [sup] für hochgestellt und [sub] für tiefgestellt im 
+Fragentext wurden ergänzt.
+
+14.01.13 Nachbesserung:
+Für PHP 5.4 musste die Umcodiernung der Sonderzeichen nachgebessert werden, was
+aber nur bei eingestelltem Zeichensatz "HTML-&-maskiert" gestört hätte. 
+
+28.10.12 Fehlerkorrektur
+- bei Tests mit einer Dauer über 60 Minuten wird die Restzeit jetzt korrekt
+  angezeigt
+- E-Mail-Adressen mit nur einem Buchstaben vor einem Punkt werden akzeptiert
+
+19.10.12 Fehlerkorrektur
+- die neuen Zählmethoden in der Bewertung werden jetzt auch in den 
+  Zwischenstandwertungen nach jeder Frage angewendet.
+
+12.10.12 Verbesserung
+- die Bewertungsregeln wurden entscheidend überarbeitet. Es gibt nun 
+  5 mögliche Zählmethoden für die Punktbewertung einer Frage. Ausserdem 
+  kann wie früher noch zwischen den Bewertungsmethode Positivwertung und 
+  Negativwertung gewählt werden.
+
+26.05.12 Ergänzung
+- die verbale Bewertung kann wahlweise an die erreichte Punktesumme oder die
+  Anzahl der richtig beantworteten Fragen gekoppelt werden
+- beim "Offenlegen" der Lösung wird das überflüssige "Auslassen" ausgeblendet
+- in der Administration wurde weiterer Code bereinigt, um unnütze
+  Warnungen/Notizen zu unterdrücken.
+
+21.04.12 Ergänzung
+eine Standardzeitzone für PHP-5 wird bei Bedarf gesetzt
+
+19.02.12 Weiterentwicklung
+- Antwortenreihenfolge kann auf Zufallsreihenfolge umgestellt werden
+- bisher erreichter Zwischenstand während des laufenden Tests darstellbar
+- verbale Bewertung am Ende des Tests innerhalb der Auswertung ist möglich
+- Restzeitanzeige bei zeitbegrenzten Tests einstellbar
+- E-Mails können wahlweise auch per SMTP-Versand verschickt werden
+
+10.02.12 Fehlerkorrektur
+- bei der Fragenauswahl aus Kategorien in gespeicherten Fragenfolgen wird
+  nun aus allen infragekommenden Fragen gewählt
+- in der gesamten Administration wurde der Code bereinigt, um unnütze
+  Warnungen/Notizen zu unterdrücken.
+
+08.10.11 Fehlerkorrektur
+In der Ergebnisliste im Administratorbereich funktioniert das Blättern
+in mehrseitigen Ergebnislisten jetzt.
+
+22.10.11 Ergänzung
+gespeicherte Fragenfolgen, deren Folgenamen mit einem ~Zeichen beginnen
+werden im Benutzerzentrum versteckt/ignoriert.
+
+18.10.11 Ergänzung
+Der Name des Tests als gespeicherte Fragenfolge wird bei der Auswertung
+mit angezeigt/versandt.
+
+08.10.11 Fehlerkorrektur
+Bei Absolvierung des Standarddtests wird auch "Standardtest" in die
+Ergebnisdatei eingetragen
+
+19.12.10 Fehlerkorrektur
+PHP ab 5.3 mag den Befehl ereg() nicht mehr und gibt Warnungen aus.
+Der Befehl wurde ersetzt.
+
+12.03.10 Weiterentwicklung
+Ein zusätzlicher Parameter für die Layouteinstellung erlaubt zusätzlich
+zur Darstellung der laufenden Fragenummer im Test die Darstellung
+der absoluten Fragennummer aus der Datenbasis.
+
+12.03.10 Fehlerkorrektur
+Beim Drucken der Fragenliste werden jetzt alle Fragen gedruckt und nicht
+nur die erste Bildschirmseite.
+
+15.11.09 Fehlerkorrektur
+Das Update vom 08.11. hatte bei SQL-Datenbank einen Fehler, der das
+Einfügen der Resultate in die Ergebnisliste nach dem Test verhindert.
+
+08.11.09 Weiterentwicklung zur Version 3.1:
+Ein Benutzerzentrum kann als Plattform verwendet werden, von dem aus
+angemeldete Benutzer
+- aus mehreren vorbereiteten gespeicherten Testfragenfolgen wählen können
+- Ergebnisse früherer Tests einsehen können
+- ihre Benutzerdaten ändern können
+
+08.11.09 Weiterentwicklung:
+Für die Beantwortung der Testfragen kann ein Zeitlimit eingestellt
+werden, nach dessen Ablauf der Test beendet wird.
+
+14.10.09 Korrektur:
+Ein schwerer Fehler in der Administration führte dazu, dass beim
+Aktivieren/Deaktivieren von Fragen eventuell alle Fragen hinter den
+betroffenen fragen gelöscht wurden. Das ist korrigiert!
+
+14.10.09 Korrektur:
+Ein Fehler beim Import von Fragen aus CSV-Dateien wurde bereinigt.
+Bei Text-Datenbasis wird die Kopfzeile nicht länger als Fragendatensatz
+importiert.
+Beim SQL-Import ohne Fragennummern wurde ein SQL-Einfügefehler entfernt.
+
+16.09.09 Korrektur:
+Am Layout der Administrationsseiten wurde nochmals geändert um
+Darstellungsprobleme in diversen Browsern zu umgehen.
+
+06.09.09 Weiterentwicklung:
+Durch die zwei neuen Aufrufparameter 'fra_Folgename' und 'fra_Kategorie'
+kann unabhängig von den in der Konfiguration gesetzten Parametern eine
+bestimmte gespeicherte Fragenfolge oder eine bestimmte Kategorie für den
+Test aufgerufen werden.
+
+05.09.09 Bereinigung:
+Die Höhe des Arbeitsbereiches in der Administration wurde korrigiert.
+
+25.08.09 Fehlerkorrektur:
+Beim Neuanlegen einer Fragentabelle in einer alternativen Konfiguration
+kann diese gleich als leere Tabelle angelegt werden und muss nicht extra
+geleert werden.
+
+14.08.09 Weiterentwicklung:
+Fragen und Antworten können im Administrationsbereich/Autorenordner nun
+gedruckt werden.
+
+08.08.09 Korrektur:
+Unstimmigkeiten bei mehrzeiligen Antworten besonders unter MySQL wurden
+bereinigt.
+
+07.08.09 Korrektur:
+Anmerkungen können außer wie bisher oben/unten nun korrekt beim Aufdecken
+als eigenständiger Block ganz unterhalb der Darstellung eingeblendet werden.
+
+In den Meldungen werden statt der Ident-Nummern der Fragen stets die im
+jeweiligen Test zutreffenden laufenden Nummern der Fragen ausgegeben.
+
+05.08.09 Korrektur:
+Bildnamen mit Sonderzeichen/Umlauten werden beim Hochladen in Namen ohne
+Sonderzeichen umgesetzt.
+
+30.07.06 Korrektur:
+In der Administration sind bei "Teilnehmerverwaltung" jetzt auch weniger als 4
+Teilnehmerdatenfelder einstellbar.
+
+26.07.09
+erste Korrekturen zu unbedeutenden Flüchtigkeitsfehlern.
+
+20.07.09
+erstmalige Veröffentlichung der Vorabversion 3.00

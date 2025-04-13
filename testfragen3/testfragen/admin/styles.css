@@ -1,0 +1,78 @@
+body{background-color:#F0F7FF;margin:0;padding:0;font-size:11px;font-family:Verdana,Arial,Helvetica;}
+p,div,td,th,li,a,input,textarea,select{font-size:11px;font-family:Verdana,Arial,Helvetica;}
+form,table,div{margin:0px;padding:0px;}
+p{margin-top:3px;margin-bottom:6px;}
+td{vertical-align:top;}
+
+td.admin{background-color:#FFFFFF;margin:0;padding:8px;font-size:11px;font-family:Verdana,Arial,Helvetica;}
+div.admin{background-color:#FFFFFF;margin:0;padding:8px 16px;font-size:11px;font-family:Verdana,Arial,Helvetica;}
+h1{margin-top:0px;margin-bottom:6px;color:#000088;font-size:12px;font-family:Verdana,Arial,Helvetica;}
+
+p.fraMeld{color:#000000;font-weight:bold;}
+p.fraErfo{color:#008000;font-weight:bold;}
+p.fraFehl{color:#CC0000;font-weight:bold;}
+p.fraText{color:#000000; /* Text innerhalb von Memofeldern */ }
+ .fraMini{font-size:10px;}
+
+a,a:link,a:active,a:visited{color:#0000AA;text-decoration:none;}
+a:hover{color:#D04050;text-decoration:underline;}
+
+table.fraTabl{background-color:#DFCFCF;width:100%;}
+tr.fraTabl{background-color:#F3F3F3;}
+td.fraSpa2{padding-top:10px;background-color:#E8E4E0;}
+td.fraSpa1{vertical-align:top;padding-top:5px;width:1%;}
+
+table.fraDru{ /* Drucktabelle */
+ font-size:1.0em; font-weight:normal;
+ background-color:#FFFFFF;
+ border-collapse:collapse; table-layout:auto;
+}
+td.fraDru{
+ font-family:Verdana,Arial,Helvetica; font-size:1em; font-weight:normal;
+ color:#000000;
+ border-color:#333333; border-style:dashed; border-width:1px;
+ padding:3px;
+}
+
+input.fraEing,select.fraEing,textarea.fraEing,textarea.fraAntw{ /* Eingabefelder im Formular */
+ color:#000011; background-color:#FFFFFF;
+}
+textarea.fraEing{ /* Eingabebereich für Memofelder */
+ height:10em;
+}
+input.fraRadio,input.fraCheck{ /* Radioschalter und Checkboxen in Formularen */
+ color:#000011; background-color:#EFEFEF;
+ width:15px; height:15px;
+ margin:0; padding:0;
+}
+input.fraLabel{background-color:#F3F3F3;border:none;} /*Hinweis mit Tabellenhintergrundfarbe*/
+
+div.fraFehl{ /* roter Rahmen um fehlerhafte Eingabefelder */
+ border-color:#BB0066;
+ border-style:solid; border-width:1px;
+}
+
+ul.fraText,ol.fraText{ /*Listen als BB-Code mitten im Frage- oder Antworttext*/
+ margin-top:3px;margin-bottom:3px;margin-left:24px;padding:0;
+}
+li.fraText{ /*Listen als BB-Code mitten im Frage- oder Antworttext*/
+ margin-top:0px;margin-bottom:0px;
+}
+
+/* Toolbar für BB-Formatcode */
+table.fraTool{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+ margin-bottom:2px;
+}
+img.fraTool{ /* Symbole der Formatierungsschater */
+ width:20px; height:20px; margin-right:3px;
+ border-style:none; border-width:0;
+ /* background-image:url(grafik/tool.gif); Das Hintergrundbild wird später vom PHP-Script eingesetzt wegen der Veränderlichkeit des Pfades bei includierten Aufrufen. */
+ background-repeat:no-repeat; background-position:0;
+ cursor:hand;
+}
+select.fraTool{ /* Auswahl für Farbe und Größe */
+ width:55px; font-family:Verdana,Arial,Helvetica; font-size:11px; font-weight:bold;
+ color:#000011; background-color:#FFFFFF;
+}

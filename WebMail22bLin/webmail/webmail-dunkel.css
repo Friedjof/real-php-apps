@@ -1,0 +1,19 @@
+body         { background-color:#332020; color:#FFFFFF; font-size:12px; font-family:Helvetica,Arial,sans-serif; }
+p            { color:#FFFFFF; }
+h2           { font-size:16px; font-weight:bold; font-family:Helvetica,Arial,sans-serif; }
+h3           { font-size:14px; font-weight:bold; font-family:Helvetica,Arial,sans-serif; }
+h4           { font-size:13px; font-weight:bold; font-family:Helvetica,Arial,sans-serif; color:#FFFFCC; }
+small        { color:#FFFFFF; font-size:11px; font-family:Helvetica,Arial,sans-serif; }
+pre          { color: #FFFFFF; }
+table.dat    { background-color:#333333; }
+th           { background-color:#000099; text-align:center; font-size:12px; font-family:Helvetica,Arial,sans-serif; font-weight:bold; color:white; }
+td           { color:#FFFFFF; font-size:12px; font-family:Helvetica,Arial,sans-serif; }
+td.navbar    { background-color:#665555; font-size:11px; text-align:center; vertical-align:top; }
+a:link       { color: #FFF0E0; }
+a:visited    { color: #E0E0E0; }
+a:active     { color: #FFFFFF; }
+a:hover      { color: #FFFFFF; }
+input, textarea, select { font-size:12px; }
+input.button { font-size:12px;}
+.error       { color:#FF00CC; }
+.hint        { color:#66FF99; }

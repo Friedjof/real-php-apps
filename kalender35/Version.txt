@@ -1,0 +1,21 @@
+Kalender-Script - der PHP-online-Kalender
+
+
+Demoversion 3.5 (mobilgeräteoptimiert) vom 03.06.2023 
+
+
+Diese Demoversion ist ein zeitlich unbeschränkt verwendbares Muster 
+meines PHP-Scriptes.
+
+Sie enthält jedoch eine Funktionseinschränkung. Eingetragene Termine
+können nachträglich nicht mehr geändert/korrigiert (wohl aber gelöscht 
+und neu angelegt) werden.
+
+Nach hinreichendem Test bestellen Sie bei Bedarf die Freischaltung 
+der Software über mein Bestellformular.
+
+
+(c) Jürgen Hummel
+www.kalender-script.de
+
+#

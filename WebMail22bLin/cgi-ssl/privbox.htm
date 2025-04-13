@@ -1,0 +1,35 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+ function SelectAll(bStatus) {
+  for (var i=0; i<self.document.wmbox.length; ++i)
+   if (self.document.wmbox.elements[i].type=='checkbox') self.document.wmbox.elements[i].checked=bStatus;
+ }
+// -->
+</script>
+
+<table width="100%" cellpadding="4" cellspacing="1"><tr>
+<td class="navbar" rowspan="2">
+<#FOLDERS>
+</td>
+<td width="99%" align="center" valign="top">
+<h3><span class="hint"><#INMAILS></span> Nachrichten im Ordner</h3>
+<form name="wmbox" action="<#SCRIPT>/box" method="POST">
+<#USERDATA>
+ <table class="dat" width="99%" cellpadding="2" cellspacing="1">
+ <tr><th>&nbsp;</th><th>Adresse<#1SORT></th><th>Betreff<#2SORT></th><th>Datum/Zeit<#3SORT></th><th>Gr&ouml;&szlig;e<#4SORT></th></tr>
+<#LINES>
+ </table>
+</form>
+</td>
+</tr><tr>
+<td align="center" valign="bottom">
+ <table width="99%" cellpadding="2" cellspacing="1">
+ <tr>
+ <td class="navbar"><p align="left">
+<#SUBFOLD></p>
+ </td>
+ </tr>
+ </table>
+</td>
+</tr>
+</table>

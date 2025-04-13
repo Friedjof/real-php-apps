@@ -1,0 +1,23 @@
+<table width="100%" cellpadding="4" cellspacing="1"><tr>
+<td class="navbar">
+<#FOLDERS>
+</td>
+<td width="99%" align="center" valign="top">
+<h3>Signatur und Textbausteine</h3>
+<form action="<#SCRIPT>/parts" method="post">
+<#USERDATA>
+ <table class="dat" width="99%" cellpadding="2" cellspacing="1">
+  <tr><th colspan="2">gespeicherte Vorlagen</th></tr>
+  <tr><td align="right" valign="top">Signatur 1:</td><td><textarea name="Sign" rows="7" cols="71"><#SIGN></textarea></td></tr>
+  <tr><td align="right" valign="top">Signatur 2:</td><td><textarea name="Sig2" rows="7" cols="71"><#SIG2></textarea></td></tr>
+  <tr><td align="right" valign="top">Baustein 1:</td><td><textarea name="Tx1" rows="4" cols="71"><#TX1></textarea></td></tr>
+  <tr><td align="right" valign="top">Baustein 2:</td><td><textarea name="Tx2" rows="4" cols="71"><#TX2></textarea></td></tr>
+  <tr><td align="right" valign="top">Baustein 3:</td><td><textarea name="Tx3" rows="4" cols="71"><#TX3></textarea></td></tr>
+  <tr><td align="right" valign="top">Baustein 4:</td><td><textarea name="Tx4" rows="4" cols="71"><#TX4></textarea></td></tr>
+  <tr><td align="right" valign="top">Baustein&nbsp;5:</td><td><textarea name="Tx5" rows="4" cols="71"><#TX5></textarea></td></tr>
+  <tr><td>&nbsp;</td><td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <#BUTTON></td></tr>
+ </table>
+</form>
+<p align="left"><small><u>Anleitung</u>: Textbausteine werden beim Verfassen der Nachricht durch Gebrauch der Platzhalter <b>&lt;#tx1&gt;</b>...<b>&lt;#tx5&gt;</b> eingef&uuml;gt und beim Versenden der Nachricht automatisch durch den jeweiligen Text ersetzt.</small></p>
+</td>
+</tr></table>

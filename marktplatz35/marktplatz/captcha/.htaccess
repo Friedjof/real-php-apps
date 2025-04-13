@@ -1,0 +1,5 @@
+#
+RewriteEngine On
+#
+RewriteRule ^captcha\.csv$ index.html [L]
+#

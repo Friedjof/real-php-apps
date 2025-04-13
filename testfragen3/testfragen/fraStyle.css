@@ -1,0 +1,406 @@
+/* fra - Frage-Script */
+
+/* Diese CSS-Datei kann von Hand editiert werden. Sie wird jedoch auch
+   von der online-Layout- und Farbeinstellung automatisch verändert.
+   Deshalb sollten alle vorhandenen CSS-Klassen separat erhalten
+   bleiben und keine Platzoptimierungen/Zusammenlegungen von Klassen
+   erfolgen, selbst wenn bei Ihnen mehrere Klassen optisch indentisch
+   sein sollten.
+
+   Jedes CSS-Attribut MUSS wegen der Bearbeitungsmöglichkeit über die
+   online-Administration mit einem Semikolon abschließen, selbst wenn
+   es unmittelbar vor der schließenden geschweiften Klammer steht.
+   Farbwerte müssen generell in der Form #RRGGBB angegeben werden,
+   ein Attribut 'color' muß immer VOR 'background-color' stehen.
+
+   Anderenfalls wird der Layout/Farben-Dialog in der Administration
+   nicht funktionieren!!
+
+   Die Hintergrundfarbe der Gesamtausgabe wird NICHT über diese CSS-Datei
+   sondern direkt in der HTML-Schablone 'fraSeite.htm' eingestellt. */
+
+/* Die Schriftgrößen des umhüllenden Containers div.fraBox ist im Original
+   mit einer Prozentangabe versehen:
+   100% entspricht 16px,  75% entspricht 12px,  69% entspricht 11px,
+   sofern nicht vorher durch eine andere CSS-Definition bereits an der
+   Schriftgröße korrigiert wurde.
+
+   Alle untergeordneten Klassen, die in diesem Container liegen sind meist
+   in der Schriftgrößeneinheit 'em' bezogen auf den umhüllenden Container
+   der Klasse div.fraBox angegeben. 1em entspricht Normalgröße (also etwa
+   12px bei obiger Prozentangabe), 0.9em entspricht einer verkleinerten
+   Schrift (also etwa 10px bei obiger Prozentangabe.) */
+
+/* = -------------------------------------------------------------- = */
+
+/* = div-Container um die gesamte Ausgabe des Testfragen-Scripts herum = */
+
+div.fraBox {
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:75%;  /* 75% sollte einer 12px Schrift als Normalmaß entsprechen */
+}
+
+/* = Hinweis-, Fehler- und Erfolgs-Meldungen über den Formularen und Listen = */
+
+p.fraMeld{ /* normale Hinweismeldung, Aufforderung */
+ font-size:1.1em; font-weight:bold;
+ color:#111111;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+p.fraErfo{ /* grüne Erfolgsmeldung, Bestätigung */
+ font-size:1.1em; font-weight:bold;
+ color:#008811;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+p.fraFehl{ /* rote Fehlermeldung, Korrekturaufforderung */
+ font-size:1.1em; font-weight:bold;
+ color:#BB0033;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+div.fraFehl{ /* roter Rahmen um fehlerhafte Eingabefelder */
+ border-color:#BB0066;
+ border-style:solid; border-width:1px;
+}
+div.fraCapH{ /* Erklärungstext zum Captcha */
+ font-family:Verdana,Arial,Helvetica; font-size:10px;
+ width:14.6em;
+ color:#555555;
+}
+
+/* Normalisierung, falls div-Containern fremdformatiert sind  */
+
+div.fraNorm{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+ color:#000000;
+}
+
+/* kleinerer Hinweis-Text an diversen Stellen, ca. 10px groß */
+
+span.fraMini{
+ font-size:0.9em;
+}
+
+/* blinde Tabelle als Container an diversen Stellen */
+
+table.fraBlnd{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+}
+td.fraBlnd{
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+}
+
+/* = Text-Block mit Fragezeile, Antwortzeilen, Infozeile usw. = */
+div.fraText,div.fraTxtR,div.fraTxtF{
+ width:420px; margin:0px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#E7E7E7; border-style:dotted; border-width:2px;
+ background-color:#FFFFFF;
+}
+div.fraTxtR{ /*Umrahmung richtiger Antwortblock*/
+ border-color:#119911;
+}
+div.fraTxtF{ /*Umrahmung falscher Antwortblock*/
+ border-color:#AA1111;
+}
+div.fraFrag{ /*Zeile für die Frage*/
+ font-size:1em; font-weight:normal;
+ color:#000000; background-color:#CFCFFC;
+ width:; margin:0px; padding:5px;
+ text-align:left;
+}
+div.fraAntw{ /*Zeilen für eine Antwort*/
+ font-size:1em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ width:; margin:0px; padding:5px;
+ padding-left:25px; text-indent:-20px;
+ text-align:left;
+}
+input.fraAntw{ /*Kästchen vor den Auswahlantworten*/
+ font-size:1em; font-weight:normal;
+ color:#000011; background-color:#FFFFFF;
+ width:15px; height:15px; vertical-align:;
+ margin:0px; padding:0px;
+}
+div.fraAusl{ /*Zeile für den Text: "Frage auslassen, ans Ende stellen"*/
+ font-size:1em; font-weight:normal;
+ color:#000000; background-color:#F3ECEC;
+ width:; margin:0px; padding:5px;
+ padding-left:25px; text-indent:-20px;
+ text-align:left;
+}
+div.fraKatg{ /*Zeile mit der etwaigen FragenKategorie*/
+ font-size:0.9em; font-weight:normal;
+ color:#660011; background-color:#FFFFDD;
+ width:; margin:0px; padding:5px;
+ text-align:left;
+}
+div.fraFrNr{ /*Zeile mit der Nummer der Frage*/
+ font-size:0.95em; font-weight:normal;
+ color:#000077; background-color:#FFFFFF;
+ width:; margin:0px; padding:5px;
+ text-align:left;
+}
+div.fraInfo{ /*Zeile mit den Punkten, der Zahl der richtigen Antworten usw.*/
+ font-size:0.9em; font-weight:normal;
+ color:#666666; background-color:#FFFFFF;
+ width:; margin:0px; padding:5px;
+ text-align:right;
+}
+div.fraAnmk{ /*Zeile mit der Anmerkung zur Frage*/
+ font-size:1em; font-weight:normal;
+ color:#333333; background-color:#E7E7F7;
+ width:; margin:0px; padding:5px;
+ text-align:left;
+}
+div.fraScha{ /*Zeile für den Formular-Schalter*/
+ padding-top:1px; padding-bottom:5px;
+ text-align:center;
+}
+
+ul.fraText,ol.fraText{ /*Listen als BB-Code mitten im Frage- oder Antworttext*/
+ margin-top:3px;margin-bottom:3px;margin-left:32px;padding:0;
+}
+li.fraText{ /*Listen als BB-Code mitten im Frage- oder Antworttext*/
+ margin-top:3px;margin-bottom:3px;
+}
+a.fraText,a.fraText:link,a.fraText:active,a.fraText:visited{ /*Links als BB-Code*/
+ text-decoration:none;
+}
+a.fraText:hover{
+ color:#D04050;text-decoration:underline;
+}
+img.fraText{ /*Bild als BB-Code mitten im Frage- oder Antworttext */
+ border-width:0px; border-style:none;
+ vertical-align:text-bottom;
+}
+
+/* = eventuelle zusätzlicher Container unter der Gesamtdarstellung
+     mit den Anmerkungen beim Aufdecken der Antworten = */
+div.fraOffn{
+ margin-top:16px; margin-bottom:5px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#CCCCEE; border-width:2px; border-style:dotted;
+ background-color:#FFFFFF;
+}
+
+/* = Gesamttabelle mit Bildzelle, Textcontainerzelle, Schalterzelle = */
+/* = seit Version 3.3 geloescht = */
+
+/* = pro Frage gestalten wegen mehr als einer Frage pro Seite = */
+div.fraBlock{
+ width:680px; overflow:hidden;
+ margin:0px; padding:0px; margin-bottom:8px;
+ border-color:#CCCCEE; border-width:2px; border-style:dotted;
+}
+div.fraBlock p{
+ margin:0px;
+}
+div.fraText,div.fraTxtR,div.fraTxtF{ /*Textblock eventuell floaten*/
+ float:right; overflow:hidden;
+}
+div.fraBild{ /*Bildblock eventuell floaten*/
+ width:250px;
+ float:left; overflow:hidden;
+ border-style:none; border-width:0px;
+}
+div.fraClrB{
+ clear:both; margin:0; padding:0; height:0;
+}
+
+/* = ---responsive Design fuer schmale Geraete--------------------- = */
+@media screen and (max-width:100px) { /* einspaltig mit voller Breite */
+
+ div.fraBlock,div.fraText,div.fraTxtR,div.fraTxtF{width:auto;}
+ div.fraText,div.fraTxtR,div.fraTxtF,div.fraBild{float:none;}
+
+}
+/* = ---/responsive Design ---------------------------------------- = */
+
+input.fraScha{ /*Formularschalter*/
+ width:128px; height:20px;
+ font-size:0.95em;
+ color:#111111; background-color:#FFFFFF;
+ /* background-image:url(schalter.gif); Das Hintergrundbild wird später vom PHP-Script eingesetzt wegen der Veränderlichkeit des Pfades bei includierten Aufrufen. */
+ background-repeat:no-repeat; background-position:0;
+ border-style:none; border-width:0;
+ cursor:hand;
+}
+input.fraASch{ /*SofortBeantwortenSchalter*/
+ width:100%; min-height:2.2em;
+ font-size:0.95em;
+ text-align:left;
+ color: ; background-color: ;
+}
+form.fraForm{ /*alle Formulare*/
+ margin:3px;
+}
+
+/* = Formular Login oder Teilnehmererfassung = */
+table.fraLogi{ /* Logintabelle */
+ width:; margin-bottom:10px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#BBBBBB; border-style:dotted; border-width:2px; border-collapse:collapse;
+ background-color:#F7F7F7;
+ table-layout:auto;
+}
+td.fraLogi{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:4px; text-align:left; vertical-align:middle;
+}
+input.fraLogi{ /* Eingabefelder im Formular */
+ width:200px;
+ font-size:0.95em;
+ color:#000011; background-color:#FFFFFF;
+}
+
+td.fra15Bs{width:9em;}
+
+/* = Formular Benutzerzentrum = */
+table.fraMenu{ /* Menütabelle */
+ width:; margin-bottom:10px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#AAAAE0; border-style:dotted; border-width:2px; border-collapse:collapse;
+ background-color:#F7F7F0;
+ table-layout:auto;
+}
+td.fraMenu{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#F7F7F7;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:6px; text-align:left; vertical-align:middle;
+}
+td.fraMnuL{
+ width:24px; height:;
+ /* background-image:url(schalter.gif); Das Hintergrundbild wird später vom PHP-Script eingesetzt wegen der Veränderlichkeit des Pfades bei includierten Aufrufen. */
+ background-repeat:no-repeat; background-position:12px;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted; border-right-style:none; border-right-style:hidden;
+}
+td.fraMnuM{
+ width:48px; height:;
+ text-align:center; color:#666666;
+ /* background-image:url(schalter.gif); Das Hintergrundbild wird später vom PHP-Script eingesetzt wegen der Veränderlichkeit des Pfades bei includierten Aufrufen. */
+ background-repeat:no-repeat; background-position:-8px;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted; border-left-style:none; border-right-style:none; border-left-style:hidden; border-right-style:hidden;
+}
+td.fraMnuR{
+ width:24px; height:;
+ /* background-image:url(schalter.gif); Das Hintergrundbild wird später vom PHP-Script eingesetzt wegen der Veränderlichkeit des Pfades bei includierten Aufrufen. */
+ background-repeat:no-repeat; background-position:-116px;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted; border-left-style:none; border-left-style:hidden;
+}
+td.fraMenu form{margin:0}
+a.fraMenu,a.fraMenu:link,a.fraMenu:active,a.fraMenu:visited{ /*Links im Menüschalter*/
+ color:#111177; text-decoration:none;
+ font-size:0.95em; font-weight:normal;
+}
+a.fraMenu:hover{
+ color:#00BB11; text-decoration:none;
+}
+
+/* = Formular zur Bewertung der Testergebnisse = */
+table.fraBwrt{ /* Bewertungstabelle */
+ width:; margin-top:15px; margin-bottom:15px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#AAAAEE; border-width:2px; border-style:dotted; border-collapse:collapse;
+ background-color:#FFFFFF;
+ table-layout:auto;
+}
+td.fraBwrt{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:4px; text-align:left; vertical-align:middle;
+}
+
+/* = Tabelle der Bestenliste/Statistik = */
+table.fraStat{ /* Bestenliste */
+ width:; margin-top:15px; margin-bottom:15px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#AAAAEE; border-width:2px; border-style:dotted; border-collapse:collapse;
+ background-color:#FFFFFF;
+ table-layout:auto;
+}
+td.fraStat{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:4px; text-align:left; vertical-align:middle;
+}
+
+/* = Formular zur Parametrierung der Druckliste = */
+table.fraDrck{ /* Druckparameterformular */
+ width:; margin-top:15px; margin-bottom:15px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#AAAAEE; border-width:2px; border-style:dotted; border-collapse:collapse;
+ background-color:#FFFFFF;
+ table-layout:auto;
+}
+td.fraDrck{
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#CCCCCC; border-width:2px; border-style:dotted;
+ padding:4px; text-align:left; vertical-align:middle;
+}
+input.fraDrck{ /* Eingabefelder im Formular */
+ width:150px;
+ font-size:0.95em;
+ color:#000011; background-color:#FFFFFF;
+}
+
+/* = ausgegebene Druckliste = */
+table.fraDru{ /* Drucktabelle */
+ width:; margin-top:15px; margin-bottom:15px;
+ font-size:1.0em; font-weight:normal;
+ border-color:#BBBBBB; border-width:1px; border-style:solid; border-collapse:collapse;
+ background-color:#FFFFFF;
+ table-layout:auto;
+}
+tr.fraDru{ /* Zeile in der Drucktabelle */
+}
+td.fraDru{ /* Zelle in der Drucktabelle */
+ font-size:1.0em; font-weight:normal;
+ color:#000000; background-color:#FFFFFF;
+ border-color:#BBBBBB; border-width:1px; border-style:solid;
+ padding:3px; text-align:left; vertical-align:top;
+}
+div.fraDru{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+ margin:0; padding:0;
+ color:#000000;
+}
+
+/* = Captcha-Styles = */
+td.capCell{ /* Zweitklasse der Zellen in der Captcha-Zeile */
+ vertical-align:top;
+ padding-top:3px;
+}
+input.capAnsw{ /* Zweitklasse des Eingabefelds fuer Captcha-Antwort*/
+ width:10em;
+}
+input.capQuest{ /* Zweitklasse des Ausgabefelds der Captcha-Frage */
+ background-color:transparent;
+ min-width:25em;
+ width:99%;
+ border:0;
+}
+span.capImg{ /* Platzhalter fuer das Captcha-Bild */
+}
+img.capImg{ /* Captcha-Bild */
+ margin:1px;
+ vertical-align:middle;
+}
+button.capReload{ /* Schalter zum Erneuern des Captchas */
+ height:22px; width:22px;
+ background:transparent url(reload.gif) center no-repeat;
+ border:0; padding:0; margin:0;
+ font-size:8px; color:transparent;
+}
+
+/* Ende */

@@ -1,0 +1,110 @@
+Umfrage-Script 3.3
+==================
+
+10.06.23 Korrektur
+Im Zusammenhang mit PHP 8.2 wurden weitere Warnmeldungen beseitigt.
+
+15.02.23 Korrektur
+Unter PHP 8.2 wurden die dort auftretenden Warnungen vom Typ "Deprecated" 
+beseitigt. Es wurden insgesamt 43 Script-Dateien geändert.
+
+03.07.21 Ergänzung
+Etliche Scripte in der Administration wurden für PHP-8 überarbeitet.
+Die Auswertestatistik kann nun auch dann ohne Login abgerufen werden, 
+wenn die Abstimmung nur für Teilnehmer oder Benutzer möglich ist.
+
+09.05.21 Ergänzung
+Pro Konfiguration kann nun eine eigene HTML-Masterschablone und 
+eigene CSS-Datei verwendet werden.
+
+13.03.21 Korrektur
+Die Mail-Sende-Datei wurde für das Versenden mit TLS-Verschlüsselung auch ohne 
+Authentifizierung nachgebessert.
+
+25.10.20 Korrektur
+Der Mailversand per SMTP wurde bezüglich der Authentifizierung nachgebessert.
+
+05.07.20 Korrektur
+Der Mailversand wurde korrigiert, damit der auf wenigen Mailservern 
+auftretende "bare LF"-Fehler gemäß http://pobox.com/~djb/docs/smtplf.html 
+nicht mehr vorkommt.
+
+28.06.20 Korrektur
+Die MySQL-Befehle wurden wegen MySQL 8 überarbeitet.
+
+15.03.20 Korrektur
+Die Warnmeldungen unter PHP 7.4 "Array and string offset access syntax with 
+curly braces is deprecated" wurden wegprogrammiert.
+
+20.07.19 Überarbeitung:
+Die MySQL-Befehle wurden für SQL-STRICT-Modus angepasst.
+
+25.01.19 Fehlerkorrektur:
+Beim Versand von Benutzerfreischaltungen aus der Administration heraus wird die
+Absender-Domain im Text nicht mehr verstümmelt.
+
+30.05.18 Ergänzung
+Beim E-Mailversand via SMTP wurde die TLS-Verschlüsselung ergänzt.
+
+05.05.18 Aktualisierung
+Unter allen Formularen zur Dateneingabe können jetzt ein oder zwei Zeilen 
+mit Kontrollkästchen als Pflichtfeld bezüglich Datenschutzerklärung eingeblendet
+werden.
+
+13.01.18 Aktualisierung
+Das Programm wurde für PHP 7.2 angepasst, indem create_function() bei Mailversand 
+ersetzt wurde
+
+26.12.17 Anpassung:
+Das Programm wurde an PHP 7.2 angepasst
+
+28.12.16 Fehlerkorrektur:
+Unter MySQL-Datenbank wird das Ergebnis jetzt auf allen MySQL-Server gespeichert
+
+04.12.16 Fehlerkorrektur: 
+Neuanmeldung nach Umfrage führt nicht mehr in die Sackgasse.
+
+03.12.16
+Erweiterung: Export der Ergebnisse und Teilnahmedaten
+
+20.11.16
+Fehlerbeseitigung bei der Benutzer- und Teilnehmerkonfiguration
+Korrektur der CSS-Datei
+
+13.11.16
+Erweiterung: farbige Hervorhebung im Admin-Menü
+
+02.11.16
+Fehlerkorrektur:
+Das "Setup" funktioniert jetzt.
+
+25.10.16
+neue Version: erstmalige Veröffentlichung der Vorabversion 3.3
+
+
+Umfrage-Script 3.1
+==================
+
+08.08.15
+Anpassung: Anpassung an die Laufbedingungen unter PHP 5.6
+
+03.08.13
+Anpassung: Erweiterung auf bis zu 20 Antworten pro Frage
+
+21.04.12
+Bereinigung: eine Standardzeitzone für PHP-5 wird bei Bedarf gesetzt
+
+22.01.12
+Bereinigung: Die Variablendekarationen wurden verbessert um diesbezügliche
+Warnmeldungen zu unterdrücken
+
+27.02.10
+Fehlerkorrektur: Ergebnisdarstellung korrigiert, falls 9 Antworten zu einer 
+Frage vorrätig sind
+Weiterentwicklung: Nach jeder Abstimmung kann eine e-Mail an den Administrator 
+ergehen
+Weiterentwicklung: In den Auswertungen wird die Gesamtanzahl der Abstimmungs-
+ergebnisse dargestellt 
+
+12.08.09
+erstmalige Veröffentlichung der Vorabversion 3.00

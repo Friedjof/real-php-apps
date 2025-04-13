@@ -1,0 +1,143 @@
+body{
+ background-color:#eeeeee;
+ margin:0px; padding:0px; margin-top:5px;
+ font-size:100.1%;font-family:Verdana,Arial,Helvetica;
+}
+p,div,table,td,th,li,a,input,textarea,select{font-size:100%;font-family:Verdana,Arial,Helvetica;}
+
+p{margin-top:3px; margin-bottom:6px;}
+form,table,div,h1{margin:0px;}
+
+/* 2-spaltiges Layout */
+
+div#seite{text-align:center; font-size:75%;}
+div#rahmen{
+ background-color:#ffffff;
+ margin-left:auto;margin-right:auto;text-align:left;
+}
+div#kopf{
+ text-align:left; height:32px; width:100%;
+ color:#ffffff; background-color:#669966;
+}
+div#kopf h1{
+ padding-top:3px; margin-left:11.1em;
+ font-size:110%; font-family:Verdana,Arial,Helvetica;
+}
+div#version{float:right; font-size:90%; padding:3px;}
+div#navig {
+ float:left; overflow:hidden;
+ width:12.1em; padding:3px;
+ background-color:#669966;
+}
+div#inhalt {
+ margin-left:12.2em; padding:10px;
+ min-width:20em;
+}
+div#navpad{width:100%; overflow:hidden;}
+div#inhpad{width:100%; overflow:hidden;}
+
+ul#menu{
+ list-style-type:none;
+ padding:0; margin:0; margin-left:0px;
+}
+ul#menu li{
+ margin:0; padding:0; padding-left:1px; padding-bottom:1px; margin-bottom:2px;
+ background-color:#557755;
+ border-width:1px; border-style:solid; border-color:#999999;
+ color:#ffffff;
+}
+ul#menu li.rubrik{
+ margin:0; padding:1px; margin-bottom:2px;
+ background-color:#335533;
+ border-width:1px; border-style:solid; border-color:#bbbbbb;
+ color:#dddd99;
+}
+ul#menu li.aktiv{
+ background-color:#995588; color:#ffffff;
+}
+ul#menu a{color:#ffffff; text-decoration:none;}
+ul#menu a:hover{color:#ffaa00; text-decoration:underline;}
+
+div#fuss{
+ clear:both; width:100%;
+ padding:2px;
+ text-align:center;
+ font-size:80%;
+ color:#ffffff; background-color:#77bb77;
+}
+div#fuss a {color:#ffffff;text-decoration:none;}
+div#fuss a:hover{color:#ffaa00; text-decoration:underline;}
+
+div#zeitangabe{ /* Zeile mit der Zeitangabe */
+ margin-top:16px;
+ text-align:center;
+ color:#888888; font-size:90%;
+}
+
+/* Inhaltselemente */
+
+p.admMeld{color:#000000;font-weight:bold;}
+p.admErfo{color:#008000;font-weight:bold;}
+p.admFehl{color:#CC0000;font-weight:bold;}
+ .admMini{font-size:90%;}
+
+a,a:link,a:active,a:visited{color:#0000AA;text-decoration:none;}
+a:hover{color:#D04050;text-decoration:underline;}
+
+div.admBox{
+ background-color:#EFEFEF;
+ border-color:#DFCFCF; border-width:1px; border-style:solid;
+ margin-top:8px; padding:8px;
+ text-align:justify;
+}
+
+table.admTabl{font-size:96%; width:100%; background-color:#DFCFCF;}
+tr.admTabl{background-color:#EFEFEF;}
+td.admSpa1{padding-top:3px; vertical-align:top; white-space:nowrap; width:1%;}
+td.admSpa2{padding-top:10px;background-color:#E8E4E0;}
+
+input,select,textarea{ /* Eingabefelder allgemein */
+ font-size:98%;
+ color:#000011; background-color:#FCFCFC;
+}
+textarea{ /* Eingabebereich für Memofelder */
+ width:100%; height:10em; /* 10em sind ca. 10 Zeilen */
+}
+input.admRadio,input.admCheck{ /* Radioschalter und Checkboxen in Formularen */
+ color:#000011; background-color:#EFEFEF;
+ width:1.15em; height:1.15em;
+ margin:0; padding:0;
+}
+input.admSubmit{
+ color:#111111; background-color:#cccccc;
+ width:10em;
+}
+p.admSubmit{margin:12px; text-align:center;}
+
+div.admFehl{ /* roter Rahmen um fehlerhafte Eingabefelder */
+ border-color:#BB0066;
+ border-style:solid; border-width:1px;
+}
+
+/* Toolbar für BB-Formatcode */
+
+table.admTool{
+ font-size:1.0em; font-weight:normal;
+ border-style:none; border-width:0;
+ margin-bottom:2px;
+}
+
+img.admTool{ /* Symbole der Formatierungsschater */
+ width:20px; height:20px; margin-right:3px;
+ border-style:none; border-width:0;
+ /* background-image:url(grafik/tool.gif); Das Hintergrundbild wird später vom PHP-Script eingesetzt wegen der Veränderlichkeit des Pfades bei includierten Aufrufen. */
+ background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+
+select.admTool{ /* Auswahl für Farbe und Größe */
+ width:55px; font-family:Verdana,Arial,Helvetica; font-size:11px; font-weight:bold;
+ color:#000011; background-color:#FFFFFF;
+}
+
+/* Ende */

@@ -1,0 +1,27 @@
+#
+RewriteEngine On
+#
+# aus  Produktname-Aktion-SegNr-[SeiteNr]-ProdNr.html?weitereParameter=x
+# wird marktplatz.php?mp_Aktion=Aktion&mp_Segment=SegNr&mp_Seite=SeiteNr&mp_Nummer=ProdNr&Parameter=x
+RewriteRule .*-([a-z]+)-([0-9]{1,2})-([0-9]*)-([0-9]+)\.html(.*)?$ marktplatz.php?mp_Aktion=$1&mp_Segment=$2&mp_Seite=$3&mp_Nummer=$4$5 [QSA,L]
+#
+# aus  Segmentname-Aktion-SegNr-SeiteNr.html?weitereParameter=x
+# wird marktplatz.php?mp_Aktion=Aktion&mp_Segment=SegNr&mp_Seite=SeiteNr&Parameter=x
+RewriteRule .*-([a-z]+)-([0-9]{1,2})-([0-9]+)\.html(.*)?$ marktplatz.php?mp_Aktion=$1&mp_Segment=$2&mp_Seite=$3$4 [QSA,L]
+#
+# aus  Segmentname-Aktion-SegNr.html?weitereParameter=x
+# wird marktplatz.php?mp_Aktion=Aktion&mp_Segment=SegNr&Parameter=x
+RewriteRule .*-([a-z]+)-([0-9]{1,2})\.html(.*)?$ marktplatz.php?mp_Aktion=$1&mp_Segment=$2$3 [QSA,L]
+#
+# aus  Aktion-SeiteNr.html?weitereParameter=x
+# wird marktplatz.php?mp_Aktion=Aktion&mp_Seite=SeiteNr&Parameter=x
+RewriteRule ([a-z]+)-([0-9]+)\.html(.*)?$ marktplatz.php?mp_Aktion=$1&mp_Seite=$2$3 [QSA,L]
+#
+# aus  marktplatz.html(?Parameter=x)
+# wird marktplatz.php(?Parameter=x)
+RewriteRule marktplatz.html(.*)?$ marktplatz.php$1 [QSA,L]
+#
+# aus  aktion.html(?Parameter=x)
+# wird marktplatz.php?mp_Aktion=Aktion(&Parameter=x)
+RewriteRule ([0-9a-z_]+)\.html(.*)?$ marktplatz.php?mp_Aktion=$1$2 [QSA,L]
+#

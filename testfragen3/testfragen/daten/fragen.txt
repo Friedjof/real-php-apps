@@ -1,0 +1,3 @@
+Nummer;aktiv;versteckt;Kategorie;Frage;Loesung;Punkte;Bild;Antwort1;Antwort2;Antwort3;Antwort4;Antwort5;Antwort6;Antwort7;Antwort8;Antwort9;Anmerkung
+1;1;0;Verkehrszeichen;Sie fahren auﬂerorts an diesem Verkehrszeichen vorbei. In welcher Entfernung ist die Gefahrenstelle zu erwarten?;2;1;achtungszeichen.gif;zwischen 50 m und 100 m;zwischen 150 m bis 250 m;zwischen 250 m und 350 m;nach etwa 500 m;;;;;;
+2;1;0;Verkehrszeichen;Sie n‰hern sich folgender Verhehrszeichen-Kombination. Was ist hier zu beachten?;1,2;2;kreisverkehr.gif;die im Kreis befindlichen Fahrzeuge haben Vorfahrt;das Verlassen des Kreises muss durch Blinken angezeigt werden;beim Einfahren in den Kreis muss geblinkt werden;vor Einfahrt in den Kreis muss angehalten werden;;;;;;

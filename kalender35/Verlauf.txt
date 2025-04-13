@@ -1,0 +1,1148 @@
+Kalender-Script 3.5
+===================
+
+04.06.23 Korrektur
+MySQL-Fehlermeldungen unter PHP 8.2 werden abgefangen 
+und wieder auf dem Bildschirm angezeigt.
+Die Sonderzeichen-Umcodierung unter PHP 8.2 wurde nochmals nachgebessert.
+
+30.04.23 Korrektur/Ergänzung
+Ein Fehler aus dem Update vom 02.04.23 führte zu doppelten Konstanten 
+in der kalWerte.php.
+Warnungen beim Monatsdruck und Wochendruck wurde beseitigt.
+Beim online/offline-Schalten unter dem Änderungsformular kann der dritte
+Schalter zum löschen deaktiviert werden.
+
+02.04.23 Korrektur
+Unter PHP 8.2 werden beim Ändern und Kopieren von Terminen unter UTF-8 
+weitere Sonderzeichen akzeptiert.
+Der Terminexport zu Google wurde von SSL-Problemen befreit.
+
+25.03.23 Korrektur
+Unter PHP 8.2 wurden selten erscheinende Warnungen beim Kopieren und Ändern
+von Terminen beseitigt.
+Unter PHP 8.x wird bei fehlenden HTML-Schablonen wieder die entsprechende 
+Fehlermeldung ausgegeben.
+
+11.02.23 Korrektur
+Unter PHP 8.2 wurden die dort auftretenden Warnungen vom Typ "Deprecated" 
+beseitigt. Es wurden insgesamt 43 Script-Dateien geändert.
+
+05.02.23 Korrektur
+Eine Warnmeldung unter PHP 8.1 bei der Eingabe von Serienterminen wurde 
+beseitigt.
+
+16.11.22 Korrektur
+Die Kartendarstellung mit OpenStreetMap wurde noch einmal modernisiert.
+Das Wochenkalenderblatt kann nun auch gedruckt werden.
+
+25.10.22 Überarbeitung
+Der erzeugte HTML-Code im gesamten Besucherbereich ist nun weitgehend valide.
+Es wurden alternative CSS-Stylings als Musterdatei bereitgestellt.
+
+02.10.22 Ergänzung
+Bei Karten von OpenStreetMap kann jetzt auch auf eine Satelliten-Ansicht
+umgeschaltet werden.
+
+04.06.22 Korrektur
+Beim Senden von HTML-formatierten E-Mails wurde in seltenen Fällen ein Punkt 
+verschluckt. Das ist bereinigt.
+
+10.04.22 Aktualisierung
+Die Freischaltung (zugleich Update) wurde auf die Demo-Version vom 09.04.22 
+abgestimmt.
+
+09.04.22 Aktualisierung
+Die Demoversion wurde auf den aktuellen Stand gebracht.
+
+20.11.21 Ergänzung
+Der physische Verzeichnispfad zum Programm kann nun auch eine Servervariable wie 
+beispielsweise "DOCUMENT_ROOT" enthalten.
+
+10.10.21 Korrektur
+Irgendwann ist die Schriftgrößenänderung in BB-Code-formatierten Texten 
+durcheinandergekommen. Das wurde korrigiert.
+
+30.08.21 Korrektur
+Die Codierung des Fragezeichen innerhalb externer Links wurde berichtigt
+
+08.08.21 Ergänzungen
+Ein Wochenkalenderblatt wurde ergänzt. Dieses ist eine reduzierte Variante vom 
+Monatsblatt und in vielen Einstellungen identisch zu diesem.
+Beim Zusageneintrag für Gäste (ohne Login) können wahlweise durch Prüfen der 
+E-Mail-Adresse doppelte Zusagen zu einem Termin ausgeschlossen werden.
+
+23.05.21 Korrektur
+SSL-Verlinkungen aus dem Kalender-Script heraus und in der Administration 
+wurden korrigiert.
+
+25.04.21 Ergänzung
+Ein Zusatzscript "freigeben.php" zur bequemeren Freischaltung von Terminen 
+per E-Mail-Link wurde ergänzt.
+
+05.04.21 Korrektur
+Darstellungsprobleme infolge fehlerhaft eingegebenem BB-Code wurden bereinigt. 
+Die Mail-Sende-Datei wurde für das Versenden mit TLS-Verschlüsselung auch ohne 
+Authentifizierung nachgebessert.
+
+21.03.21 Korrektur
+Beim nachträglichen Einfügen neuer Felder in die Terminstruktur wird die 
+Feldlängenbegrenzung nicht mehr auf 1 voreingestellt.
+Felder vom Typ "Termin verstecken" können vorbelegt werden.
+
+23.01.21 Korrektur
+Wegen PHP-8 wurden etliche Programmdateien angepasst
+
+06.10.20 Korrektur
+Der E-Mail-Versand per SMTP wurde nochmals an neue Bedingungen angepasst.
+
+27.09.20 Aktualisierung
+Beim Bild-Upload drehen moderen Browser querliegende Fotos nun automatisch 
+in die richtige Orientierung. In diesem Fall dreht das Kalender-Script 
+nun nicht noch ein zweites mal.
+
+02.08.20 Korrektur
+Mit dem Update vom 26.04.20 hatte sich ein Fehler eingeschlichen, der bei 
+wenigen Webmastern die eventuell vorhandenen "global"-Variablen am Beginn 
+der "kalWerte.php" zerschrieb.
+
+05.07.20 Korrektur
+Der Mailversand wurde korrigiert, damit der auf wenigen Mailservern 
+auftretende "bare LF"-Fehler gemäß http://pobox.com/~djb/docs/smtplf.html 
+nicht mehr vorkommt.
+
+28.06.20 Korrektur
+Die MySQL-Befehle wurden wegen MySQL 8 überarbeitet.
+
+26.04.20 Ergänzung
+Der Export der Benutzerdaten ist möglich.
+Für die Formulare der Termineingabe können die akzeptierten Textlängen 
+pro Eingabefeld variabel begrenzt werden.
+
+15.03.20 Korrektur
+Die Warnmeldungen unter PHP 7.4 "Array and string offset access syntax with 
+curly braces is deprecated" wurden wegprogrammiert.
+
+01.09.19 Korrektur
+Das dunkle Styling enthielt noch einige unschöne Stellen und wurde 
+nachgebessert.
+
+24.08.19 Korrektur
+Für formatierte E-Mails ist jetzt eine gesonderte Hintergrund- und Textfarbe
+einstellbar.
+
+13.08.19 Ergänzung
+Für Felder vom Typ Text, Memo und Ja/Nein können jetzt unter dem Menüpunkt
+Terminstruktur auch wahlweise Vorgabewerte gesetzt werden, die bei der 
+Neueingabe von Terminen automatisch das jeweilige Eingabefeld vorbelegen.
+
+12.08.19 Ergänzung
+Im Eingabeformular für Termine wurde bei der monatlichen Periodik ergänzt.
+
+27.07.19 Verbesserung
+Das Kalender-Script arbeitet unter MySQL nun auch SQL-STRICT-Modus. 
+
+15.06.19 Korrektur
+Unter MySQL-Datenbank ist es jetzt möglich, das MySQL-Passwort zu ändern.
+
+31.12.18 Korrektur
+Beim Update von früheren Versionen auf Version 3.5 werden die alten Farbwerte 
+zuverlässiger in die neue Style-Datei "kalStyles.css" übernommen.
+
+22.12.18 Ergänzung
+Beim Inserateeingeben, Ändern und Kopieren werden Bilder bereits VOR dem Upload
+auf den Server per Java-Script im Browser verkleinert.
+
+18.11.2018: Korrektur
+Beim Versand von E-Mails aus der Administration und an einigen anderen Stellen
+wurde noch auf die alte Style-Datei "kalStyle.css" statt der neuen Datei
+"kalStyles.css" verwendet.
+
+14.11.2018: Korrektur
+Die Selbstfreischaltung aus der E-Mail nach Erinnerungsanforderung und 
+Benachrichtigungsanforderung funktioniert wieder
+
+14.11.2018: Korrektur
+Der Pfad zur Hilfedatei "LiesMich.htm" kann im Menüpunkt "Admin-Einstellungen"
+wieder korrekt auf https://www.server-scripts.de/kalender/ gesetzt werden.
+
+14.11.2018: Ergänzung
+Neben Google-Maps kann jetzt die Kartendarstellung auch mit OpenStreetMap
+erfolgen. Das Programm kann einfach auf diesen Kartenanbieter umgeschaltet 
+werden. Alle früher unter Google-Maps eingetragenen Koordinaten werden unter
+OpenStreetMap weiterhin dargestellt.
+
+04.08.2018: Ergänzung
+Für schmale Displays und breite Displays können getrennte Basisschriftgrößen
+eingestellt werden.
+
+23.07.2018: Korrektur
+- Datenschutzerklärung beim Eingabeformular ergänzt
+- Umschaltschwelle für aktuelleTermine, laufendeTermine, neue Termine korrigiert
+
+20.07.2018: Erstveröffentlichung der responsiven Version
+
+#---------------------------------------------------------------------------
+
+15.07.2018 Ergänzung
+Der Link-Präfix tel: wird in Datenfeldern vom Typ Link sowie in Memofeldern 
+unterstützt.
+
+12.05.18 Fehlerkorrektur
+Die Neuerung vom 01.05.18 bezüglich der Eingabezeile zum Datenschutz 
+unter den Formularen "Infofunktion", "Kontaktformular", "Erinnerungsfunktion"
+und "Benachrichtigungsfunktion" funktionierte nur, wenn BEIDE Pflichtzeile 
+eingeblendet waren.
+
+01.05.18 Aktualisierung
+- Unter allen Formularen zur Dateneingabe können jetzt ein oder zwei Zeilen 
+  mit Kontrollkästchen als Pflichtfeld bezüglich Datenschutzerklärung eingeblendet
+  werden.
+- Das Infoformular ("tell-a-friend") verträgt jetzt mehrere Empfänger in der 
+  Empfängerzeile
+
+21.01.18 Bereinigung
+Das Update vom 13.01.18 enhielt die falsche Versionsdatei mit dem Datum 2017-01-13
+
+13.01.18 Aktualisierung
+Das Programm wurde für PHP 7.2 angepasst, indem create_function() bei Mailversand 
+ersetzt wurde
+
+25.12.17 Aktualisierung
+Das Programm wurde für PHP 7.2 angepasst, indem die Funktion each() ersetzt wurde
+In der Administration wird der aktive Menüpunkt farbig hervorgehoben
+
+05.06.17 Korrektur:
+die Termin-Sortierung im Monatsdatenblatt unter MySQL wurde abermals korrigiert
+
+29.04.17 Erweiterung:
+Bei der Zählung der Zusagen kann festgelegt werden, ob alle getätigten Zusange 
+gezählt werden oder nur dir gültigen Zusagen.
+
+04.04.17 Ergänzung:
+In den E-Mails zu getätigten oder geänderten Zusagen wird der Zusagenstatus
+deutlicher hervorgehoben
+
+26.03.17 Korrektur:
+Der RSS-Feed behandelt Umlaute in den Kopfangaben wie <title> und <description> 
+jetzt auch unter UTF-8-Zeichensatz korrekt
+
+31.10.16 Korrektur:
+- unter MySQL-Datenbank muss beim Ändern der eigenen Benutzerdaten im Benutzer-
+  zentrum das Passwort nicht ständig neu eingegeben werden.
+- im Monatsdatenblatt können jetzt auch Terminkategorien mit Farben hervor-
+  gehoben werden
+
+26.07.16 Erweiterung:
+- Google-Maps erfordern neuerdings wieder einen Freischalt-Schlüssel von Google.
+  Die Konfiguration für die Google-Karten wurde entsprechend angepasst.
+- beim Zusagensystem wurde eine optionale Statusanzeige mit Farbkennzeichnung
+  grün-gelb-rot für den Auslastungszustand bei freien Plätzen eingeführt,
+  jeweils in der Terminliste, in der Detailanzeige und/oder im Monatskalender
+- bei Angaben zur Platzkapazität wird jetzt sauber unterschieden zwischen
+  einem leerem Eintrag für "unbegrenzt" und 0 als "keine Reservierung möglich"
+- beim Versand von E-Mails zu Zusagen wird die Währungseinheit bei Preisfeldern 
+  mit gesendet
+- Setup und Update wurde auf zwei getrennte Seiten aufgeteilt
+
+03.07.16 Korrektur:
+- die Termin-Sortierung im Monatsdatenblatt unter MySQL wurde korrigiert
+- Zusagenänderungen durch den Administrator unter MySQL speichern auch eine 
+  geänderte Termin-Nummer und Uhrzeit
+- Sitzungs-Probleme in Popup-Fenstern im Administrationsbereich wurden beseitigt
+
+27.03.16 Korrektur:
+- alle HTML-Schablonen wurden auf HTML 5 umgestellt
+- Umlautprobleme beim Zusageneintrag unter UTF-8 wurden beseitigt
+- Umlautprobleme beim Datums-Picker unter UTF-8 wurden beseitigt
+- Für die Administration kann notfalls ein eigenständiger MySQL-Zeichensatz 
+  gesetzt werden
+
+07.02.16 Korrektur:
+unter PHP 7 erzeugt das Captcha keine Warnmeldung mehr
+
+24.01.16 Korrektur:
+die Prüfung eingegebener E-Mail-Adressen wurde im TLD-Teil angepasst
+
+05.07.2015 Korrektur
+die Verlinkung auf die Termindetails aus dem Monatsdatenblatt heraus wurde 
+überarbeitet
+Auch in der Administrator-Terminliste gibt es jetzt eine Zusagensummenspalte
+
+11.05.15 Korrektur
+Unter diversen weiteren CMS funktioniert das Kalender-Script jetzt auch bei 
+eingeschaltetem Modus "Suchmaschinen-freundliche URL" mit Adressumschreibung
+via mod_rewrite und .htaccess-Datei.
+
+01.05.15 Korrektur
+Unter Joomla-3 funktioniert nun auch bei eingebettetem Kalender-Script die 
+Einstellung "Suchmaschinen-freundliche URL".
+
+05.04.15 Korrektur
+Beim textlichen Captcha werden auch längere Fragen nicht mehr abgeschnitten.
+Umlautprobleme in HTML-formatierten E-Mails unter UTF-8 wurden beseitigt.
+
+02.02.15 Korrektur
+In der Login-Maske kann das Kästchen "Benutzerzentrum aufrufen" wieder 
+vorselektiert sein
+
+19.01.15 Korrektur
+Der E-Mail-Versand läuft jetzt auch wieder unter PHP 5.2 und älter
+
+25.12.14 Ergänzung/Korrektur
+- Korrektur an der Seitencodierung wegen UTF-8 in PHP-Version 5.6
+- Korrektur des E-Mail-Versands für PHP-Versionen 5.5 und höher
+- barrierefreies Captcha als Alternative zum grafischen Captcha hinzugefügt
+
+25.10.14 Ergänzung/Korrektur
+- Zusagenverwaltung über das Benutzerzentrum kann ausgeschaltet werden
+- Ändern von Zusagen im Benutzerzentrum kann deaktiviert werden
+- iCal-Export der Terminliste funktioniert auch dann, wenn das Datum nicht 
+  das erste Listenfeld ist
+
+12.10.14 Weiterentwicklung
+- Eingabefelder im Zusagenformular haben einen Feldtyp wie Text, Auswahl, Zahl, 
+  Währung oder Ja/Nein mit spezieller Funktionalität
+- Währungsfelder im Zusagenformular können automatisch den Gesamtpreis berechnen
+- Drucken einzelner Zusagen für den Administrator ist möglich
+- beim Ändern von Zusagen ist die Zuordnung auf einen anderen Termin möglich
+- Bestätigungs-E-Mails für Zusagen an den Administrator sind HTML-formatiert
+- für Kontakt-E-Mails des Administrators an Zusagende oder an Benutzer werden 
+  alternative E-Mail-Textkonserven bereitgehalten
+- MySQL-Fehler im Admin-Bereich beim Bearbeiten von Benutzerdaten beseitigt
+
+19.09.14 Fehlerkorrektur
+Das Monatsdatenblatt zeigt jetzt auch am jeweils letzten Tag des Monats Termine an
+
+25.08.14 Fehlerkorrektur
+Updateprobleme bei GLOBALS in der Einstelldatei kalWerte.php wurden beseitigt
+
+20.08.14 Weiterentwicklung
+- im Zusagenmodul kann das Feld mit der Platzanzahl nun eine aufklappbare
+  Auswahlbox sein
+- im Zusagenmodul sind jetzt Buchungen mit mehreren Plätzen als gesplittete
+  Buchungen möglich
+
+09.08.14 Anpassung
+- ein Datums- und Zeitpicker für die Eingabeformulare wurde hinzugefügt
+- die Formatierung mittels BB-Code in mehrzeiligen Eingabefeldern wurde erneuert
+
+27.07.14 Weiterentwicklung
+- die neue Ansicht "Monatsblatt" wurde hinzugefügt
+
+19.05.14 Korrekturen und Weiterentwicklung
+- im Zusagenmodul kann bei KAPAZITÄT zusätzlich eine Warngrenze vereinbart werden
+- beim Erreichen der Warngrenze und der vollen Kapazität kann eine Information
+  an den Webmaster und/oder den Terminautor verschickt werden
+- diverse kleine Korrekturen am Zusagenmodul wurden vorgenommen
+
+05.04.14 Weiterentwicklung
+- die Spaltenauswahl und Spaltenreihenfolge in der Zusagenliste
+  für Administratoren/Autoren sind besser einstellbar
+- gleiches für die Druckspalten und Exportspalten der Zusagenliste
+
+26.03.14 Anpassung und Weiterentwicklung
+- die MySQL-Datenbankanbindung wurde wegen PHP 5.5 auf mysqli umgestellt
+- bei seltenen MySQL-Zeichensatzproblemen kann ein Zeichensatz extra angegeben werden
+- Linkfelder können jetzt mehrere Links getrennt durch || enthalten
+- bei Änderung der Benutzerdaten kann eine E-Mail an den Administrator ergehen
+- die Zusagenstatistikspalte in der Terminliste kennt einen neuen
+  Platzhalter #R für Restplätze
+- vor dem Minikalender kann die Wochennummer eingeblendet werden
+
+05.01.14 Weiterentwicklung
+- der Administrator kann die Terminliste, die Zusagenliste
+  und die Benutzerliste gefiltert bzw. sortiert drucken
+- die Zusagenliste kann im CSV-Format exportiert werden
+- Zusagen zu abgelaufenen Terminen können ausgeblendet werden
+- Benutzern kann das Löschen eigener Zusagen
+  in der Liste eigener Zusagen im Nutzerzentrum verwehrt werden
+- statt EINER Admin-Adresse können jetzt separate E-Mail-Adressen
+  für einen Terminverwalter, Zusagenverwalter oder Benutzerverwalter
+  eingetragen werden
+- Korrektur des fehlerhaften Zusageneintrages bei ausgeblendetem Termindatum
+
+16.06.13 Weiterentwicklung
+- Zusagenliste pro Termin ist direkt aus der Terminübersicht des
+  Administrators zu erreichen
+- neue Zusagen lassen sich aus der Terminliste des Administrators und
+  aus der Zusagenliste pro Termin heraus anlegen
+- vorhandene Zusagen lassen sich vom Administrator bearbeiten
+- die Zusagenliste für Administratoren lässt sich mit konfigurierbaren
+  Feldern drucken
+- auch unangemeldete Gäste können eigene frühere Zusagen löschen
+- das Zusatzscript "neueTermine.php" zeigt die zuletzt eingetragenen Termine
+
+10.03.13 Fehlerkorrektur
+Eine Warnmeldung beim Löschen von Zusagen aus der Zusagenliste wurde
+beseitigt.
+
+23.02.13 Nachbesserung:
+- Erinnerungen können auch in Abhängigkeit vom Anmeldeschluss-Datum
+  versandt werden
+- die Formatierung [url] im Text verträgt ein vorangestelltes http://
+
+03.02.13: Sicherheitsupdate und Verbesserung:
+- ein Sicherheitsproblem bei Nutzung der MySQL-Datenbank wurde bereinigt.
+  Bisher bestand die Möglichkeit mit einem Angriff blind vermutete Daten
+  aus den MySQL-Tabellen des Kalenders zu ermitteln.
+- der Minikalender kann jetzt direkt zu den Termindetails springen und
+  zeigt nicht immer erst eine Terminliste zum betreffenden Datum an
+- kleine Warnmeldungen im Zusatzmodul "Zusagensystem" unter MySQL wurden
+  beseitigt
+
+19.01.13: kleine Korrektur:
+Seit dem Update vom 28.12.12 gab es in der Administration unbedeutende
+Warnmeldungen beim Löschen von Zusagen.
+
+13.01.13: Nachbesserung:
+Für PHP 5.4 musste die Umcodiernung der Sonderzeichen nachgebessert werden, was
+aber nur bei eingestelltem Zeichensatz "HTML-&-maskiert" gestört hätte.
+
+28.12.12: Weiterentwicklung:
+- für den iCal-Terminexport der Terminliste gibt es jetzt in der Navigationszeile
+  entsprechende Links
+- 1-Klick-Zusagen prüfen nun wahlweise auch die Platzkapazität der Veranstaltung
+- beim Löschen bzw. Ändern von Terminen E-Mail-Versand auch an alle Zusager
+- in den E-Mails für die Zusagen läßt sich ein eigener Detaillink einstellen
+- eine Zusatzspalte in der Terminliste mit Zusagenanzahl und Veranstaltungs-
+  kapazität ist möglich
+- die Dateiendungen für das Hochladen von Dateianhängen sind einstellbar
+- die Zusatzprogramme aktuelleTermine und laufendeTermine habe eine optionale
+  Notbetriebsart, in der beim Fehlen entsprechender Termine unaktuelle Ersatz-
+  termine angezeigt werden
+
+09.12.12: Nachbesserung:
+Die Zeitoneneinstellung 'timezone' wurde wegen PHP 5.4 nochmals geändert.
+
+21.11.12 Weiterentwicklung:
+Für Besucher wurde eine Exportmöglichkeit für Termine im iCal-Format eingerichtet.
+Die Warnmeldungen (Notizen) des PHP-Systems können abgeschaltet werden.
+
+10.10.12 kleine Korrektur: Eine Warnmeldung beim Termiändern wurde beseitigt
+
+30.09.12 Version 3.4 freigegeben:
+Im Zusatzmodul "Terminzusage/Reservierung/Bestellung"
+kann die Anmeldefrist nun terminabhängig variabel sein.
+
+15.09.12 Verbesserung: Bei Google-Maps wurde auf die aktuelle Version 3
+umgestellt
+
+12.09.12 Verbesserung: Das Zusatzmodul "Terminzusage/Reservierung/Bestellung"
+wurde in einigen Eigenschaften verbessert.
+
+01.09.12 Erweiterung: Das Zusatzmodul "Terminzusage/Reservierung/Bestellung"
+ist verfügbar. Dazu wurde die Versionsnummer des Kalender-Scrips auf
+die Vorabversion 3.4 erhöht.
+
+15.08.12 Korrektur: In der Betriebsart "Änderungsvorschlag mit Sichtbarlassen
+des Originals" unter Textdatenbank können jetzt auch neue Termine wieder
+freigeschaltet werden.
+
+01.07.12 Ergänzung: Das Kontrollkästchen "Benutzerzentrum aufrufen" im
+Loginformular kann standardmäßig vorselektiert sein.
+
+28.04.12 Weiterentwicklung: Die Platzhalter {TITLE}, {META-KEY} und {META-DES}
+in der Master-HTML-Schablone kalSeite.htm werden situationsabhängig mit
+entsprechenden Inhalten aus dem Kalender ersetzt.
+
+21.04.12 Bereinigung: eine Standardzeitzone für PHP-5 wird bei Bedarf gesetzt
+
+07.04.12 Verbesserung:
+- beim Ändern/Löschen von Terminen werden auch die Erinnerungsliste und
+  Benachrichtigungsliste korrigiert
+- Memofeldinhalte in der Terminliste des Administrators können bei einer
+  einzustellenden Zeichenanzahl abgeschnitten werden
+
+18.03.12 Weiterentwicklung
+- ein Benutzerzentrum wurde geschaffen
+- das Öffenen sämtlicher Popup-Fenster wurde für Firefox-Browser überarbeitet
+- Benutzernamen länger als 15 Zeichen werden akzteptiert
+
+21.01.12 Verbesserung:
+- in der Eingabeformularen kann die Zeile online/offline ausgeblendet werden
+
+16.01.12 Korrektur:
+- in der Terminliste des Administrators lassen sich Termine direkt
+  online/offline schalten - jetzt auch unter MySQL-Datenbank  ;-)
+
+14.01.12 Weiterentwicklung/Korrektur:
+- in der Terminliste des Administrators lassen sich Termine direkt
+  online/offline schalten
+- veränderte Schnellsuche vom 28.12.11 bei Textdatenbank korrigiert
+- eingegebene E-Mail-Adressen dürfen auch mit einer Ziffer beginnen
+- Klickschalter zum Blättern in der Detailansicht wurden anders bezeichnet
+- der RSS-Feed kann bei <pubDate> auch das Termindatum enthalten
+
+28.12.11 Weiterentwicklung:
+- der Modus für Terminänderungen ist nun unabhängig vom Modus für
+  Termineintragungen zwischen Direktänderung und Änderung mit Freischaltung
+  durch den Webmaster einstellbar
+- es gibt einen zusätzlichen Änderungsmodus, bei dem der geänderte Termin für
+  den Webmaster vorgemerkt auf Freischaltung wartet während das Original
+  vorerst unverändert sichtbar bleibt
+- das Senden eines vergessenen Passwortes im Login-Formular kann ausgeblendet
+  werden
+- CSS-Formatierung im Login-Formular bereinigt
+- Schnellsuche behandelt versteckte Termin jetzt korrekt
+- Schnellsuche nach Datum durchsucht auch Textfelder, Auswahl- und Memofelder
+- RSS-Feed kann bei <pubDate> alternativ auch das Termindatum verwenden
+
+14.12.11 Fehlerkorrektur bei Zeilenschaltungen \n  in einzeiligen Textfeldern
+
+20.11.11 Bereinigung der Schreibweise "E-Mail"
+
+17.11.11 Fehlerbereinigung
+neue Benutzerfelder können jetzt auch unter MySQL-Datenbank angelegt werden
+
+19.09.11
+- Warn-Notizen unter Textdatenbank in der Terminliste beim Freischalten
+  von Terminen beseitigt
+- Warnungen beim Befehl number_format() in PHP-Version 5.3 beseitigt
+- kleine Fehlerkorrektur beim Java-Script des Google-Map-Popupfensteraufrufes
+
+31.07.11 Falschdarstellung beim Drucken von e-Mail-Adressen bei Textdatenbank
+beseitigt
+
+28.07.11 kritischer Fehler der Version seit 3.3 beim Anlegen von Kategorien und
+Symbolen zur Terminstruktur beseitigt
+
+17.07.11 Warnmeldungen beim Eingeben, Ändern, Freischalten von Terminen
+beseitigt
+
+09.07.11 kleine Nachbesserung am Layout im Admin-Bereich
+
+01.07.11 Version 3.3
+- der Administrator-Bereich wurde komplett neu gegliedert
+- ein wahlweiser scriptseitiger Passwortschutz zur Administration wurde
+  realisiert
+- angemeldete Benutzer können eigene Termine offline/online schalten
+- Benutzer können auch vorgemerkte noch unveröffentlichte Termine ändern
+- Administrator/Autoren können Termine offline/online schalten
+- Memofeldinhalte, die in der Terminliste oder in der Druckliste angezeigt
+  werden, können bei einer einzustellenden Zeichenanzahl abgeschnitten werden
+- beim Intervallfilter nach Tagen kann exakte oder großzügige Suche (1 Tag
+  mehr) eingestellt werden
+- e-Mails können vom System statt wie bisher ausschließlich per PHP-mail()
+  alternativ auch über SMTP-Server versandt werden
+- Änderungen an den Benutzerdaten eines Benutzers ändern nicht mehr den
+  Sessionswert
+- der Cron-Job kann nach stattgefundenen Aktionen einen Report per e-Mail
+  versenden
+- Google-Maps bieten jetzt wahlweise auch die Satelliten-Ansicht
+
+14.05.11 Korrektur/Verbesserung
+- Die Terminliste in der Administration kann nach einem anderen Feld
+  als dem Datum sortiert werden.
+- Für das Terminarchiv im Besucherbereich und Administrationsbereich kann
+  eine eigene Sortierfolge vorwärts/rückwärts eingestellt werden.
+- In einzeiligen Textfeldern können Zeilenumbrüche durch \n (mit Leerzeichen
+  danach) erzwungen werden.
+- Beim Drucken werden Schriftgrößen korrekter formatiert.
+
+06.05.11 Korrektur
+Das Ändern-Script im Admin-Bereich gab seit dem 30.04.11 Echos des
+Datensatzes aus.
+
+01.05.11 Weiterentwicklung
+Bei einer Benutzerselbstfreischaltung über den Link in der zugesandten
+e-Mail kann zwischen direkter Freischaltung oder Freigabe durch den
+Webmaster unterschieden werden.
+
+30.04.11: Korrektur
+- verbesserte Ausgabe des EUR-Zeichens und typografischer Anführungszeichen
+- Captcha ohne Buchstaben "O"
+
+24.04.11: Weiterentwicklung
+Im Minikalender wir jeder Monat mit einem Container der Klasse
+div.kalMini umhüllt um die Abstände freier gestalten zu können.
+
+23.04.11: Weiterentwicklung
+- Terminliste, Druckliste, aktuelle Termine und laufende Termine können
+  als Standardsortierung auch nach einem anderen Feld als dem Datum
+  sortiert sein
+- beim Zusatzscript aktuelle Termine wurde die Limitierung auf 10 Termine
+  aufgehoben
+- in den Eingabeformularen können zusätzliche Leerzeilen zur besseren
+  Strukturierung eingefügt werden
+- in der Meldung über der Terminliste kann die Anzahl der Termine mit
+  ausgegeben werden
+
+17.04.11: Weiterentwicklung
+- Beim Benutzerlogin geht es direkt zur Terminliste
+  und die Benutzerdaten werden nicht mehr zwangsweise angezeigt
+- Sitzungsdauer ist variable einstellbar
+- die Schnellsuche kann wahlweise auch einschließlich des Terminarchivs
+  erfolgen
+- Termine mit Anfang in der Vergangenheit und Ende in der Zukunft werden
+  im Archiv nicht mehr aufgelistet
+- die Archivliste wird bei Sortierung nach dem Datum immer genau umgekehrt
+  sortiert zur Terminliste angezeigt
+- Termine die besonders wichtig sind können in der Terminliste permanent
+  erscheinen, auch wenn Sie ausserhalb des Intervallfilters liegen
+  Dazu muss beim Termin lediglich ein Feld mit dem Namen "Wichtig"
+  vom Typ "Ja/Nein" auf "Ja" gesetzt sein.
+- das Zusatzscript aktuelleTermine.php kann bei Angabe des GET-Parameters
+  kal_Index nach anderen Feldern als nur dem Datum sortieren
+17.04.11: Fehlerkorrektur:
+in den Zusatzscripten aktuelleTermine.php und laufendeTermine.php werden
+Symbolfelder jetzt korrekt dargestellt.
+
+12.03.11: Sicherheitsupdate
+Das Script wurde noch sicherer gegen Angriffe gemacht.
+
+05.03.11: Änderung
+Auch das Formular "Termin ändern" kann bei Bedarf mit einem Captcha
+abgesichert werden
+
+26.02.11: Weiterentwicklung
+- Beim Kopieren von Termine können Felder ausgewählt werden, deren Inhalte
+  aus dem alten Termin in das Eintragsformular übernommen werden
+- Beim Kopieren kann die Einschränkung "nur eigene Termine kopieren"
+  aktiviert werden
+
+23.02.11: Weiterentwicklung
+- Drucken mit eigenem Layout aus den Schablonen kalDruckListenZeile.htm
+  und kalDruckDetail.htm möglich
+- Infoformular mit vorausgefülltem Absender, falls ein Benutzer angemeldet ist
+
+23.02.11: Bereinigung
+- Monats-, Wochen- oder Tagestrennzeilen in der Terminliste funktionieren
+  jetzt auch falls mehrere Datumsfelder in der Terminliste sind
+- Monats-, Wochen- oder Tagestrennzeilen jetzt auch bei eigenem Listenlayout
+
+16.02.11: Bereinigung
+In der Benutzerliste der Administration klappt das Anlegen neuer Benutzer
+jetzt bei allen MySQL-Varianten.
+E-Mail-Adressen mit nur einem Buchstaben vor einem Punkt im Privatteil werden
+akzeptiert.
+
+05.02.11: Bereinigung
+In der Benutzerübersicht der Administration wurde ein Anzeigefehler bei
+e-Mail-Adressen beseitigt, der nur dann auftritt, wenn das e-Mail Feld das
+letzte Feld der Benutzerdatenliste ist ist.
+
+Bei der Anzeige von BB-Code in Memofeldern wird der Tag [size] jetzt in
+Prozentwerten interpretiert um die Schriftgrößenänderung besser abzustufen.
+
+21.01.11: Bereinigung
+Die <link>-Elemente im RSS-Feed werden XML-gerechter ausgegeben
+
+08.01.11: Fehlerkorrektur
+Bildfelder können im Zusatzprogramm aktuelleTermine und laufendeTermine
+wieder Detaillinks sein
+
+01.01.11: Weiterentwicklung
+- tägliche oder wöchentliche Trennzeilen in der Terminliste möglich
+- es sind unterschiedliche Intervallfilter für Gäste und Benutzer möglich
+- für Termininfos, Erinnerung und Benachrichtigung sind die Inhaltsfelder
+  wie für Gäste/Benutzer einstellbar
+- Linkfelder können nun das Format Linkziel oder Linkziel|Linktext
+  oder Linkziel|Linktext|Target haben
+- Protokollangabe wie https:// oder ftp:// in Linkfeldern möglich
+- Bildfelder in der Terminliste sind nicht mehr zwangsläufig Detaillinks
+
+19.12.10: Fehlerkorrektur
+PHP ab 5.3 mag den Befehl ereg() nicht mehr und gibt Warnungen aus.
+Der Befehl wurde ersetzt.
+
+30.10.10:
+Bereinigung: mehrere winzige Fehler (falsche Sortierung bei Preisen,
+unsinnige Fehlermeldung bei der Benutzerselbstfreischaltung, usw.)
+wurden beseitigt.
+
+25.04.10:
+Bereinigung: Der HTML-Code wurde "valider" gemacht und bezüglich
+der XML-Kompatibilität verbessert.
+
+21.04.10:
+Bereinigung: Im Script zur Benachrichtigung wurde die Textvariable
+für abgelaufene Termine korrigiert. Im mehrspaltigen Suchformular
+wurde bei einspaltigen Ja/Nein-Feldern nachgebessert.
+
+14.02.10:
+Bereinigung: Beim Ändern von Termine im Direkteintrags-Modus wird
+der Termin bei Datumsänderungen jetzt umsortiert
+Bereinigung: Bildnamen länger als 25 Zeichen werden bei MySQL-
+Datenbank nicht mehr abgeschnitten
+Bereinigung: weitere HTML-problematische Sonderzeichen &%+=
+im Dateinamen von Bilddateien und Anhängen werden umcodiert
+
+18.02.10:
+Bereinigung: Bei Änderungen der MySQL-Zugangsdaten werden die
+in der Benutzertabelle eingetragenen Benutzer nicht länger gelöscht.
+Bereinigung: Beim Terminimport unter MySQL wird ein abschließendes
+Semikolon in der CSV-Importdatei korrekter behandelt.
+Bereinigung: In der Terminliste wurde ein Schreibfehler beim Link
+"Nachrricht" beseitigt.
+
+28.12.09:
+Bereinigung: Für die glattere Einbindung des Scripts in diverse
+CMS wurden mehr Parameter für die Einstellung von alternativen
+Zeichensätzen in unterschiedlichen Zuständen geschaffen.
+Bereinigung: Eine neue CSS-Klasse "div.kalNorm" bietet die
+Möglichkeit normale Textausgaben zu erzwingen, falls durch ein
+CMS die Eigenschaften allgemeiner Abschnitte "div" verbogen
+wurden.
+
+20.12.09:
+Weiterentwicklung: Besucher (Benutzer als auch Gäste) können jetzt
+je nach Einstellung über die Administration auch Termin kopieren.
+
+18.12.09:
+Fehlerkorrektur: In der Administration werden bei der Einstellung
+des Zielfensters (Target) beim MiniKalender, aktuelle Termine und
+laufende Termine auch selbst definierte Zeile jetzt korrekt an-
+gezeigt.
+
+10.12.09: Version 3.2
+Ein zusätzlicher Erinnerungsservice und Benachrichtigungsservice
+wurde geschaffen. Besucher können sich bis zu 20 Tage vor einem
+Termin an ein Ereignis erinnern lassen. Bei Veränderung an einem
+interessierenden Termin kann eine Information erfolgen.
+
+26.11.09:
+Fehlerkorrektur: Angemeldete Benutzer können wieder Termindetail
+fremder Termine drucken.
+
+20.11.09:
+Die Hilfsdateien "class.plainmail.php" und "class.htmlmail.php"
+haben wieder Linux-Zeilenenden.
+
+14.11.09:
+Weiterentwicklung: In der Terminliste im
+Administratorbereich/Autorenbereich können selektierte Termine
+mit einem Schalterklick um genau ein Jahr weiterkopiert werden.
+
+13.11.09:
+Ergänzung: Bei den e-Mail-Formularen im Besucherbereich
+(Info-Funktion und Kontaktformular) kann ein zweites Absender-Feld
+für eine e-Mail-Adresse eingeblendet werden.
+
+11.10.09:
+Ergänzung: Beim Termineintrag wurde eine 14-tägige und eine Jahres-
+periodik ergänzt.
+
+04.10.09:
+Ergänzung: Durch einen neuen Parameter kann sich die Eintragszeit
+bei Terminänderungen ebenfalls aktualisieren
+Fehlerkorrektur: Ein Login-Problem bei fehlenden Pflichtfeldern
+bei den Benutzerdaten wurde bereinigt.
+
+30.08.09:
+Fehlerkorrektur: Ein SQL-Abfragefehler, der nach dem Import von
+Terminen aus der alten Version 2.x aufreten kann wurde beseitigt.
+
+20.08.09:
+Freigabe als hinreichend erprobt unter Versionsnummer 3.1
+
+19.08.09:
+Bereinigung: Das Kalender-Script verzichtet im Besucherbereich
+bei MySQL-Datenbasis konsequent auf den Befehl "mysql_close()", um
+andere durch ein einbettendes CMS geöffnete Datenbankverbindungen
+nicht vorfristig mit zu schließen.
+
+16.08.09:
+Weiterentwicklung: Als e-Mail-Adresse für den Versand der
+Eintragsbestätigung an den eintragenden Besucher wird automatisch
+dessen in den Benutzerdaten hinterlegte Adresse benutzt, sofern er
+als Benutzer angemeldet ist.
+
+Weiterentwicklung: Beim Terminändern können ebenfalls wie beim
+Neueintrag oder der Terminfreischaltung e-Mails an den Terminautor
+bzw. an die Mailingliste versandt werden.
+
+15.08.09:
+Korrektur: In der Druckliste können jetzt je nach Einstellung auch
+Memofelder ausgedruckt werden.
+In der Druckliste werden ebenfalls monatsweise Trennzeilen mit
+gedruckt, sofern Trennzeilen in der Terminliste aktiviert sind.
+
+09.08.09:
+Korrektur: Fehler in der Druckliste mit Memofeldern unter MySQL
+korrigiert.
+
+21.07.09:
+Neue CSS-Klasse "td.kalSFlt", damit das Wort "Suchen" vor dem
+Schnellsuchfilter der Terminliste komplett formatiert werden kann.
+
+10.07.09:
+Weiterentwicklung: Neuer Parameter für den Mailversand, der als
+EnvelopeSender quasi als "sendmail -f sender@domain.de" verwendet
+werden kann, sofern der Provider das verlangt.
+
+03.07.09:
+Vorbeugende Korrekturen gegen einen Fehler, der in ungeklärten ganz
+seltenen Fällen bei Textdatenbasis die Kopfzeile der Termindatei
+beschädigt.
+Veränderungen an der Administratorseite Setup/Update.
+
+27.06.09:
+kleine Korrekturen zu:
+- Zeichencodierung im RSS-Feed jetzt XML-gerechter
+- Bildtitel in den Termindetail
+- CSV-Importfehler bei Benutzernummern mit führenden Nullen beseitigt
+
+05.04.09:
+als Version 3.02 freigegeben
+
+04.04.09:
+Weiterentwicklung: Im Administratorbereich besteht nun auch die
+Möglichkeit Termininformationen aus der Detailanzeige heraus zu
+versenden (sag's-einem-Freund-Funktion)
+
+01.04.09:
+Weiterentwicklung: Das Drucken ist über einen neunen Parameter
+sowohl in der Druckliste als auch bei den Termindetails wahlweise
+mit farbigem Hintergrund möglich.
+Weiterentwicklung: Die Termine im Zusatzscript 'aktuelleTermine.php'
+können jetzt auch rückwärts sortiert angezeigt werden.
+Korrektur: Unrealistische Datumseingaben wie '30.02.09' werden im
+Besucherbereich nicht mehr akzeptiert.
+
+28.03.09:
+Weiterentwicklung: Ein neues Zusatzprogramm "laufendeTermine.php"
+zeigt in einem frei einstellbaren Aussehen nur die momentan
+laufenden Termine an. Diese Zusatzprogramm ist zum Einfügen als
+Inhaltsblock in andere Seiten ausserhalb des Kalenders gedacht.
+
+27.03.09:
+Weiterentwicklung: Ein neue Hervorhebung in der Terminliste für
+gerade laufende Termine mittels der CSS-Klasse "td.kalLfnd" wurde
+implementiert. Ausserdem können bei gleichem Anfangstermin jetzt
+mehrere Termine als aktuelles Ereignis der CSS-Klasse "td.kalAktu"
+hervorgehoben werden.
+
+24.03.09:
+Fehlerkorrektur: Bei MySQL-Datenbasis und unterschiedlichen
+Eingabeformularen für Gäste und registrierte Benutzer erscheint
+kein MySQL-Einfügefehler mehr beim Termineintrag.
+
+22.03.09:
+Weiterentwicklungen:
+- Die Terminliste kann jetzt auch bei individuellem Layout sortiert
+  werden.
+- Bei der Datumsanzeige in der Terminliste und in der Detailanzeige
+  kann der Monatsname ausgeschrieben werden.
+- In der Terminliste kann nach jedem Monatswechsel eine Trennzeile
+  eingefügt werden.
+- Bei angemeldeten Benutzern kann beim Termineintrag die
+  e-Mail-Adresse automatisch in ein e-Mail-Feld des Terminformulars
+  übernommen werden.
+- Beim Versand von e-Mails mit Termindaten kann statt der
+  Benutzernummer nun der Name des Benutzers versandt werden.
+- Der MiniKalender blendet wahlweise die abgelaufenen Termine aus.
+
+22.03.09
+Fehlerkorrektur: Bei MySQL-Datenbasis kann nun das Kontaktformular
+an die in e-Mail-Feldern eingetragene Adresse versandt werden.
+Beim Terminexport mit Text-Datenbasis werden e-Mail-Adressen unlesbar
+verschlüsselt exportiert.
+
+01.03.09
+Weiterentwicklung: In der Administration kann die Terminliste jetzt
+unabhängig von der Terminliste im Besucherbereich vorwärts/rückwärts
+sortiert ausgegeben werden und nur die nicht abgelaufenen Termine
+bzw. alle Termine angezeigt werden.
+Ergänzung: Durch einen neuen Parameter können registrierte Benutzer
+jetzt auch wahlweise fremde Termine ändern/löschen.
+
+26.02.09
+Fehlerkorrektur: Der Minikalender zeigte in der MySQL-Variante seit
+dem 10.01.09 keine aktiven Termine mehr an
+
+20.02.09
+Weiterentwicklung: Bei aktiver Benutzerverwaltung kann der
+Terminautor in den Terminliste mit angezeigt werden.
+
+17.02.09
+Fehlerkorrektur: Bei der Konfiguration des RSS-Feeds 'konfRss.php'
+mit dem Wert "Beitragsanzahl: alle" wird die zentrale Variablendatei
+"kalWerte.php" nicht länger in Zeile 237 zerschrieben.
+
+10.02.09
+Fehlerkorrektur: Bei der Konfiguration der Detailseite wurden für
+den Navigator zum Blättern oberhalb/unterhalb der Detailangaben
+unzutreffende Einstellungen angezeigt.
+
+03.02.09
+Fehlerkorrektur: Ein Konfigurationfehler des RSS-Feeds über die
+Administration konnte die zentrale Variablendatei 'kalWerte.php'
+beschädigen, sodass garnichts mehr ging.
+
+01.02.09
+Weiterentwicklung: RSS-Feed hinzugefügt
+
+26.01.09
+Weiterentwicklung: Bei aktiver Benutzerverwaltung kann der
+Terminautor in den Termindetails mit angezeigt werden.
+
+24.01.09
+Weiterentwicklung: Beim Termineintrag durch Besucher/Benutzer oder
+bei Terminfreischaltung durch den Administrator kann eine e-Mail
+mit dem Termininhalt an eine Mailingliste versandt werden.
+
+23.01.09
+Fehlerkorrektur: Termineintragungen für registrierte Benutzer sind
+jetzt auch bei verborgenem Benutzerfeld möglich.
+Fehlerkorrektur: Bei der Selbstfreischaltung neuer Benutzer durch
+den per e-Mail zugesandten Link wird die Benutzerdatei nicht länger
+beschädigt.
+Fehlerkorrektur: Beim Löschen von Termine durch Besucher/Benutzer
+wird keine Änderungs-e-Mail mehr an den Administrator gesandt.
+Änderung: Der Benutzername kann statt 16 Zeichen jetzt 25 Zeichen
+lang sein und das Loginformular nimmt auch lange e-Mail-Adressen
+entgegen.
+
+19.01.09
+Die Schnellsuche durchsucht nicht mehr nur die sichtbaren Spalten der
+Terminliste sondern sucht auch in Feldern, die nur in der Detailansicht
+erscheinen.
+
+19.01.09
+Fehlerkorrektur: Das Eintragen von Vorgabwerten in Felder vom Typ
+"Auswahl", "Kategorie" und "Symbol" wurde fehlertoleranter gestaltet.
+
+18.01.09
+Fehlerkorrektur: Beim Loginformular wird der eingestellte Zeichensatz
+jetzt korrekt berücksichtigt.
+
+10.01.09
+Weiterentwicklung: Die Monatsblätter des Minikalenders können nun auch
+in Blockanordnung mit mehreren Zeilen/Spalten angeordnet werden.
+
+10.01.09
+Fehlerkorrektur: Verlinkungen aus dem Minikalender heraus
+funktionieren nun auch bei den internationalen Datumsformaten.
+
+04.01.09
+Fehlerkorrektur: Im Minikalender wurden seit dem Update vom 01.01.09
+bei SQL-Datenbasis keine Termine mehr angezeigt, sofern der Kalender
+nur ein Datumsfeld hat.
+
+01.01.09
+Weiterentwicklung: Ein neuer Datentyp "Eintragsdatum", dessen Felder
+automatisch mit Datum und Uhrzeit des Termineintrags gefüllt werden,
+ermöglicht eine Auflistung der Termine in der Reihenfolge des Eintrages.
+Dadurch werden Abfragen nach dem Motto "Was ist neu?" möglich.
+
+01.01.09
+Fehlerkorrektur: Das Blättern durch die Termindetails erfolgt jetzt
+auch in der SQL-Version entprechend der gewählten Sortierfolge
+
+26.12.08
+Fehlerkorrektur: Beim Versenden eines vergessenen Passwortes bei
+Textdatenbank werden jetzt die passenden daten und nicht länger
+immer die Daten des ersten benutzers versandt.
+
+25.12.08
+Der Minikalender und die aktuellen Termine sind jetzt ebenfalls per
+Adressparameter filterbar. Ein neuer Parameter für den über der
+Terminliste befindlichen Intervallfilter hebt nicht mehr zwangsweise
+einen vorherigen Feldfilter mittels Suchformular auf.
+
+22.12.08
+Captcha-Grafiken die älter als 1 Stunde sind werden jetzt regelmäßiger
+gelöscht.
+
+22.12.08
+Beim Terminändern werden jetzt in der Änderungsliste überwiegend nur
+noch die Termine angezeigt, die der Benutzer wirklich ändern darf.
+
+22.12.08
+Weiterentwicklung: Die Aktivitäts-Links zur Navigation über und unter
+dem Kalender können jetzt für Besucher und angemeldete Benutzer
+unterschiedlich dargestellt werden.
+
+20.12.08
+In der Aktivierungs-e-Mail nach Benutzerfreischaltung können über den
+Platzhalter #D die kompletten Benutzerdaten versandt werden.
+
+19.12.08
+Der CSV-Import ist nun auch im Autoren-Bereich möglich.
+
+10.12.08
+Weiterentwicklung: CSV-Import von Terminen im Admin-Bereich ist
+realisiert
+
+01.12.08
+Freigabe der Version 3.01
+
+29.11.08
+Weiterentwicklung zum Update 3.00f
+Bei der Termineingabe und Änderung im Besucherbereich ist es jetzt
+wahlweise auch möglich, ganz ohne Passwort bzw. Benutzeranmeldung
+Termine zu bearbeiten.
+
+28.11.08
+Fehlerkorrektur: Bei SQL-Datenbasis werden die 'aktuellen Termine'
+jetzt korrekt sortiert.
+Fehlerkorrektur: Bei der Einstellung 'angemeldete Benutzer sollen
+andere Eingabefelder sehen als Gäste' ist kein zwangseises Login
+mehr notwendig.
+
+18.11.08
+Fehllerkorrektur: Bei SQL-Datenbasis führten seit dem 07.11.08 Abfragen
+aus dem Minikalender heraus zu einem SQL-Abfragefehler.
+
+16.11.08
+Fehlerbereinigung: jetzt sollten Formularaufrufe (POST-Aufrufe) bei
+includierten Kalendern in allen CMS funktionieren.
+
+16.11.08
+Verbesserung: Bei Feldern vom Typ Auswahl, Kategorie und Symbol
+sind jetzt statt der bisherigen max. 26 Vorgabewerte bis zu 675
+Vorgabewerte möglich.
+Verbesserung: Der Intervallfilter über der Terminliste kann jetzt
+unsichtbar sein und dennoch kann ein Standardintervall als Filter
+wirksam sein.
+
+07.11.08
+Fehlerbeseitigung: Bei SQL-Datenbank wurde ein Abfragefehler bei
+mehreren Datums- oder Uhrzeitfeldern beseitigt.
+Bei Eintagsterminen mit Beginn und Ende wird ein Ende nach Mitternacht
+halbherzig berücksichtigt.
+
+01.11.08
+Fehlerbereinigung: Auch bei MySQL-Datenbasis wird jetzt das 'aktuelle
+Ereignis' und die 'aktuellen Termine' korrekt herausgefiltert.
+
+29.10.08
+Fehlerbeseitigung (kritisch): Bei der Einstellung "SQL-Datenbank" wurde
+beim Umsortieren der Feldreihenfolge der Terminstruktur durch das Script
+'admin/konfTermine.php' die MySQL-Termintabelle eventuell unbrauchbar.
+Eine Rückkehr zur Text-Datenbasis war jedoch noch möglich.
+
+29.10.08
+Änderung: Bei der Einstellung der Terminstruktur kann jetzt bei den
+Erklärungen auch HTML-Code eingegeben werden.
+
+26.10.08
+Weiterentwicklung zum Update 3.00d
+Ein neuer Parameter "Verweisziel" für das Informationsformular wurde
+eingeführt, damit Verweise aus der versandten e-Mail heraus auch auf das
+passende Script eingestellt werden können, falls die Informationsfunktion
+bei inkudierten Kalendern aus einem Popupfenster heraus versandt wird.
+Fehlerbeseitigung (unkritisch): Sofern der Verweis auf einen Termin in der
+Informationsmail ausserhalb des eingestellten Standardintervalls liegt
+wird der Termin nun aus der e-Mail heraus korrekt angezeigt.
+
+26.10.08
+Änderung (unkritisch): bei den Einstellungen der "Bearbeitungsdauer" von
+Terminen 'konfWerte.php' unter "Allgemeines" in der Administration ist jetzt
+ein Maximum bis zur eingestellten Speicherdauer und nicht nur bis zur
+eingestellten Anzeigedauer möglich.
+
+25.10.08
+Fehlerbeseitigung (unkritisch): bei Loginversuchen registrierter Benutzer im
+Besucherbereich wird nun nur noch der hineingelassen, der ausser dem korrekten
+Passwort auch den passenden Benutzernamen kennt.
+
+25.10.08
+Fehlerbeseitigung (unkritisch): Bei Änderungen an der Terminstruktur wird bei
+einem Wechsel vom Feldtyp 'e-Mail' auf 'Kontakt' der Feldinhalt nicht mehr
+verstümmelt.
+
+25.10.08
+Fehlerbeseitigung (unkritisch): Bei der Termineingabe in Link-Feldern führt ein
+mit eingegebenes http:// nicht mehr zu fehlerhaften Verlinkungen.
+Fehlerbeseitigung (unkritisch): Felder vom Typ Kontakt werden aus dem
+Ersteingabeformular heraus nicht mehr fehlerhaft abgespeichert.
+
+25.10.08
+Fehlerbeseitigung (kritisch): Nach einem Terminimport sollten spätere
+Umsortierungen der Terminstruktur nicht mehr zu einem Zerschreiben der Datei
+'kalWerte.php' in Zeile 192 führen und somit nicht mehr das ganze Script
+blockieren.
+
+15.10.08
+Fehlerbeseitigung (unkritisch): In das Update 3.00c vom 14.10.08 hatte ich in
+die aktuellen Termine 'aktuelleTermine.php' aus Versehen eine Warnung eingebaut.
+
+14.10.08
+Weiterentwicklung zum Update 3.00c
+Ein neuer Feldtyp "Google-Maps" zur Darstellung einer Landkarte zum Termin
+wurde implementiert.
+
+07.10.08
+Fehlerbeseitigung (unkritisch): Beim Versand einer Termininformation (kalInfo.php)
+mit Dateianhang wird jetzt der Verweis auf den Anhang in der e-Mail korrekt
+angegeben.
+
+05.10.08
+Weiterentwicklung zum Update 3.00b
+Verbesserte Filtermöglichkeiten im Intervallfilter (wie z.B. dieser Monat,
+nächstes Quartal, voriges Jahr u.s.w.)
+Archivsuche (abgelaufene und ausgeblendete aber noch nicht gelöschte Termine)
+über den Intervallfilter und über das Suchformular möglich
+
+05.10.08
+Fehlerbeseitigung (unkritisch): Bei der Suche in Ja/Nein-Feldern (kalDaten.php)
+wird jetzt auch bei "Nein" richtig gesucht.
+
+24.09.08
+Fehlerbeseitigung (unkritisch): bei leerer Benutzerliste und SQL-Datenbasis
+erscheinen beim Auflisten der leeren Benutzerliste im Administrationsbereich
+nun keine PHP-Warnungen mehr.
+
+19.09.08
+Fehlerbeseitigung (unkritisch): Beim Umbau der Terminstruktur (admin/konfTermine.php)
+Die Bemerkungen zu den Feldern wurden intern zwar korrekt mit umgebaut, nach
+dem Abschicken des Formulares wurde jedoch die alte Bemerkungsreihenfolge
+wieder angezeigt.
+
+14.09.08
+Fehlerbeseitigung (kritisch): beim Umbau der Terminstruktur (admin/konfTermine.php)
+Die Variablendatei "kalWerte.php" wurde in Zeile 178/180 zerschrieben und
+nichts ging mehr!
+
+14.09.08
+Weiterentwicklung zum Update 3.00a
+Das Bilderverzeichnis für Grafiken und Dateianhänge ist variabel einstellbar.
+Die Links im MiniKalender und die aktuellen Termine können als Popup-Fenster
+geöffnet werden.
+Das Verzeichnis Temp und Captcha können von veralteten Dateien gesäubert werden.
+Der CronJob kann auch manuell aus der Administration heraus aufgerufen werden.
+
+14.09.08
+Fehlerbeseitigung (unkritisch) im Detaildruck (drucken.php)
+Auch angemeldete Benutzer können Bilder zum Termin mit ausdrucken.
+
+13.09.08
+Fehlerbeseitigung/Restarbeiten (unkritisch) bei der Zeichenkodierung
+(alle PHP-Dateien im Besucherbereich)
+Zeichensatz UTF-8 wird jetzt in allen Scripten im Besucherbereich unterstützt
+
+13.09.08
+Fehlerbeseitigung (unkritisch) im Minikalender (miniKalender.php)
+Die Wochentagskürzel in der Kopfzeile sind nicht länger fest programmiert und
+werden jetzt aus den sprachabhängig definierten Variablen entnommen.
+
+13.09.08
+Fehlerbeseitigung (kritisch) in der Benutzerverwaltung (kalLogin.php)
+Nach Änderung der Benutzerdaten war der Benutzerdatensatz (nur bei Textdatenbasis)
+doppelt in der Benutzerdatei enthalten.
+
+07.09.08
+Fehlerbeseitigung (unkritisch) in der Terminliste (kalListe.php)
+Wochentagskürzel mit Sonderzeichen werden nun korrekt kodiert ausgegeben
+
+07.09.08
+Fehlerbeseitigung (unkritisch) Administration-Allgemeines (admin/konfWerte.php)
+Wochentagskürzel wurden erst nach dem zweiten Speichern als geändert akzeptiert
+
+06.09.08
+Programmierfortschritt
+kalCronJob.php löscht veraltete Termine und veraltete Dateien in temp/ und captcha/
+
+06.09.08
+Fehlerbeseitigung (unkritisch) Bilderverzeichnis
+In folgenden Dateien wurde der unsauber programmierte Bilder-Pfad korrigiert:
+- kalEingabe.php
+- admin/liste.php
+- admin/eingabe.php
+- admin/vormerkungen.php
+- admin/importVer2x.php
+
+31.08.08
+erstmalige Veröffentlichung der Vorabversion 3.0

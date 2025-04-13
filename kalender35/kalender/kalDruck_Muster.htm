@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalender-Script:: Druck</title>
+<link rel="stylesheet" type="text/css" href="kalStyles.css">
+</head>
+
+<body class="kalSeite">
+<table class="kalBlnd" style="width:100%">
+ <tr>
+  <td class="kalBlnd" style="width:64px;background-image:url(grafik/drucken.gif);background-repeat:no-repeat;vertical-align:top;">
+   <a href="javascript:window.print()"><img src="grafik/pixel.gif" style="width:64px;height:16px;border:0" title="jetzt drucken"></a>
+  </td>
+  <td class="kalBlnd" style="text-align:center;"><h3>Kalender</h3></td>
+  <td class="kalBlnd" style="width:64px;background-image:url(grafik/drucken.gif);background-repeat:no-repeat;vertical-align:top;">
+   <a href="javascript:window.print()"><img src="grafik/pixel.gif" style="width:64px;height:16px;border:0" title="jetzt drucken"></a>
+  </td>
+ </tr>
+</table>
+
+<div style="text-align:center">
+<!-- ++++++++++++++ Beginn Scriptausgabe ++++++++++++++ -->
+{Inhalt}
+<!-- +++++++++++++++ Ende Scriptausgabe +++++++++++++++ -->
+</div>
+
+</body>
+</html>

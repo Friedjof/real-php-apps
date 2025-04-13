@@ -1,0 +1,720 @@
+/* mp - Marktplatz-Script ------------------------------------------ */
+
+/* Diese CSS-Datei kann von Hand editiert werden. Sie wird jedoch auch
+   von der online-Farbeinstellung automatisch veraendert.
+   Deshalb sollten alle vorhandenen CSS-Klassen separat erhalten
+   bleiben und keine Platzoptimierungen/Zusammenlegungen von Klassen
+   erfolgen, selbst wenn bei Ihnen mehrere Klassen optisch identisch
+   sein sollten.
+
+   Jedes CSS-Attribut MUSS wegen der Bearbeitungsmoeglichkeit ueber die
+   online-Administration mit einem Semikolon abschliessen, selbst wenn
+   es unmittelbar vor der schliessenden geschweiften Klammer steht.
+   Farbwerte muessen generell in der Form '#rrggbb' angegeben werden.
+   Einzige Ausnahme ist der Farbwert 'transparent'.
+
+   Angaben zu Rahmen MUESSEN im Format 'border:1px linienart farbe;'
+   erfolgen.
+
+   Aufzaehlungen mehrerer Klassen unmittelbar hintereinander wegen
+   gemeinsamer Merkmale wie beispielsweise div.mpTbSp1,div.mpTbSp2
+   muessen OHNE Leerzeichen dazwischen erhalten bleiben.
+
+   Auch die Kommentarzeilen, besonders die zur Trennung der einzelnen
+   Abschnitte MUESSEN erhalten bleiben.
+
+   Anderenfalls werden die Farben-Dialoge in der Administration nicht
+   funktionieren!!
+
+   Die Schriftgroessen sind meist in 'em' oder mit Prozentwerten
+   bezogen auf die Basisgroesse 16 px angegeben:
+   100% entspricht 16px;  75% entspricht 12px;  69% entspricht 11px; */
+
+/* = ------------------------------------------------------------- = */
+
+body.mpSeite{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ color:#ffffff; background-color:#111100;
+}
+
+body.mpEMail{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:99%;
+ color:#f7f7f7; background-color:#070707;
+}
+
+/* = div-Container um die gesamte Ausgabe des Marktplatz-Scripts herum = */
+
+div.mpBox{
+ font-size:75%;  /* 75% sollte einer 12px Schrift als Normalmass entsprechen */
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ width:98%; max-width:850px;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+
+@media screen and (min-width:50em){ /* abweichende Schriftgroesse fuer grosse Displays */
+ div.mpBox{font-size:79%;}
+}
+
+/* = Hinweis-, Fehler- und Erfolgs-Meldungen ueber den Ausgaben = */
+
+p.mpMeld{color:#eeeeee;} /* Hinweismeldung, Aufforderung */
+p.mpFehl{color:#ee0066;} /* Fehlermeldung, Korrekturaufforderung */
+p.mpErfo{color:#00bb11;} /* Erfolgsmeldung, Bestaetigung */
+p.mpMeld,p.mpFehl,p.mpErfo{ /* Meldungen */
+ font-size:1.1em; font-weight:bold;
+ text-align:center; margin-top:5px; margin-bottom:5px;
+}
+
+/* = allgemeine Hilfsklassen = */
+div.mpTabl{ /* allgemeine Tabelle */
+ display:table; width:100%; padding:0px;
+ margin-top:0px; margin-bottom:8px; margin-left:auto; margin-right:auto;
+ border:1px none #cccccc; border-collapse:collapse;
+}
+div.mpTbZl1{ /* ungerade Tabellen-Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#002233;
+}
+div.mpTbZl2{ /* gerade Tabellen-Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#003322;
+}
+div.mpTbSpa{ /* Standard-Tabellen-Zelle */
+ display:table-cell; text-align:center; vertical-align:middle; padding:2px;
+ border:1px solid #cccccc;
+}
+form.mpForm{margin:0px;}
+img.mpIcon{ /* Icons als Klickschalter */
+ width:16px; height:16px; vertical-align:text-top;
+ border:0px none #cccccc;
+}
+img.mpPunkt{ /* rot gelb gruener Punkt  */
+ width:12px; height:12px; vertical-align:middle;
+ border:0px none #cccccc;
+}
+img.mpSorti{ /* Sortierdreiecke fuer aufwaerts/abwaerts sortieren */
+ width:10px; height:10px;
+ border:0px none #cccccc;
+}
+div.mpSchalter{text-align:center; margin:8px;}
+input.mpSchalter{ /* Schalter unter den Formularen */
+ font-size:1.05em; text-align:center;
+ width:80px; height:20px; margin-bottom:12px;
+ border:1px none #cccccc;
+ color:#000000; background-color:#transparent;
+ background-image:url(grafik/schalter.gif); background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+input[type=image].mpIcon{ /* diverse Klickschalter als Icon */
+ width:16px; height:16px; vertical-align:top;
+ border:0px none #cccccc;
+}
+
+/* = Aktionsmenue oberhalb/unterhalb der Marktplatzseiten = */
+ul.mpMnuO{
+ list-style:none;
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px solid #888888;
+ background-color:#332211;
+}
+ul.mpMnuO li{
+ display:inline-block;
+ width:7.5em; margin:2px; padding:0px;
+ border:1px solid #aaaaaa;
+}
+ul.mpMnuO a{
+ display:inline-block;
+ width:100%;
+ color:#336688; background-color:#eeeeee;
+ text-decoration:none;
+}
+ul.mpMnuO a:hover{
+ color:#cc3300; background-color:#eedd55;
+}
+ul.mpMnuO a::before{content:'';}
+ul.mpMnuO a::after {content:'';}
+
+ul.mpMnuU{
+ list-style:none;
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px solid #888888;
+ background-color:#332211;
+}
+ul.mpMnuU li{
+ display:inline-block;
+ width:7.5em; margin:2px; padding:0px;
+ border:1px solid #aaaaaa;
+}
+ul.mpMnuU a{
+ display:inline-block;
+ width:100%;
+ color:#336688; background-color:#eeeeee;
+ text-decoration:none;
+}
+ul.mpMnuU a:hover{
+ color:#cc3300; background-color:#eedd44;
+}
+ul.mpMnuU a::before{content:'';}
+ul.mpMnuU a::after {content:'';}
+
+/* == Navigationszeile mit dem Seitenzaehler und dem Navigator ueber der Inserateliste == */
+
+div.mpNavL{ /* Navigator der Inserateliste */
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px none #cccccc;
+ background-color:transparent;
+}
+div.mpSZhl{ /* Seitenzaehler im Navigator */
+ float:left; margin:0px; padding:0px;
+ color:#bbddff; background-color:transparent;
+}
+div.mpNavi{ /* Navigator zum Blaettern */
+ float:right; margin:0px; padding:0px;
+}
+ul.mpNavi{
+ list-style:none;
+ width:auto; margin:0px; padding:0px;
+ border:1px none #cccccc;
+}
+ul.mpNavi li{ /* Schalterfeld zum Blaettern */
+ display:inline-block; text-align:center; margin:0px; padding:0px;
+ width:1.7em; min-width:20px; height:20px;
+ border:1px none #cccccc;
+ background-image:url(grafik/naviLinks.gif);
+ background-repeat:no-repeat; background-position:0;
+ background-color:transparent;
+}
+ul.mpNavi li.mpNavL{ /* Schalterfeld zum Blaettern auf den Anfang */
+ width:20px;
+ background-image:url(grafik/naviLinks.gif);
+ background-repeat:no-repeat; background-position:0;
+}
+ul.mpNavi li.mpNavR{ /* Schalterfeld zum Blaettern auf das Ende */
+ width:20px;
+ background-image:url(grafik/naviRechts.gif);
+ background-repeat:no-repeat; background-position:0;
+}
+ul.mpNavi a{
+ display:inline-block;
+ width:100%; min-width:20px; padding-top:2px;
+ color:#000033;
+ text-decoration:none;
+}
+ul.mpNavi a:hover{
+ color:#cc3300;
+}
+
+/* == Navigationszeile mit den Schaltern zum Blaettern auf der Detailseite == */
+
+div.mpNavD{ /* Navigator ueber den Inseratedetails */
+ width:100%; margin:0px; margin-top:8px; margin-bottom:8px; padding:0px;
+ border:1px none #cccccc;
+ color:#111122; background-color:transparent;
+}
+div.mpNavR{ /* rueckwaerts blaettern */
+ float:left; margin:0px; padding:0px;
+}
+div.mpNavV{ /* vorwaerts blaettern */
+ float:right; margin:0px; padding:0px;
+}
+a.mpDetV{
+ background-image:url(grafik/knopfVor.gif);
+ background-repeat:repeat; background-position:0;
+}
+a.mpDetV::before{content:'';} /* muss erhalten bleiben, notfalls leer '' */
+a.mpDetR{
+ background-image:url(grafik/knopfZur.gif);
+ background-repeat:repeat; background-position:0;
+}
+a.mpDetR::after{content:'';} /* muss vorhanden sein, notfalls leer als '' */
+a.mpDetV,a.mpDetR{
+ display:inline-block; width:32px; height:16px;
+ border:1px none #cccccc;
+ color:#000033;
+ text-decoration:none;
+ background-color:transparent;
+}
+a.mpDetV:hover,a.mpDetR:hover{
+ color:#ff8800;
+}
+
+/* === Intervallfilter und Suchfilter ueber der Inserateliste === */
+
+div.mpFilt{
+ width:100%; margin:6px; margin-left:auto; margin-right:auto;
+ border:1px solid #cccccc;
+ color:#f3f3f3; background-color:transparent;
+}
+div.mpSFlt{ /* Suchfilterblock allein mittig */
+ text-align:center;
+}
+div.mpSFltL{ /* Suchfilterblock links */
+ float:left; text-align:center;
+}
+div.mpSFltR{ /* Suchfilterblock rechts */
+ float:right; text-align:center;
+}
+form.mpFilt{
+ margin:0px;
+}
+input.mpSFlt{ /* Suchbegriff */
+ font-size:1.0em; font-family:Verdana,Arial,Helvetica;
+ width:8em;
+ border:1px solid #cccccc;
+ color:#000011; background-color:#ddddcc;
+}
+input.mpKnopf{ /* kleiner Schalter am Suchfeld */
+ width:16px; height:16px; margin-left:2px; margin-right:2px;
+ vertical-align:text-bottom;
+ border:1px none #cccccc;
+ background-color:transparent;
+ background-image:url(grafik/knopfVor.gif);
+ background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+
+/* ====== Uebersichtsseite / Startseite ======= */
+
+div.mpIdxZe{
+ display:table-cell; overflow:hidden; border-radius:6px;
+ border:1px solid #7777aa; background-color:#f7f7dd;
+}
+a.mpIdx,a.mpIdx:link,a.mpIdx:active,a.mpIdx:visited{ /* Link zu den Details */
+ display:inline;
+ color:#113366;
+ text-decoration:none;
+}
+a.mpIdx:hover{
+ color:#cc3300;
+ text-decoration:none;
+}
+
+/* =============== Inserateliste =============== */
+
+div.mpTbZl0{ /* Kopfzeile */
+ border-bottom:1px solid #cccccc; border-collapse:collapse;
+ color:#ffffff; background-color:#446688; font-weight:bold;
+}
+div.mpTrnZl{ /* Trennzeile mit Segmentnamen ueber/zwischen den Segmentlisten */
+ margin-top:8px; margin-bottom:3px; padding:1px;
+ text-align:left;
+ font-weight:bold;
+ color:#ffe7e7; background-color:transparent;
+}
+
+/*  nur fuer die eigene Inserateliste (grosses L bzw. ZL beachten!)  */
+
+div.mpTabL{ /* eigene Listen-Tabelle */
+ display:table; width:100%; padding:0px;
+ margin-top:0px; margin-bottom:8px; margin-left:auto; margin-right:auto;
+ border:1px none #cccccc; border-collapse:collapse;
+}
+div.mpTbZL1{ /* ungerade eigene Listen-Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#002233;
+}
+div.mpTbZL2{ /* gerade eigene Listen-Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cccccc;
+ color:#ffffff; background-color:#003322;
+}
+div.mpTbZL0{ /* eigene Kopfzeile */
+ display:none;
+}
+div.mpTbZLX{ /* eigene Trennzeile zwischen Inseraten */
+ display:none;
+}
+
+/* schmale Anzeige der Inserateliste mit Spalten untereinander */
+
+div.mpTbZl0{ /* Kopfzeile ausblenden */
+ display:none;
+}
+div.mpTbZlX{ /* optische Trennzeile zwischen Inseraten */
+ display:block; height:5px;
+ border:1px none #cccccc;
+}
+div.mpTbLst{ /* normale Tabellen-Zelle in der Liste */
+ display:block; width:auto; text-align:left; vertical-align:middle; padding:2px; padding-left:9.5em; text-indent:-9.5em;
+ border:1px solid #cccccc; border-bottom:0px none #cccccc;
+}
+div.mpTbLsL,div.mpTbLsM,div.mpTbLsR{ /* mittige und rechtsbuendige Zelle ignorieren, hier alles linksbuendig */
+ text-align:left;
+}
+span.mpTbLst{ /* Feldname an Anfang jeder Zelle */
+ display:inline-block; text-align:left; text-indent:0em; vertical-align:top;
+ width:1%; min-width:9em; margin:0px; padding:0px; padding-right:5px;
+}
+
+/* breite Anzeige der Inserateliste mit Spalten nebeneinander */
+
+@media screen and (min-width:600px){
+div.mpTbZl0{ /* Kopfzeile */
+ display:table-row;
+}
+div.mpTbZlX{ /* optische Trennzeile in der schmalen Anzeige */
+ display:none;
+}
+div.mpTbLst{ /* normale Zelle in der Liste */
+ display:table-cell; border:1px solid #cccccc; padding:2px; text-indent:0em;
+}
+div.mpTbLsL{ /* linksbuendige Listen-Zelle */
+ text-align:left;
+}
+div.mpTbLsM{ /* mittige Listen-Zelle */
+ text-align:center;
+}
+div.mpTbLsR{ /* rechsbuendige Listen-Zelle */
+ text-align:right;
+}
+span.mpTbLst{ /* Feldname am Anfang jeder Zelle */
+ display:none;
+}
+} /* Ende breite Anzeige Inserateliste */
+
+a.mpDetl,a.mpDetl:link,a.mpDetl:active,a.mpDetl:visited{ /* Link zu den Details */
+ display:inline;
+ color:#ffffdd;
+ text-decoration:none;
+}
+a.mpDetl:hover{
+ color:#ff6633;
+ text-decoration:none;
+}
+
+div.mpVBld{ /* evt. Rahmen um Vorschaubilder der Inserateliste */
+ border:1px dashed #cccccc;
+}
+div.mpVBld,div.mpTBld{ /* evt. Rahmen um Vorschaubilder der Inserateliste */
+ display:inline-block; text-align:center; width:auto; text-indent:0;
+}
+
+p.mpText{ /* Textabsaetze innerhalb von Memofeldern */
+ color:#ffffff; text-indent:0;
+}
+ul.mpText,ol.mpText{ /* Listen in Memofeldern */
+}
+li.mpText{ /* Listentext in Memofeldern */
+ color:#ffffff;
+}
+a.mpText,a.mpText:link,a.mpText:active,a.mpText:visited{ /* Links in Memofeldern und Linkfeldern */
+ color:#ffffee;
+ text-decoration:none;
+}
+a.mpText:hover{
+ color:#ffaa66;
+ text-decoration:none;
+}
+
+/* ======= Inseratedetails ======= */
+
+div.mpTbSp1,div.mpTbSpi,div.mpTbSp2{ /* Zellen der 1. und 2. Spalte, Login */
+ display:table-cell; width:auto; text-align:left; vertical-align:middle; padding:2px;
+ border:1px solid #cccccc;
+}
+div.mpTbSp1{
+ max-width:15em; vertical-align:top;
+}
+img.mpBild{
+ width:100%; height:auto; max-width:650px;
+}
+
+/* ======= Inserate-Formular ======= */
+
+form.mpEing{
+ width:98%; max-width:44em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+div.mpEing{ /* unsichtbarer Rahmen um Eingabefelder */
+ margin:0px; padding:0px;
+ border:1px solid transparent;
+}
+div.mpFhlt{ /* notwendige Eingabe fehlt, roter Rahmen */
+ margin:0px; padding:0px;
+ border:1px solid #bb0066;
+}
+input.mpEing,select.mpEing,textarea.mpEing,input.capAnsw{
+ font-family:Verdana,Arial,Helvetica; font-size:0.95em;
+ width:98%;
+ border:1px solid #888888;
+ color:#222222; background-color:#ddddcc;
+}
+textarea.mpEing{height:7em;}
+input.mpEin7 {width:7em;}
+input.mpEin12{width:12em;}
+
+input[type=file].mpEing{
+ border:1px solid #888888;
+ color:#222222; background-color:transparent;
+}
+input.mpRadio,input.mpCheck{ /* Radioschalter und Checkboxen in Formularen */
+ margin:0px; padding:0px;
+ color:#000011;
+}
+select.mpTool{ /* Auswahl fuer Farbe und Groesse */
+ width:55px; font-family:Verdana,Arial,Helvetica; font-size:11px; font-weight:bold;
+ color:#000011; background-color:#ddddcc;
+}
+img.mpTool{ /* Symbole der Formatierungsschater */
+ width:20px; height:20px;
+ border:1px none #888888;
+ background-image:url(grafik/tool.gif);
+ background-repeat:no-repeat; background-position:0;
+ cursor:pointer;
+}
+
+/* ======= Loginformular ======= */
+
+form.mpLogi{
+ width:98%; max-width:32em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+div.mpTbSpi{
+ width:9.5em; vertical-align:top;
+}
+
+/* ======= Infoformulare ======= */
+
+form.mpInfo{
+ width:98%; max-width:44em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+/* ======= Suchformular ======= */
+
+form.mpSuch{
+ width:98%; max-width:40em;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+
+/* ======= Nutzerzentrum ======= */
+
+div.mpTbNz{
+ width:98%; max-width:24em;
+}
+
+/* ======= Druckausgabe ======== */
+
+div.mpDrTab{ /* DruckTabelle */
+ display:table; border-collapse:collapse;
+ width:100%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ border:1px none #000000;
+}
+div.mpTbZlDr{ /* DruckZeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #888888;
+}
+div.mpTbDr,div.mpTbDr1,div.mpTbDr2,div.mpDrKz{ /* Druckzellen der 1. und 2. Spalte, Kopfzelle */
+ display:table-cell; text-align:left; vertical-align:middle; padding:2px;
+ border:1px solid #aaaaaa;
+}
+div.mpTbDr1{ /* 1. Spalte */
+ width:15%; vertical-align:top;
+}
+div.mpDrKz{ /* Kopfzelle */
+ text-align:center; font-weight:bold;
+}
+
+/* ===== Zusatzprogramm neue Inserate ===== */
+
+body.mpNeue{
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ font-size:100.1%;
+ background-color:#ffffee;
+}
+div.mpNBox{ /* Container um die Ausgabe der neuen Inserate */
+ font-size:75%;  /* 75% sollte einer 12px Schrift als Normalmass entsprechen */
+ font-family:Verdana,Arial,Helvetica,sans-serif;
+ width:98%; max-width:600px;
+ margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+}
+div.mpTabN{ /* Tabelle neue Inserate */
+ display:table; border-collapse:collapse;
+ width:99%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ font-size:0.92em; font-weight:normal;
+ border:1px none #cecccc;
+}
+div.mpTbNZl0{ /* Kopfzeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cecccc;
+ color:#ffffff; background-color:#99aabb;
+}
+div.mpTbNZl1{ /* ungerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cecccc;
+ color:#000001; background-color:#f7f7fc;
+}
+div.mpTbNZl2{ /* gerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cecccc;
+ color:#000000; background-color:#f7fc66;
+}
+div.mpTrnNZl{ /* Trennzeile */
+ margin-top:8px; margin-bottom:3px; padding:1px;
+ text-align:left;
+ font-weight:bold;
+ color:#111111; background-color:transparent;
+}
+
+/*  nur fuer die eigenen neuenInserate (grosses L bzw. E beachten!)  */
+
+div.mpTabNE{ /* eigene Tabelle neue Inserate */
+ display:table; border-collapse:collapse;
+ width:99%; margin:0px; margin-left:auto; margin-right:auto; padding:0px;
+ font-size:0.92em; font-weight:normal;
+ border:1px none #cecccc;
+}
+div.mpTbNZL0{ /* eigene Kopfzeile */
+ display:none;
+}
+div.mpTbNZL1{ /* eigene ungerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cecccc;
+ color:#000001; background-color:#f7f7fc;
+}
+div.mpTbNZL2{ /* eigene gerade Zeile */
+ display:table-row; border-collapse:collapse;
+ border-bottom:1px solid #cecccc;
+ color:#000000; background-color:#f7fc66;
+}
+
+/* schmale Anzeige der neuen Inserate */
+
+div.mpTbNZl0{ /* Kopfzeile */
+ display:none;
+}
+div.mpTbNLst{ /* normale Zelle in der Liste */
+ display:block; width:auto; text-align:left; padding:2px;
+ border:1px solid #cecccc; border-bottom:0px none #cccccc;
+}
+div.mpTbNLsL,div.mpTbNLsM,div.mpTbNLsR{ }/* mittige und rechtsbuendige Zelle */
+span.mpTbNLst{ /* Feldname in der Zelle */
+ display:inline-block; text-align:left; vertical-align:top;
+ width:1%; min-width:9em;
+ margin:0px; padding:0px; padding-right:5px;
+}
+
+/* breite Anzeige der neuen Inserate mit Spalten nebeneinander */
+
+@media screen and (min-width:500px){
+div.mpTbNZl0{ /* Kopfzeile */
+ display:table-row;
+}
+div.mpTbNLst{ /* normale Zelle in der Liste */
+ display:table-cell; vertical-align:middle; border:1px solid #cecccc;
+}
+span.mpTbNLst{ /* Feldname in der Zelle */
+ display:none;
+}
+div.mpTbNLsL{ /* linksbuendige Zelle */
+ text-align:left;
+}
+div.mpTbNLsM{ /* mittige Zelle */
+ text-align:center;
+}
+div.mpTbNLsR{ /* rechsbuendige Zelle */
+ text-align:right;
+}
+} /* Ende breite Anzeige Inserateliste */
+
+a.mpNeue,a.mpNeue:link,a.mpNeue:active,a.mpNeue:visited{ /* Links in den Zellen der neuen Ereignisse */
+ color:#333399;
+ text-decoration:none;
+}
+a.mpNeue:hover{
+ color:#9900dd;
+ text-decoration:none;
+}
+
+/* ======== allgemeine Hilfsklassen am Ende ======== */
+
+div.mpNorm{ /* Falls normale DIV's manipuliert sind hier normalisieren */
+ display:block; width:auto; margin:0px; padding:0px;
+ border:0px none #cccccc;
+}
+table.mpBlnd{ /* blinde Tabelle als Container an wenigen Stellen */
+ font-size:1.0em; font-weight:normal; border:0px none #cccccc;
+}
+td.mpBlnd{
+ margin:0; padding:0; border:0px none #cccccc;
+}
+
+div.mpMini,span.mpMini{font-size:0.90em;}   /* kleine Schrift */
+div.mpNoBr,span.mpNoBr{white-space:nowrap;} /* kein Umbruch */
+div.mpClear{clear:both;}
+div.mpTbSpL{text-align:left;} /* linksbuendige Tabellenzelle */
+div.mpTbSpM{text-align:center;} /* mittige Tabellenzelle */
+div.mpTbSpR{text-align:right;} /* rechsbuendige Tabellenzelle */
+div.mpTbRow{display:table-row;}
+div.mpTbCell{display:table-cell;}
+
+/* hier Farben weiterer Inseratekategorien bei Bedarf ergaenzen */
+div.mpLstKatA{ /* Inserat der Kategorie A */
+ color:#fcfcfc; background-color:#001727;
+}
+div.mpLstKatB{ /* Inserat der Kategorie B */
+ color:#fcfcfc; background-color:#002717;
+}
+div.mpLstKatC{ /* Inserat der Kategorie C */
+ color:#fcfcfc; background-color:#003700;
+}
+div.mpLstKatD{ /* Inserat der Kategorie D */
+ color:#fcfcfc; background-color:#000037;
+}
+div.mpLstKatE{ /* Inserat der Kategorie E */
+ color:#fcfcfc; background-color:#002711;
+}
+div.mpLstKatF{ /* Inserat der Kategorie F */
+ color:#fcfcfc; background-color:#001127;
+}
+div.mpLstKatG{ /* Inserat der Kategorie G */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatH{ /* Inserat der Kategorie H */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatI{ /* Inserat der Kategorie I */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatJ{ /* Inserat der Kategorie J */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatK{ /* Inserat der Kategorie K */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatL{ /* Inserat der Kategorie L */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatM{ /* Inserat der Kategorie M */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatN{ /* Inserat der Kategorie N */
+ color:#fcfcfc; background-color:#001717;
+}
+div.mpLstKatO{ /* Inserat der Kategorie O */
+ color:#fcfcfc; background-color:#001717;
+}
+
+/* =========== Captcha-Styles =========== */
+
+span.capQry{ } /* Platzhalter fuer die Captcha-Frage oder den Eingebehinweis */
+span.capImg{ } /* Platzhalter fuer das Captcha-Bild */
+input.capAnsw{ /* Zweitklasse des Eingabefelds fuer Captcha-Antwort*/
+ width:10em;
+}
+img.capImg{ /* Captcha-Bild */
+ width:116px; height:24px; margin:1px;
+ border:1px none #888888;
+ vertical-align:middle;
+}
+button.capReload{ /* Schalter zum Erneuern des Captchas */
+ height:22px; width:22px; padding:0; margin:0;
+ background:transparent url(grafik/reload.gif) center no-repeat;
+ border:0px none #cccccc;
+}
+
+/* = Ende = */

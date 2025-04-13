@@ -1,0 +1,112 @@
+/*
+	Stylesheet for Tigra Calendar v5.0
+	Product is Public Domain (Free for any kind of applicaiton, customization and derivative works are allowed) 
+	URL: http://www.softcomplex.com/products/tigra_calendar/
+
+	- all image paths are relative to path of stylesheet
+	- the styles below can be moved into the document or in existing stylesheet
+
+ 	erweiterte um den Uhrzeitpicker von Juergen Hummel, www.server-script.de		*/
+
+/* input box in default state */ 
+.kalTCalInput {
+	background-image: url('grafik/tcal_is_cal.gif');
+	background-repeat: no-repeat;
+	background-position: 100% 50%;
+	padding-right: 20px;
+	cursor: pointer;
+}
+.kalTimeInput {
+	background-image: url('grafik/tcal_is_clk.gif');
+	background-repeat: no-repeat;
+	background-position: 100% 50%;
+	padding-right: 20px;
+	cursor: pointer;
+}
+
+/* additional properties for input boxe in activated state, above still applies unless in conflict */
+.kalTCalActive {
+	background-image: url('grafik/tcal_no_cal.gif');
+}
+.kalTimeActive {
+	background-image: url('grafik/tcal_no_clk.gif');
+}
+
+/* container of calendar's pop-up */
+#kalTCal, #kalTime{
+	position: absolute;
+	visibility: hidden;
+	z-index: 100;
+	width: 170px;
+	background-color: white;
+	margin-top: 2px;
+	padding: 0 2px 2px 2px;
+	border: 1px solid silver;
+	-moz-box-shadow: 3px 3px 4px silver;
+	-webkit-box-shadow: 3px 3px 4px silver;
+	box-shadow: 3px 3px 4px silver;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='silver')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='silver');
+}
+
+/* table containing navigation and current month */
+#kalTCalControls {
+	border-collapse: collapse;
+	border: 0;
+	width: 100%;
+}
+#kalTCalControls td {
+	border-collapse: collapse;
+	border: 0;
+	padding: 0;
+	width: 16px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+#kalTCalControls th {
+	border-collapse: collapse;
+	border: 0;
+	padding: 0;
+	line-height: 25px;
+	font-size: 10px;
+	text-align: center;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	white-space: nowrap;
+}
+#kalTCalPrevYear { background-image: url('grafik/tcal_prev_year.gif'); }
+#kalTCalPrevMonth { background-image: url('grafik/tcal_prev_mon.gif'); }
+#kalTCalNextMonth { background-image: url('grafik/tcal_next_mon.gif'); }
+#kalTCalNextYear { background-image: url('grafik/tcal_next_year.gif'); }
+
+/* table containing week days header and calendar grid */
+#kalTCalGrid , #kalTimeGrid {
+	border-collapse: collapse;
+	border: 1px solid silver;
+	width: 100%;
+}
+#kalTCalGrid th, #kalTimeGrid th {
+	border: 1px solid silver;
+	border-collapse: collapse;
+	padding: 3px 0;
+	text-align: center;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 10px;
+	background-color: gray;
+	color: white;
+}
+#kalTCalGrid td, #kalTimeGrid td  {
+	border: 0;
+	border-collapse: collapse;
+	padding: 2px 0;
+	text-align: center;
+	font-family: Tahoma, Geneva, sans-serif;
+	width: 14%;
+	font-size: 11px;
+	cursor: pointer;
+}		
+#kalTCalGrid td.kalTCalOtherMonth, #kalTimeGrid td.kalTimeEmpty  { color: silver; }
+#kalTCalGrid td.kalTCalWeekend { background-color: #ACD6F5; }
+#kalTCalGrid td.kalTCalToday { border: 1px solid red; }
+#kalTCalGrid td.kalTCalSelected, #kalTimeGrid td.kalTimeSelected  { background-color: #FFB3BE; }		

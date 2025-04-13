@@ -1,0 +1,2 @@
+Nummer;aktiv;Umfrage;Frage;Bild;Anmerkung1;Anmerkung2;Antwort1;Antwort2;Antwort3;Antwort4;Antwort5;Antwort6;Antwort7;Antwort8;Antwort9;Antwort10;Antwort11;Antwort12;Antwort13;Antwort14;Antwort15;Antwort16;Antwort17;Antwort18;Antwort19;Antwort20
+1;1;;Wie sind Sie auf dieses kleine Programm aufmerksam geworden?;;In dieser Umfrage geht es nur um die Demonstration.......;;über eine Zeitschrift;über eine Suchmaschine;über ein User-Forum;über einen Verweis;;;;;;;;;;;;;;;;
