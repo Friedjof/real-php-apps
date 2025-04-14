@@ -128,8 +128,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
      fSetzFraWert($fsFragen,'Fragen',"'"); fSetzFraWert($fsNutzer,'Nutzer',"'"); fSetzFraWert($fsZuweisung,'Zuweisung',"'");
      fSetzFraWert($fsErgebnis,'Ergebnis',"'"); fSetzFraWert($fsFolgen,'Folgen',"'");
     }
-   }else $sMeld.='Die Dateinamen der 5 Dateien <i>'.$fsFragen.'</i>, <i>'.$fsErgebnis.'</i>, <i>'.$fsNutzer.'</i>, <i>'.$fsFolgen.'</i>, <i>'.$fsZuweisung.'</i> müssen sich unterscheiden!';
-  }else $sMeld.='Speicherpfad und Dateiname der Fragendatei dürfen nicht leer sein!';
+   }else $sMeld.='Die Dateinamen der 5 Dateien <i>'.$fsFragen.'</i>, <i>'.$fsErgebnis.'</i>, <i>'.$fsNutzer.'</i>, <i>'.$fsFolgen.'</i>, <i>'.$fsZuweisung.'</i> mï¿½ssen sich unterscheiden!';
+  }else $sMeld.='Speicherpfad und Dateiname der Fragendatei dï¿½rfen nicht leer sein!';
  }else{ //->SQL
   $bDbConst=($DbO&&$fsSqlHost==FRA_SqlHost&&$fsSqlDaBa==FRA_SqlDaBa&&$fsSqlUser==FRA_SqlUser&&$fsSqlPass==FRA_SqlPass);
   if($bPwNeu=($fsSqlHost==FRA_SqlHost&&$fsSqlUser==FRA_SqlUser&&$fsSqlPass!=FRA_SqlPass&&$fsSqlDaBa==FRA_SqlDaBa)) $bToDo=false;
@@ -195,8 +195,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
         }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Zuweisungstabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabZ.'</i> konnte nicht angelegt werden!</p>';}
        }
        if($bNeu){
-        $sMeld.='<p class="admErfo">Die Fragen wurden in die MySQL-Tabelle <i>'.$fsSqlTabF.'</i> übernommen.</p>';
-       }else $sMeld.='<p class="admFehl">Nicht alle Fragen, Ergebnisse, Benutzer oder Testfolgen konnten in die MySQL-Tabelle <i>'.$fsSqlTabF.'</i>, <i>'.$fsSqlTabN.'</i>, <i>'.$fsSqlTabE.'</i>, <i>'.$fsSqlTabT.'</i>, <i>'.$fsSqlTabZ.'</i> übernommen werden!</p>';
+        $sMeld.='<p class="admErfo">Die Fragen wurden in die MySQL-Tabelle <i>'.$fsSqlTabF.'</i> ï¿½bernommen.</p>';
+       }else $sMeld.='<p class="admFehl">Nicht alle Fragen, Ergebnisse, Benutzer oder Testfolgen konnten in die MySQL-Tabelle <i>'.$fsSqlTabF.'</i>, <i>'.$fsSqlTabN.'</i>, <i>'.$fsSqlTabE.'</i>, <i>'.$fsSqlTabT.'</i>, <i>'.$fsSqlTabZ.'</i> ï¿½bernommen werden!</p>';
       }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Fragentabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabF.'</i> konnte nicht angelegt werden!</p>';}
      }else{ //SQL->SQL
       $bSqlNeu=($fsSqlHost!=FRA_SqlHost||$fsSqlUser!=FRA_SqlUser||$fsSqlPass!=FRA_SqlPass||$fsSqlDaBa!=FRA_SqlDaBa);
@@ -241,8 +241,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
          if($DbO->query('CREATE TABLE '.$fsSqlTabF.$sF)){
           for($i=0;$i<$nSaetze;$i++) if(!$DbO->query('INSERT IGNORE INTO '.$fsSqlTabF.' VALUES('.$aD[$i].')')) $bNeu=false;
           if($bNeu){
-           $sMeld.='<p class="admErfo">Die Fragen wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabF.'</i> übernommen.</p>';
-          }else $sMeld.='<p class="admFehl">Nicht alle Fragen konnten in die MySQL-Tabelle <i>'.$fsSqlTabF.'</i> übernommen werden!</p>';
+           $sMeld.='<p class="admErfo">Die Fragen wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabF.'</i> ï¿½bernommen.</p>';
+          }else $sMeld.='<p class="admFehl">Nicht alle Fragen konnten in die MySQL-Tabelle <i>'.$fsSqlTabF.'</i> ï¿½bernommen werden!</p>';
          }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabF.'</i> konnte nicht angelegt werden!</p>';}
         }
         if($bNeu&&($fsSqlTabE!=FRA_SqlTabE||$bSqlNeu)){
@@ -250,8 +250,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
          if($DbO->query('CREATE TABLE '.$fsSqlTabE.$sE)){
           for($i=0;$i<$nSaetze;$i++) if(!$DbO->query('INSERT IGNORE INTO '.$fsSqlTabE.' VALUES('.$aE[$i].')')) $bNeu=false;
           if($bNeu){
-           $sMeld.='<p class="admErfo">Die Ergebnisse wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabE.'</i> übernommen.</p>';
-          }else $sMeld.='<p class="admFehl">Nicht alle Ergebnisse konnten in die MySQL-Tabelle <i>'.$fsSqlTabE.'</i> übernommen werden!</p>';
+           $sMeld.='<p class="admErfo">Die Ergebnisse wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabE.'</i> ï¿½bernommen.</p>';
+          }else $sMeld.='<p class="admFehl">Nicht alle Ergebnisse konnten in die MySQL-Tabelle <i>'.$fsSqlTabE.'</i> ï¿½bernommen werden!</p>';
          }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabE.'</i> konnte nicht angelegt werden!</p>';}
         }
         if($bNeu&&($fsSqlTabN!=FRA_SqlTabN||$bSqlNeu)){
@@ -259,8 +259,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
          if($DbO->query('CREATE TABLE '.$fsSqlTabN.$sN)){
           for($i=0;$i<$nSaetze;$i++) if(!$DbO->query('INSERT IGNORE INTO '.$fsSqlTabN.' VALUES('.$aN[$i].')')) $bNeu=false;
           if($bNeu){
-           $sMeld.='<p class="admErfo">Die Benutzer wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabN.'</i> übernommen.</p>';
-          }else $sMeld.='<p class="admFehl">Nicht alle Benutzer konnten in die MySQL-Tabelle <i>'.$fsSqlTabN.'</i> übernommen werden!</p>';
+           $sMeld.='<p class="admErfo">Die Benutzer wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabN.'</i> ï¿½bernommen.</p>';
+          }else $sMeld.='<p class="admFehl">Nicht alle Benutzer konnten in die MySQL-Tabelle <i>'.$fsSqlTabN.'</i> ï¿½bernommen werden!</p>';
          }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabN.'</i> konnte nicht angelegt werden!</p>';}
         }
         if($bNeu&&($fsSqlTabT!=FRA_SqlTabT||$bSqlNeu)){
@@ -268,8 +268,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
          if($DbO->query('CREATE TABLE '.$fsSqlTabT.$sT)){
           for($i=0;$i<$nSaetze;$i++) if(!$DbO->query('INSERT IGNORE INTO '.$fsSqlTabT.' VALUES('.$aT[$i].')')) $bNeu=false;
           if($bNeu){
-           $sMeld.='<p class="admErfo">Die Folgen wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabT.'</i> übernommen.</p>';
-          }else $sMeld.='<p class="admFehl">Nicht alle Folgen konnten in die MySQL-Tabelle <i>'.$fsSqlTabT.'</i> übernommen werden!</p>';
+           $sMeld.='<p class="admErfo">Die Folgen wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabT.'</i> ï¿½bernommen.</p>';
+          }else $sMeld.='<p class="admFehl">Nicht alle Folgen konnten in die MySQL-Tabelle <i>'.$fsSqlTabT.'</i> ï¿½bernommen werden!</p>';
          }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabT.'</i> konnte nicht angelegt werden!</p>';}
         }
         if($bNeu&&($fsSqlTabZ!=FRA_SqlTabZ||$bSqlNeu)){
@@ -277,8 +277,8 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
          if($DbO->query('CREATE TABLE '.$fsSqlTabZ.$sZ)){
           for($i=0;$i<$nSaetze;$i++) if(!$DbO->query('INSERT IGNORE INTO '.$fsSqlTabZ.' VALUES('.$aZ[$i].')')) $bNeu=false;
           if($bNeu){
-           $sMeld.='<p class="admErfo">Die Zuweisungen wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabZ.'</i> übernommen.</p>';
-          }else $sMeld.='<p class="admFehl">Nicht alle Folgen konnten in die MySQL-Tabelle <i>'.$fsSqlTabZ.'</i> übernommen werden!</p>';
+           $sMeld.='<p class="admErfo">Die Zuweisungen wurden in die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabZ.'</i> ï¿½bernommen.</p>';
+          }else $sMeld.='<p class="admFehl">Nicht alle Folgen konnten in die MySQL-Tabelle <i>'.$fsSqlTabZ.'</i> ï¿½bernommen werden!</p>';
          }else{$bNeu=false; $sMeld.='<p class="admFehl">Die MySQL-Tabelle <i>'.$fsSqlHost.':'.$fsSqlDaBa.'.'.$fsSqlTabZ.'</i> konnte nicht angelegt werden!</p>';}
         }
        }else $sMeld.='<p class="admFehl">Kein Zugriff auf die neue Datenbank <i>'.$fsSqlHost.':'.$fsSqlDaBa.'</i>!</p>';
@@ -300,7 +300,7 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
   if(is_writable(FRA_Pfad.substr($fsBilder,0,-1))){
    if(fSetzFraWert($fsBilder,'Bilder',"'")){$bNeu=true; $bBldNeu=true;}
   }else $sMeld.='<p class="admFehl">Der vorgesehene Bilder-Ordner <i>'.substr($fsBilder,0,-1).'</i> ist nicht beschreibbar!</p>';
- }else $sMeld.='<p class="admFehl">Der vorgesehene Name <i>'.substr($fsBilder,0,-1).'</i> für den Bilder-Ordner ist ungültig!</p>';
+ }else $sMeld.='<p class="admFehl">Der vorgesehene Name <i>'.substr($fsBilder,0,-1).'</i> fï¿½r den Bilder-Ordner ist ungï¿½ltig!</p>';
 
  if($bNeu){//Speichern
   if($f=fopen(FRA_Pfad.'fraWerte'.$sKonf.'.php','w')){
@@ -310,12 +310,12 @@ if($_SERVER['REQUEST_METHOD']=='GET'){ //GET
  //------
   }//while
   if($sErfo) $sMeld.='<p class="admErfo">Die Einstellungen wurden'.($sErfo!=', 0'?' in Konfiguration'.substr($sErfo,1):'').' gespeichert.</p>';
-  else $sMeld.='<p class="admMeld">Die Einstellungen zur Datenbasis bleiben unverändert.</p>';
- }else{$sMeld.='<p class="admFehl">Wollen Sie die Änderung wirklich für <i>alle</i> Konfigurationen vornehmen?</p>'; $sKonfAlle='1';}
+  else $sMeld.='<p class="admMeld">Die Einstellungen zur Datenbasis bleiben unverï¿½ndert.</p>';
+ }else{$sMeld.='<p class="admFehl">Wollen Sie die ï¿½nderung wirklich fï¿½r <i>alle</i> Konfigurationen vornehmen?</p>'; $sKonfAlle='1';}
 }//POST
 
 //Seitenausgabe
-if(!$sMeld) $sMeld='<p class="admMeld">Kontrollieren oder ändern Sie die Einstellungen zur Datenbasis des Testfragen-Scripts.</p>';
+if(!$sMeld) $sMeld='<p class="admMeld">Kontrollieren oder ï¿½ndern Sie die Einstellungen zur Datenbasis des Testfragen-Scripts.</p>';
 echo $sMeld.NL;
 ?>
 
@@ -330,17 +330,17 @@ auf dem Webserver, um daraus bei jeder Anforderung dynamisch eine Ausgabeseite z
   <table border="0" cellpadding="0" cellspacing="0">
    <tr>
     <td width="130" valign="top"><input type="radio" class="admRadio" name="Sql" value="0"<?php if(!$fsSQL) echo ' checked="checked"';?> /> Textdatei</td>
-    <td style="padding-bottom:8px;">Standardmäßig werden zum Speichern einfache Textdateien verwendet.
+    <td style="padding-bottom:8px;">Standardmï¿½ï¿½ig werden zum Speichern einfache Textdateien verwendet.
 Diese Methode ist schnell und ressourcenschonend.
 Allerdings muss das Testfragen-Script dazu die Berechtigung besitzen, in eine solche Fragedatei, Ergebnisdatei bzw. Benutzerdatei
-schreiben zu dürfen. Eine solche Schreibberechtigung stellt auf einigen wenigen ungeschickt konfigurierten Servern
+schreiben zu dï¿½rfen. Eine solche Schreibberechtigung stellt auf einigen wenigen ungeschickt konfigurierten Servern
 unter extrem seltenen Bedingungen ein gewisses Sicherheitsrisiko dar.</td>
    </tr>
    <tr>
     <td width="130" valign="top"><input type="radio" class="admRadio" name="Sql" value="1"<?php if($fsSQL) echo ' checked="checked"';?> /> MySQL-Tabelle</td>
-    <td>Abweichend davon können die Daten auch in Tabellen einer MySQL-Datenbank gepeichert werden.
-Diese Methode ist wesentlich ressourcenverbrauchender solange die Fragedatei nur wenige Hundert Fragen enthält.
-In Fällen, da mehrere Tausend Fragen in der Datenbasis eingetragen sind oder sehr viele Benutzer angemeldet sind
+    <td>Abweichend davon kï¿½nnen die Daten auch in Tabellen einer MySQL-Datenbank gepeichert werden.
+Diese Methode ist wesentlich ressourcenverbrauchender solange die Fragedatei nur wenige Hundert Fragen enthï¿½lt.
+In Fï¿½llen, da mehrere Tausend Fragen in der Datenbasis eingetragen sind oder sehr viele Benutzer angemeldet sind
 kann die MySQL-Datenquelle hingegen Geschwindigkeits- oder Sicherheitsvorteile bringen.</td>
    </tr>
   </table></td>
@@ -348,17 +348,17 @@ kann die MySQL-Datenquelle hingegen Geschwindigkeits- oder Sicherheitsvorteile b
 <tr class="admTabl"><td colspan="2" class="admMini">
   <u>Hinweis</u>: Wenn Sie die Datenbasis umschalten werden die Fragen und Ergebnisse
   aus der momentanen Datenquelle auf den neuen Datenspeicher umgeschrieben.
-  Etwaig vorhandene ältere Datenspeicher mit selbem Namen aus früheren Umschaltungen werden überschrieben.
-  Gleiches gilt für die Benutzerdaten, falls die Benutzerverwaltung aktiv ist.
+  Etwaig vorhandene ï¿½ltere Datenspeicher mit selbem Namen aus frï¿½heren Umschaltungen werden ï¿½berschrieben.
+  Gleiches gilt fï¿½r die Benutzerdaten, falls die Benutzerverwaltung aktiv ist.
  </td>
 </tr>
-<tr class="admTabl"><td colspan="2" class="admSpa2">Für die etwaige Datenspeicherung in <i>Textdateien</i> gelten die folgenden Einstellungen:</td></tr>
+<tr class="admTabl"><td colspan="2" class="admSpa2">Fï¿½r die etwaige Datenspeicherung in <i>Textdateien</i> gelten die folgenden Einstellungen:</td></tr>
 <tr class="admTabl">
  <td class="admSpa1">Speicherordner</td>
  <td><input type="text" name="Daten" value="<?php echo(substr($fsDaten,-1,1)=='/'?substr($fsDaten,0,-1):$fsDaten)?>" style="width:250px;<?php if($fsSQL) echo 'color:#8C8C8C;'?>" /> Empfehlung: <i>daten</i>
  <div class="admMini">Unterordner, relativ zum Hauptordner des Testfragen-Scripts. Der Ordner muss bereits existieren. <a href="<?php echo ADF_Hilfe ?>LiesMich.htm#1.1" target="hilfe" onclick="hlpWin(this.href);return false;"><img src="hilfe.gif" width="13" height="13" border="0" title="Hilfe"></a></div></td>
 </tr>
-<tr class="admTabl"><td colspan="2" class="admMini"><u>Hinweis</u>: Um unbefugte Einblicke in den Datenspeicherordner zu verhindern können Sie diesen Unterordner mit einem serverseitigen .htaccess-Passwortschutz versehen, so wie Sie es hoffentlich bereits für den Administrator-Ordner getan haben.</td></tr>
+<tr class="admTabl"><td colspan="2" class="admMini"><u>Hinweis</u>: Um unbefugte Einblicke in den Datenspeicherordner zu verhindern kï¿½nnen Sie diesen Unterordner mit einem serverseitigen .htaccess-Passwortschutz versehen, so wie Sie es hoffentlich bereits fï¿½r den Administrator-Ordner getan haben.</td></tr>
 <tr class="admTabl">
  <td class="admSpa1">Fragendatei</td>
  <td><input type="text" name="Fragen" value="<?php echo $fsFragen?>" style="width:150px;<?php if($fsSQL) echo 'color:#8C8C8C;'?>" /> Vorschlag: <i>fragen.txt</i>
@@ -373,7 +373,7 @@ kann die MySQL-Datenquelle hingegen Geschwindigkeits- oder Sicherheitsvorteile b
 </tr>
 <tr class="admTabl">
  <td class="admSpa1">Benutzerdatei</td>
- <td><input type="text" name="Nutzer" value="<?php echo $fsNutzer?>" style="width:150px;<?php if($fsSQL) echo 'color:#8C8C8C;'?>" /> Vorschlag: <i>Wählen Sie einen nicht zu erratenden Namen!</i>
+ <td><input type="text" name="Nutzer" value="<?php echo $fsNutzer?>" style="width:150px;<?php if($fsSQL) echo 'color:#8C8C8C;'?>" /> Vorschlag: <i>Wï¿½hlen Sie einen nicht zu erratenden Namen!</i>
  <div><input class="admCheck" type="checkbox" name="TabNtzLeer<?php if($sTabNtzLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen</div>
  <div class="admMini">Wenn Ihr Testfragen-Script mit Benutzerverwaltung arbeiten soll, muss das PHP-Script Schreibberechtigung auf die angegebene Datei im angegebenen Speicherordner besitzen.</div></td>
 </tr>
@@ -389,9 +389,9 @@ kann die MySQL-Datenquelle hingegen Geschwindigkeits- oder Sicherheitsvorteile b
  <div><input class="admCheck" type="checkbox" name="TabFolLeer<?php if($sTabFolLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen</div>
  <div class="admMini">Das PHP-Script muss Schreibberechtigung auf die angegebene Datei im angegebenen Speicherordner besitzen.</div></td>
 </tr>
-<tr class="admTabl"><td colspan="2" class="admMini"><u>Warnung</u>: Im Datenordner vorhandene Dateien gleichen Namens werden ohne Rückfrage überschrieben!</td></tr>
+<tr class="admTabl"><td colspan="2" class="admMini"><u>Warnung</u>: Im Datenordner vorhandene Dateien gleichen Namens werden ohne Rï¿½ckfrage ï¿½berschrieben!</td></tr>
 
-<tr class="admTabl"><td colspan="2" class="admSpa2">Für die etwaige Datenspeicherung in einer <i>MySQL-Datenbank</i> gelten die folgenden Einstellungen:</td></tr>
+<tr class="admTabl"><td colspan="2" class="admSpa2">Fï¿½r die etwaige Datenspeicherung in einer <i>MySQL-Datenbank</i> gelten die folgenden Einstellungen:</td></tr>
 <tr class="admTabl">
  <td class="admSpa1">MySQL-Host</td>
  <td><input type="text" name="SqlHost" value="<?php echo $fsSqlHost?>" style="width:250px;<?php if(!$fsSQL) echo 'color:#8C8C8C;'?>" /> meist: <i>localhost</i></td>
@@ -413,36 +413,36 @@ kann die MySQL-Datenquelle hingegen Geschwindigkeits- oder Sicherheitsvorteile b
  <td><table border="0" cellpadding="0" cellspacing="0">
   <tr>
    <td><input type="text" name="SqlTabF" value="<?php echo $fsSqlTabF?>" style="width:120px;<?php if(!$fsSQL) echo 'color:#8C8C8C;'?>" /></td>
-   <td>&nbsp;Vorschlag: <i>fra_fragen</i> für die Testfragen</td>
+   <td>&nbsp;Vorschlag: <i>fra_fragen</i> fï¿½r die Testfragen</td>
    <td>&nbsp;(<input class="admCheck" type="checkbox" name="TabSFrLeer<?php if($sTabSFrLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen)</td>
   </tr><tr>
    <td><input type="text" name="SqlTabE" value="<?php echo $fsSqlTabE?>" style="width:120px;<?php if(!$fsSQL) echo 'color:#8C8C8C;'?>" /></td>
-   <td>&nbsp;Vorschlag: <i>fra_ergebnis</i> für die Ergebnisse</td>
+   <td>&nbsp;Vorschlag: <i>fra_ergebnis</i> fï¿½r die Ergebnisse</td>
    <td>&nbsp;(<input class="admCheck" type="checkbox" name="TabSErLeer<?php if($sTabSErLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen)</td>
   </tr><tr>
    <td><input type="text" name="SqlTabN" value="<?php echo $fsSqlTabN?>" style="width:120px;<?php if(!$fsSQL) echo 'color:#8C8C8C;'?>" /></td>
-   <td>&nbsp;Vorschlag: <i>fra_nutzer</i> für die Benutzer</td>
+   <td>&nbsp;Vorschlag: <i>fra_nutzer</i> fï¿½r die Benutzer</td>
    <td>&nbsp;(<input class="admCheck" type="checkbox" name="TabSNuLeer<?php if($sTabSNuLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen)</td>
   </tr><tr>
    <td><input type="text" name="SqlTabZ" value="<?php echo $fsSqlTabZ?>" style="width:120px;<?php if(!$fsSQL) echo 'color:#8C8C8C;'?>" /></td>
-   <td>&nbsp;Vorschlag: <i>fra_Zuweisung</i> für Testzuweisungen</td>
+   <td>&nbsp;Vorschlag: <i>fra_Zuweisung</i> fï¿½r Testzuweisungen</td>
    <td>&nbsp;(<input class="admCheck" type="checkbox" name="TabSZuLeer<?php if($sTabSZuLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen)</td>
   </tr><tr>
    <td><input type="text" name="SqlTabT" value="<?php echo $fsSqlTabT?>" style="width:120px;<?php if(!$fsSQL) echo 'color:#8C8C8C;'?>" /></td>
-   <td>&nbsp;Vorschlag: <i>fra_folgen</i> für die Testfolgen</td>
+   <td>&nbsp;Vorschlag: <i>fra_folgen</i> fï¿½r die Testfolgen</td>
    <td>&nbsp;(<input class="admCheck" type="checkbox" name="TabSFoLeer<?php if($sTabSFoLeer=='1') echo'" checked="checked'?>" value="1" /> als leere Tabelle neu anlegen)</td>
   </tr>
  </table></td>
 </tr>
-<tr class="admTabl"><td class="admMini" colspan="2"><u>Warnung</u>: In der Datenbank vorhandene Tabellen gleichen Namens werden ohne Rückfrage überschrieben!</td></tr>
-<tr class="admTabl"><td colspan="2" class="admSpa2">Falls Ihr Testfragen-Script mit Bildern arbeitet kann der Speicherort für Bilder verlegt werden. (<span class="admMini">Angabe relativ zum Programmordner</span>)</td></tr>
+<tr class="admTabl"><td class="admMini" colspan="2"><u>Warnung</u>: In der Datenbank vorhandene Tabellen gleichen Namens werden ohne Rï¿½ckfrage ï¿½berschrieben!</td></tr>
+<tr class="admTabl"><td colspan="2" class="admSpa2">Falls Ihr Testfragen-Script mit Bildern arbeitet kann der Speicherort fï¿½r Bilder verlegt werden. (<span class="admMini">Angabe relativ zum Programmordner</span>)</td></tr>
 <tr class="admTabl">
  <td class="admSpa1">Bilder-Ordner</td>
  <td><input type="text" name="Bilder" value="<?php echo(substr($fsBilder,-1,1)=='/'?substr($fsBilder,0,-1):$fsBilder)?>" style="width:250px;" /> Empfehlung: <i>bilder</i> &nbsp; <span class="admMini">(der Ordner muss bereits existieren)</span></td>
 </tr>
 </table>
 <?php if(MULTIKONF){?>
-<p class="admSubmit"><input type="radio" name="AlleKonf" value="0<?php if(!$bAlleKonf)echo'" checked="checked';?>"> nur für diese Konfiguration<?php if(KONF>0) echo '-'.KONF;?> &nbsp; <input type="radio" name="AlleKonf" value="1<?php if($bAlleKonf)echo'" checked="checked';?>"> für alle Konfigurationen<input type="hidden" name="KonfAlle" value="<?php echo $sKonfAlle;?>" /></p>
+<p class="admSubmit"><input type="radio" name="AlleKonf" value="0<?php if(!$bAlleKonf)echo'" checked="checked';?>"> nur fï¿½r diese Konfiguration<?php if(KONF>0) echo '-'.KONF;?> &nbsp; <input type="radio" name="AlleKonf" value="1<?php if($bAlleKonf)echo'" checked="checked';?>"> fï¿½r alle Konfigurationen<input type="hidden" name="KonfAlle" value="<?php echo $sKonfAlle;?>" /></p>
 <?php }?>
 <p class="admSubmit"><input class="admSubmit" type="submit" value="Eintragen"></p>
 </form>

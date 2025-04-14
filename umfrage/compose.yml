@@ -1,18 +1,18 @@
 services:
-  kalender:
-    build: kalender
+  umfrage:
+    build: umfrage
     environment:
       - FQDN=localhost
       - TZ=Europe/Berlin
     volumes:
-      - ./kalender/kalWerte.php:/var/www/html/kalWerte.php:rw
+      - ./umfrage/unfWerte.php:/var/www/html/unfWerte.php:rw
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.kalender.rule=Host(`localhost`)"
-      - "traefik.http.services.kalender.loadbalancer.server.port=80"
+      - "traefik.http.routers.umfrage.rule=Host(`localhost`)"
+      - "traefik.http.services.umfrage.loadbalancer.server.port=80"
     networks:
-      kalender:
-        ipv4_address: 172.103.0.2
+      umfrage:
+        ipv4_address: 172.106.0.2
 
   webserver:
     image: nginx:alpine
@@ -24,8 +24,8 @@ services:
       - "traefik.http.routers.webserver.rule=Host(`web.localhost`)"
       - "traefik.http.services.webserver.loadbalancer.server.port=80"
     networks:
-      kalender:
-        ipv4_address: 172.103.0.3
+      umfrage:
+        ipv4_address: 172.106.0.3
 
   traefik:
     image: traefik:v2.5
@@ -39,8 +39,8 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      kalender:
-        ipv4_address: 172.103.0.4
+      umfrage:
+        ipv4_address: 172.106.0.4
 
   mysql:
     image: mysql:5.7
@@ -48,15 +48,15 @@ services:
       - ./mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kalender
-      MYSQL_USER: kalender
-      MYSQL_PASSWORD: kalender
+      MYSQL_DATABASE: umfrage
+      MYSQL_USER: umfrage
+      MYSQL_PASSWORD: umfrage
     restart: unless-stopped
     labels:
       - "traefik.enable=false"
     networks:
-      kalender:
-        ipv4_address: 172.103.0.5
+      umfrage:
+        ipv4_address: 172.106.0.5
 
   phpmyadmin:
     image: phpmyadmin
@@ -71,14 +71,14 @@ services:
       - "traefik.http.routers.phpmyadmin.rule=Host(`db.localhost`)"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
     networks:
-      kalender:
-        ipv4_address: 172.103.0.6
+      umfrage:
+        ipv4_address: 172.106.0.6
 
 networks:
-  kalender:
-    name: kalender
+  umfrage:
+    name: umfrage
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.103.0.0/24
+        - subnet: 172.106.0.0/24

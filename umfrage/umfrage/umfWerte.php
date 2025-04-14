@@ -2,8 +2,8 @@
 // Setup
 define('UMF_Version','3.3_2023-06-10');
 define('UMF_Konfiguration','Grundkonfiguration');
-define('UMF_Www','');
-define('UMF_Pfad','./');
+define('UMF_Www','localhost');
+define('UMF_Pfad','/var/www/html/');
 define('UMF_Daten','daten/');
 define('UMF_Bilder','bilder/');
 define('UMF_Fragen','fragen.txt');
@@ -12,10 +12,10 @@ define('UMF_Zuweisung','zuweisung.txt');
 define('UMF_Nutzer','nutzer0.txt');
 define('UMF_Teilnahme','teilnahme.txt');
 define('UMF_SQL',false);
-define('UMF_SqlHost','localhost');
-define('UMF_SqlDaBa','db_name');
-define('UMF_SqlUser','db_user');
-define('UMF_SqlPass','db_pass');
+define('UMF_SqlHost','mysql');
+define('UMF_SqlDaBa','umfrage');
+define('UMF_SqlUser','root');
+define('UMF_SqlPass','root');
 define('UMF_SqlCharSet','');
 define('UMF_SqlTabF','umf_fragen');
 define('UMF_SqlTabE','umf_ergebnis');
@@ -233,7 +233,7 @@ define('UMF_DruckGast',true);
 // feste Begriffe
 define('UMF_TxNr','Nr.');
 define('UMF_TxVon','von');
-define('UMF_TxFuer','für');
+define('UMF_TxFuer','fï¿½r');
 define('UMF_TxOder','oder');
 define('UMF_TxNicht','nicht');
 define('UMF_TxBis','bis');
@@ -267,7 +267,7 @@ define('UMF_TxWeiter','Weiter'); //??
 define('UMF_TxAbstimmen','Abstimmen');
 define('UMF_TxBeantworten','Beantworten Sie nun bitte diese #. Frage.');
 define('UMF_TxAntwortFehlt',"Bitte beantworten Sie die Frage!");
-define('UMF_TxAbgestimmt','Vielen Dank für Ihre Teilnahme.');
+define('UMF_TxAbgestimmt','Vielen Dank fï¿½r Ihre Teilnahme.');
 define('UMF_TxGleicheAdresse','Wiederholte Abstimmungen werden nicht akzeptiert!');
 define('UMF_TxAnonymeAdresse','Anonymisierte Abstimmungen werden nicht akzeptiert!');
 define('UMF_TxFertigText','Alle Abstimmungsergebnisse werden [i]vertraulich[/i] behandelt und [i]anonym[/i] gespeichert. ....');
@@ -280,18 +280,18 @@ define('UMF_TxTextCaptcha','Text-');
 define('UMF_TxGrafikCaptcha','Grafik-');
 define('UMF_TxCaptchaHilfe','Bitte den Buchstaben und die 4 Ziffern eingeben');
 define('UMF_TxCaptchaFehl','Bitte geben Sie den Sicherheitscode korrekt ein!');
-define('UMF_TxDSE1',"Ich habe die [L]Datenschutzerklärung[/L] gelesen und stimme ihr zu.");
-define('UMF_TxDSE2',"Ich bin mit der Verarbeitung und Speicherung meiner persönlichen Daten im Rahmen der Datenschutzerklärung einverstanden.");
+define('UMF_TxDSE1',"Ich habe die [L]Datenschutzerklï¿½rung[/L] gelesen und stimme ihr zu.");
+define('UMF_TxDSE2',"Ich bin mit der Verarbeitung und Speicherung meiner persï¿½nlichen Daten im Rahmen der Datenschutzerklï¿½rung einverstanden.");
 
 //Ablauf-E-Mail
 define('UMF_TxFertigMlBtr',"neue Abstimmung im Umfragescript");
 define('UMF_TxFertigMlTxt','Im Umfragescript wurde soeben folgende Antwort eingetragen:\n \n #');
 
 //Teilnehmerregistrierung
-define('UMF_TxLoginErfassen',"Registrierung nur für diesen einen Umfragedurchlauf.");
-define('UMF_TxTeilnehmerSperre','Der Zugang für Teilnehmer ist momentan gesperrt.');
-define('UMF_TxVorVorErfassen',"Vor Beginn der Umfrage müssen Sie sich erst registrieren.");
-define('UMF_TxNachVorErfassen',"Ihre Daten wurden folgendermaßen erfasst.");
+define('UMF_TxLoginErfassen',"Registrierung nur fï¿½r diesen einen Umfragedurchlauf.");
+define('UMF_TxTeilnehmerSperre','Der Zugang fï¿½r Teilnehmer ist momentan gesperrt.');
+define('UMF_TxVorVorErfassen',"Vor Beginn der Umfrage mï¿½ssen Sie sich erst registrieren.");
+define('UMF_TxNachVorErfassen',"Ihre Daten wurden folgendermaï¿½en erfasst.");
 define('UMF_TxVorNachErfassen',"Sie haben alle # Fragen abgearbeitet. Tragen Sie Ihre Daten ein.");
 define('UMF_TxRegistNicht','');
 
@@ -301,38 +301,38 @@ define('UMF_TxEintragen','Eintragen');
 define('UMF_TxSenden','Senden');
 define('UMF_TxBenutzer','Benutzer');
 define('UMF_TxBenutzername','Benutzername');
-define('UMF_TxGewuenscht','gewünschter');
+define('UMF_TxGewuenscht','gewï¿½nschter');
 define('UMF_TxMailAdresse','E-Mail-Adresse');
 define('UMF_TxPasswort','Passwort');
 define('UMF_TxNutzerNr','Benutzernummer');
-define('UMF_TxNutzerFrist','gültig bis');
+define('UMF_TxNutzerFrist','gï¿½ltig bis');
 define('UMF_TxNutzerAblauf','abgelaufen');
 define('UMF_TxNutzerRegel','(4...25 Zeichen)');
 define('UMF_TxPassRegel','(4...16 Zeichen)');
 define('UMF_TxPflicht','Pflichtangabe');
-define('UMF_TxLoginLogin','Zugang für angemeldete Benutzer');
+define('UMF_TxLoginLogin','Zugang fï¿½r angemeldete Benutzer');
 define('UMF_TxLoginNeu',"Benutzerzugang jetzt beantragen");
 define('UMF_TxLoginVergessen',"vergessenes Passwort zusenden");
-define('UMF_TxNutzerLogin',"Melden Sie sich für die Durchführung der Umfrage an!");
-define('UMF_TxNutzerSperre','Der Zugang für Benutzer ist momentan gesperrt.');
+define('UMF_TxNutzerLogin',"Melden Sie sich fï¿½r die Durchfï¿½hrung der Umfrage an!");
+define('UMF_TxNutzerSperre','Der Zugang fï¿½r Benutzer ist momentan gesperrt.');
 define('UMF_TxLoginNicht','');
 define('UMF_TxNutzerNamePass',"Bitte Benutzernamen und Passwort angeben!");
 define('UMF_TxNutzerNameMail',"Bitte Benutzernamen oder E-Mail-Adresse angeben!");
-define('UMF_TxEingabeFehl',"Ergänzen Sie bei den rot markierten Feldern!");
+define('UMF_TxEingabeFehl',"Ergï¿½nzen Sie bei den rot markierten Feldern!");
 define('UMF_TxNutzerFalsch',"Ein Benutzer mit diesen Daten ist nicht verzeichnet!");
-define('UMF_TxNutzerPruefe',"Prüfen und bestätigen Sie bitte Ihre Benutzerdaten!");
-define('UMF_TxNutzerAendere','Ändern Sie jetzt die Benutzerdaten ab!'); //Adm
+define('UMF_TxNutzerPruefe',"Prï¿½fen und bestï¿½tigen Sie bitte Ihre Benutzerdaten!");
+define('UMF_TxNutzerAendere','ï¿½ndern Sie jetzt die Benutzerdaten ab!'); //Adm
 define('UMF_TxNutzerVergeben',"Dieser Benutzername ist bereits vergeben!");
 define('UMF_TxNutzerNeu',"Die Benutzerdaten wurden eingetragen und der Webmaster informiert!");
-define('UMF_TxNutzerUnveraendert',"Die Benutzerdaten bleiben unverändert!");
-define('UMF_TxNutzerGeaendert',"Die geänderten Benutzerdaten wurden eingetragen!");
+define('UMF_TxNutzerUnveraendert',"Die Benutzerdaten bleiben unverï¿½ndert!");
+define('UMF_TxNutzerGeaendert',"Die geï¿½nderten Benutzerdaten wurden eingetragen!");
 define('UMF_TxNutzerOK',"Sie wurden angemeldet. Beginnen Sie nun mit dem Beantworten der Fragen.");
 define('UMF_TxNutzerSend',"Die Zugangsdaten wurden soeben versandt!");
 define('UMF_TxSendeFehl','Die Nachricht konnte soeben nicht versandt werden!');
 define('UMF_TxNutzerDatBtr',"Zugangsdaten bei #");
 define('UMF_TxNutzerDaten','Sehr geehrte Damen und Herren,\n \n Sie haben soeben Ihre Zugangsdaten zum Umfrage-Script auf #A angefordert. Diese lauten:\n \n Benutzernummer: #N\n Benutzer: #B\n Passwort: #P');
 define('UMF_TxNutzerNeuBtr',"Ihre Anmeldung bei #");
-define('UMF_TxNutzerNeuTxt','Ihre Anmeldung bei #A wurde registriert. Bitte bestätigen Sie die Anmeldung über den Link\n \n #L\n \n Hier Ihre Anmeldedaten:\n #D');
+define('UMF_TxNutzerNeuTxt','Ihre Anmeldung bei #A wurde registriert. Bitte bestï¿½tigen Sie die Anmeldung ï¿½ber den Link\n \n #L\n \n Hier Ihre Anmeldedaten:\n #D');
 define('UMF_TxNutzNeuAdmBtr',"neuer Umfrage-Script-Benutzer Nr. #");
 define('UMF_TxNutzNeuAdmTxt','Ein neuer Umfrage-Script-Benutzer Nr. #N hat sich wie folgt angemeldet:\n \n #D');
 define('UMF_TxNutzerAktivBtr',"Zugang aktiviert bei #");
@@ -340,9 +340,9 @@ define('UMF_TxNutzerAktivTxt','Sehr geehrte Damen und Herren,\n \n Ihr Benutzerz
 define('UMF_TxPassiv',"Der Benutzerzugang ist nicht freigeschaltet.");
 define('UMF_TxAktivieren',"Benutzerzugang jetzt aktivieren?");
 define('UMF_TxAktiviert',"Ihr Benutzerzugang wurde aktiviert!");
-define('UMF_TxAktivFehl',"Der Freischaltcode ist ungültig!");
+define('UMF_TxAktivFehl',"Der Freischaltcode ist ungï¿½ltig!");
 define('UMF_TxSessionZeit','Die Sitzungszeit ist abgelaufen - bitte erneut anmelden!');
-define('UMF_TxSessionUngueltig','Die Sitzung ist ungültig - bitte anmelden!');
+define('UMF_TxSessionUngueltig','Die Sitzung ist ungï¿½ltig - bitte anmelden!');
 
 //Benutzerzentrum
 define('UMF_TxTeilnehmerzentrum','Umfrageauswahl');
@@ -353,18 +353,18 @@ define('UMF_TxAuswerteGrafik','Auswertegrafik');
 define('UMF_TxErgebnis','Ergebnis');
 define('UMF_TxErgebnisListe','Ergebnisliste');
 define('UMF_TxErgebnisDetails','Details anzeigen');
-define('UMF_TxNutzerAendern','Benutzerdaten ändern');
+define('UMF_TxNutzerAendern','Benutzerdaten ï¿½ndern');
 define('UMF_TxKeinTlnNam','Gast');
 define('UMF_TxKeinNtzNam','unbekannt');
 define('UMF_TxAktivCodeNoetig','Geben Sie den korrekten Aktiv-Code an!');
 
 // System-Fehler
 define('UMF_TxFrageFehlt','Keine passende Frage in der Fragendatei gefunden!');
-define('UMF_TxSetupFehlt','Bitte zuerst das Setup/Update in der Administration ausführen!');
+define('UMF_TxSetupFehlt','Bitte zuerst das Setup/Update in der Administration ausfï¿½hren!');
 define('UMF_TxDateiRechte','Unzureichende Schreibrechte beim Speichern von #! (Setup-Fehler)');
 define('UMF_TxSqlVrbdg','Entschuldigung - momentan MySQL-Verbindungsfehler');
 define('UMF_TxSqlDaBnk','Entschuldigung - momentan MySQL-Datenbankauswahlfehler');
 define('UMF_TxSqlFrage','Entschuldigung - momentan MySQL-Abfragefehler');
-define('UMF_TxSqlEinfg','Entschuldigung - momentan MySQL-Einfügefehler');
-define('UMF_TxSqlAendr','Entschuldigung - momentan MySQL-Änderungsfehler');
+define('UMF_TxSqlEinfg','Entschuldigung - momentan MySQL-Einfï¿½gefehler');
+define('UMF_TxSqlAendr','Entschuldigung - momentan MySQL-ï¿½nderungsfehler');
 ?>

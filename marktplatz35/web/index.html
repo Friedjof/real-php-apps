@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>web.localhost – Payload Server</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #111;
+      color: #eee;
+      padding: 2em;
+    }
+    h1 {
+      color: #0f0;
+    }
+    p, li {
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    code {
+      background-color: #222;
+      color: #0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Payload Dropzone</h1>
+  <p>
+    This HTTP server is part of a controlled hacking lab and is intended for serving files to targets during exploitation scenarios.
+    Typical use cases include:
+  </p>
+  <ul>
+    <li>Dropping reverse shell payloads</li>
+    <li>Providing exploit scripts or binaries</li>
+    <li>Delivering post-exploitation tools</li>
+    <li>Transferring files between host and target containers</li>
+  </ul>
+  <p>
+    To serve a file, simply place it into the <code>/web</code> directory located beneath the application being tested.
+    No configuration is needed — all files in that directory are made available via HTTP.
+  </p>
+  <p>
+    Access paths:
+  </p>
+  <ul>
+    <li><strong>From your host browser:</strong> <code>http://web.localhost/</code></li>
+    <li><strong>From within other containers:</strong> <code>http://172.103.0.3/&lt;filename&gt;</code></li>
+  </ul>
+  <p>
+    This setup allows fast and flexible delivery of arbitrary files during offensive testing without requiring changes to the target environment.
+  </p>
+</body>
+</html>
