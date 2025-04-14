@@ -1,0 +1,85 @@
+services:
+  kalender:
+    build: kalender
+    image: kalender35
+    environment:
+      - FQDN=localhost
+      - TZ=Europe/Berlin
+    volumes:
+      - ./kalender/kalWerte.php:/var/www/html/kalWerte.php:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.web.rule=Host(`localhost`)"
+      - "traefik.http.services.web.loadbalancer.server.port=80"
+    networks:
+      kalender:
+        ipv4_address: 172.103.0.2
+
+  webserver:
+    image: nginx:alpine
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webserver.rule=Host(`web.localhost`)"
+      - "traefik.http.services.webserver.loadbalancer.server.port=80"
+    networks:
+      kalender:
+        ipv4_address: 172.103.0.3
+
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8081:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      kalender:
+        ipv4_address: 172.103.0.4
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kalender
+      MYSQL_USER: kalender
+      MYSQL_PASSWORD: kalender
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=false"
+    networks:
+      kalender:
+        ipv4_address: 172.103.0.5
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_ARBITRARY: 1
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`db.localhost`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+    networks:
+      kalender:
+        ipv4_address: 172.103.0.6
+
+networks:
+  kalender:
+    name: kalender
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.103.0.0/24

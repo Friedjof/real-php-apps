@@ -1,0 +1,18 @@
+*/mysql/*
+*/web/*
+
+*/venv/
+*/__pycache__/
+*.pyc
+*.pyo
+
+**/scripts/*private.py
+
+# Ignoriere alles in den genannten Verzeichnissen
+*/mysql/*
+*/web/*
+**/scripts/*
+
+# Aber behalte .gitkeep Dateien
+!**/.gitkeep
+!**/web/index.html
