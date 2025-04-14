@@ -7,11 +7,10 @@
 *.pyo
 
 **/scripts/*private.py
+*.env
 
-# Ignoriere alles in den genannten Verzeichnissen
 */mysql/*
 */web/*
-**/scripts/*
 
 # Aber behalte .gitkeep Dateien
 !**/.gitkeep
