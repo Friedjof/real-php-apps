@@ -13,7 +13,7 @@ define('FRA_Folgen','testfolgen.txt');
 define('FRA_Ergebnis','ergebnis.csv');
 define('FRA_Nutzer','nutzer00.txt');
 define('FRA_Zuweisung','zuweisungen.txt');
-define('FRA_SQL',true);
+define('FRA_SQL',false);
 define('FRA_SqlHost','mysql');
 define('FRA_SqlDaBa','testfragen');
 define('FRA_SqlUser','root');

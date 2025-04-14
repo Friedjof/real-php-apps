@@ -15,7 +15,7 @@ define('KAL_Erinner','erinner00.txt');
 define('KAL_Benachr','benachr00.txt');
 define('KAL_MailAdr','mailadr00.txt');
 define('KAL_AdminTexte','texteAdmin.txt');
-define('KAL_SQL',true);
+define('KAL_SQL',false);
 define('KAL_SqlHost','mysql');
 define('KAL_SqlDaBa','kalender');
 define('KAL_SqlUser','root');
