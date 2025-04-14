@@ -19,9 +19,6 @@ WORKDIR /var/www/html/
 # Copy application files
 COPY . /var/www/html/
 
-# Setup PHP configuration
-COPY custom-php.ini /usr/local/etc/php/conf.d/
-
 # Permissions (vorsichtig mit 777 – lieber gezielter setzen)
 RUN chmod -R 777 /var/www/html/
 

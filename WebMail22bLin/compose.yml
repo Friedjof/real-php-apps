@@ -1,0 +1,84 @@
+services:
+  webmail:
+    build: .
+    environment:
+      - FQDN=localhost
+      - TZ=Europe/Berlin
+    volumes:
+      - ./webmail/unfWerte.php:/var/www/html/unfWerte.php:rw
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webmail.rule=Host(`localhost`)"
+      - "traefik.http.services.webmail.loadbalancer.server.port=80"
+    networks:
+      webmail:
+        ipv4_address: 172.107.0.2
+
+  webserver:
+    image: nginx:alpine
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webserver.rule=Host(`web.localhost`)"
+      - "traefik.http.services.webserver.loadbalancer.server.port=80"
+    networks:
+      webmail:
+        ipv4_address: 172.107.0.3
+
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8081:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      webmail:
+        ipv4_address: 172.107.0.4
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: webmail
+      MYSQL_USER: webmail
+      MYSQL_PASSWORD: webmail
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=false"
+    networks:
+      webmail:
+        ipv4_address: 172.107.0.5
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_ARBITRARY: 1
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`db.localhost`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+    networks:
+      webmail:
+        ipv4_address: 172.107.0.6
+
+networks:
+  webmail:
+    name: webmail
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.107.0.0/24
