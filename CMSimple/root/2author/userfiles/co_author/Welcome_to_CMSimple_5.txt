@@ -1,0 +1,8 @@
+<h1 class="_level1_page_">Welcome to CMSimple 5</h1>
+<h1>Welcome to CMSimple 5</h1>
+<p>Congratulations on your new external author subsite. You can login now with the default password, which you will find in the readme.php of the download.</p>
+<div style="text-align: center; font-weight: bold; background: #900; color: #ffffff; padding: 4px 6px;">
+<p>!!! Remember to change the login password&nbsp; immediately !!!</p>
+</div>
+<p>CMSimple is published under GPL3 License. More information about CMSimple, a very simple and easy to use CMS (Content Management System) without database, the documentation and the current Downloads you will find on the CMSimple Homepage:</p>
+<p><strong><a href="http://localhost/CMSimple5_Development/cmsimple5rc/">cmsimple.org »</a></strong></p>

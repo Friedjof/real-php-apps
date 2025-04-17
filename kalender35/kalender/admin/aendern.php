@@ -1,6 +1,6 @@
 <?php
 include 'hilfsFunktionen.php';
-echo fSeitenKopf('Termin ändern','<script type="text/javascript">
+echo fSeitenKopf('Termin ï¿½ndern','<script type="text/javascript">
  function GeoWin(){geoWin=window.open("about:blank","geowin","width='.(min(max(KAL_GMapBreit,500),725)+50).',height=700,left=5,top=5,menubar=no,statusbar=no,toolbar=no,scrollbars=yes,resizable=yes");geoWin.focus();}
 </script>
 <script type="text/javascript" src="eingabe.js"></script>'.(ADM_TCalPicker?'
@@ -85,12 +85,12 @@ if($_SERVER['REQUEST_METHOD']!='POST'){ //GET Daten holen
    case 'z': //Uhrzeit
     if($s){$a=explode(':',str_replace('.',':',str_replace(',',':',$s))); $s=sprintf('%02d:%02d',(isset($a[0])?$a[0]:0),(isset($a[1])?$a[1]:0)); $v=$s;} break;
    case 'e': case 'c': // E-Mail, Kontakt-E-Mail
-    if($s) if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zäöü_-]+(\.[0-9a-zäöü_-]+)*\.[a-z]{2,16}$/',strtolower($s))) $aFehl[$i]=true;
+    if($s) if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zï¿½ï¿½ï¿½_-]+(\.[0-9a-zï¿½ï¿½ï¿½_-]+)*\.[a-z]{2,16}$/',strtolower($s))) $aFehl[$i]=true;
     if(!KAL_SQL) $v=fKalEnCode($s); break;
    case 'l': //Link oder E-Mail
     $v=$s; break;
    case 'b': //Bild
-    if($aOh[$i]>'') $v=$aOh[$i]; else $v=$aOa[$i]; //kal_Up: neue Datei; kal_Dl: zu löschen
+    if($aOh[$i]>'') $v=$aOh[$i]; else $v=$aOa[$i]; //kal_Up: neue Datei; kal_Dl: zu lï¿½schen
     $UpNaJS=(isset($_POST['kal_UpNa_'.$i])?fKalDateiname(basename($_POST['kal_UpNa_'.$i])):'');
     $UpNa=(isset($_FILES['kal_Up'.$i])?fKalDateiname(basename($_FILES['kal_Up'.$i]['name'])):'');
     if($UpNa=='blob') $UpNa=$UpNaJS; $UpEx=($UpNaJS?'.jpg':strtolower(strrchr($UpNa,'.')));
@@ -168,7 +168,7 @@ if($nBreit>25) $nBreit=25; $nBreit=round(0.65*$nBreit,0);
   <td class="admSpa1" style="width:<?php echo $nBreit?>em">Status</td>
   <td>
    <?php if($sOnl!='2'){?><input class="admRadio" type="radio" name="kal_Onl" value="0"<?php if($sOnl<'1') echo ' checked="checked"'?> /> offline &nbsp;
-   <input class="admRadio" type="radio" name="kal_Onl" value="1"<?php if($sOnl=='1') echo ' checked="checked"'?> /> online &nbsp; <?php if($sOnl=='3'){?><input class="admRadio" type="radio" name="kal_Onl" value="3"<?php if($sOnl=='3') echo ' checked="checked"'?> /> gelöscht &nbsp;<?php }}
+   <input class="admRadio" type="radio" name="kal_Onl" value="1"<?php if($sOnl=='1') echo ' checked="checked"'?> /> online &nbsp; <?php if($sOnl=='3'){?><input class="admRadio" type="radio" name="kal_Onl" value="3"<?php if($sOnl=='3') echo ' checked="checked"'?> /> gelï¿½scht &nbsp;<?php }}
    else{?><input class="admRadio" type="radio" name="kal_Onl" value="2"<?php if($sOnl=='2') echo ' checked="checked"'?> /> vorgemerkt<?php }?>
 
   </td>
@@ -191,7 +191,7 @@ if($nBreit>25) $nBreit=25; $nBreit=round(0.65*$nBreit,0);
    if(KAL_FormatCode) echo NL.'   <div title="'.KAL_TxBB_X.'">'.NL.fKalBBToolbar($i).NL; else echo NL.'   <div>';
    echo $sZ.'<textarea name="kal_F'.$i.'" style="width:99%" cols="80" rows="10">'.$v.'</textarea></div>'.NL.'   </div>';
    break;
-  case 'a': case 'k': case 's': //Aufzählung/Kategorie
+  case 'a': case 'k': case 's': //Aufzï¿½hlung/Kategorie
    reset($aHlp); $sO=''; foreach($aHlp as $w) $sO.='<option value="'.$w.'"'.($v==$w?' selected="selected"':'').'>'.$w.'</option>';
    echo $sZ.'<select name="kal_F'.$i.'" size="1"><option value="">---</option>'.substr($sO,strpos($sO,'<option',9)).'</select></div>';
    break;
@@ -248,7 +248,7 @@ if($nBreit>25) $nBreit=25; $nBreit=round(0.65*$nBreit,0);
  if($sOnl=='2'){
   $v=(isset($aW[$nFelder])?$aW[$nFelder]:'');
   $a=explode('|',$v); $s=(isset($a[1])?$a[1]:''); if(strpos($s,'-')) $t=' bis '.fKalAnzeigeDatum($s); else $t=', noch '.((int)$s).' mal'; $s=$a[0];
-  if($s=='A') $s='täglich'; elseif($s=='B') $s='wöchentl.'; elseif($s=='C') $s='14-tägig'; elseif($s=='D'||$s=='E') $s='monatlich'; elseif($s=='F') $s='jährlich';
+  if($s=='A') $s='tï¿½glich'; elseif($s=='B') $s='wï¿½chentl.'; elseif($s=='C') $s='14-tï¿½gig'; elseif($s=='D'||$s=='E') $s='monatlich'; elseif($s=='F') $s='jï¿½hrlich';
   echo NL.' <tr class="admTabl"><td class="admSpa1">Periodik</td><td><input style="width:8em" name="kal_Per" value="'.$v.'" /> <span class="admMini">'.$s.$t.'</span></td></tr>';
  }
  //Pflichtfeldzeile
@@ -260,7 +260,7 @@ if($nBreit>25) $nBreit=25; $nBreit=round(0.65*$nBreit,0);
 </form>
 
 <?php
-if(file_exists(($sOnl<'2'?'liste':($sOnl=='2'?'freigabe':'terminLoeschung')).'.php')) echo '<p class="admSubmit">[ <a href="'.($sOnl<'2'?'liste':($sOnl=='2'?'freigabe':'terminLoeschung')).'.php?'.$sQ.'">zurück zur Liste</a> ]</p>'.NL.NL;
+if(file_exists(($sOnl<'2'?'liste':($sOnl=='2'?'freigabe':'terminLoeschung')).'.php')) echo '<p class="admSubmit">[ <a href="'.($sOnl<'2'?'liste':($sOnl=='2'?'freigabe':'terminLoeschung')).'.php?'.$sQ.'">zurï¿½ck zur Liste</a> ]</p>'.NL.NL;
 
 if($bMitBild && KAL_BildResize){
  echo "\n".'<script src="'.$sHttp.'kalEingabeBild.js" type="text/javascript"></script>';
@@ -280,7 +280,7 @@ if($bMitBild && KAL_BildResize){
 echo fSeitenFuss();
 
 function fKalDateiname($s){
- $s=str_replace('Ä','Ae',str_replace('Ö','Oe',str_replace('Ü','Ue',str_replace('ß','ss',str_replace('ä','ae',str_replace('ö','oe',str_replace('ü','ue',$s)))))));
+ $s=str_replace('ï¿½','Ae',str_replace('ï¿½','Oe',str_replace('ï¿½','Ue',str_replace('ï¿½','ss',str_replace('ï¿½','ae',str_replace('ï¿½','oe',str_replace('ï¿½','ue',$s)))))));
  $s=str_replace('Ã„','Ae',str_replace('Ã–','Oe',str_replace('Ãœ','Ue',str_replace('ÃŸ','ss',str_replace('Ã¤','ae',str_replace('Ã¶','oe',str_replace('Ã¼','ue',$s)))))));
  return str_replace('ï¿½','_',str_replace('%','_',str_replace('&','_',str_replace('=','_',str_replace('+','_',str_replace(' ','_',$s))))));
 }

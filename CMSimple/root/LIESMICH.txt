@@ -1,0 +1,92 @@
+
+===================================================== 
+ Hilfe zur Installation von CMSimple 5.14 oder höher
+===================================================== 
+
+I N S T A L L A T I O N 
+----------------------- 
+1. Entpacken Sie die zip Datei in einen Ordner Ihres PC.
+2. Laden Sie alle Dateien und Ordner des Verzeichnisses, in dem auch diese LIESMICH.txt liegt, auf Ihren Webserver hoch, in das Verzeichnis, in dem Ihre CMSimple Website laufen soll.
+
+Sie können Ihre neue Website nun in einem Browser aufrufen. Sie können sich 10 min lang mit dem Passwort "test" einloggen und das Passwort ändern.
+
+Nach Ablauf von 10 min nach dem Upload können Sie sich nicht mehr einloggen, Sie müssen Setup ausführen, um ein Passwort zu vergeben.
+
+S E T U P 
+--------- 
+Nach Ablauf der 10 min, oder wenn Sie das Passwort vergessen haben, können Sie das Passwort auch per Setup ändern: 
+
+1. Laden Sie die Datei ./setup/setupControl.php in das Rootverzeichnis Ihrer CMSimple Website (CMSimpleRoot, Zweitsprache, Subsite), damit wird das Setup aktiviert.
+2. Auf einigen älteren Servern müssen Sie möglicherweise die Datei setupControl.php beschreibbar machen (666), um Setup zu aktivieren.
+3. Rufen Sie die Datei setup.php (CMSimpleRoot, Zweitsprache, Subsite) mit einem Browser auf und setzen Sie Ihr Passwort.
+
+Sie haben für das Setup 10 min Zeit, danach müssen Sie die Datei setupControl.php erneut hochladen. Eventuell muss die Datei setupControl.php auf dem PC geöffnet, bearbeitet und abgespeichert werden, um der Datei ein neues Bearbeitungsdatum zu geben. Ab da laufen dann wieder die 10 min.
+
+Das Setup muss auch in Zweitsprachen und Subsites ausgeführt werden.
+
+Nach dem Setup wird die Datei ./setupControl.php automatisch gelöscht, und Setup ist deaktiviert. 
+
+U P D A T E S
+------------- 
+Die Sprachdateien werden bei Updates nicht aktualisiert. 
+
+Es wird lediglich die Datei ./cmsimple/languages/default.php aktualisiert, neu eingeführte Sprachvariablen erscheinen in allen Sprachen in Englisch und können im Backend übersetzt werden. Sie können jedoch die Sprachdateien en.php und de.php auch per Hand aktualisieren. 
+
+Sie finden die Dateien en.php und de.php im Ordner ./setup/defaults/ des Downloads, laden Sie die beiden Dateien in den Ordner ./cmsimple/languages/ hoch.
+
+S I C H E R H E I T S H I N W E I S 
+-----------------------------------
+Nach dem Setup sollten Sie sicherheitshalber die Datei ./setup.php noch einmal aufrufen. Sollte Setup noch aktiv sein, löschen Sie die Datei ./setupControl.php bitte per ftp.
+
+PASSWORT VERGESSEN? KEIN LOGIN MOEGLICH nach einem Update?
+
+Aktivieren Sie das Setup und rufen Sie die setup.php auf.
+
+Weitere Informationen erhalten Sie unter: https://cmsimple.org/
+
+D A T E I-  U N D  O R D N E R R E C H T E
+------------------------------------------ 
+Auf modernen Webspaces müssen Sie sich darum nicht mehr kümmern. Es gibt jedoch noch immer Webserver, auf denen Sie für bestimmte Ordner und Dateien Schreibrechte vergeben müssen. 
+
+Das geschieht per ftp. Wenn nach dem Hochladen so etwas wie 'Config file missing' auf dem Bildschirm erscheint, müssen Sie als erstes folgende Ordner beschreibbar machen:
+
+ORDNER (chmod 0777): 
+
+./backups/
+./backups/cmsimple/
+
+./cmsimple/
+./cmsimple/languages/
+
+./content/
+
+./templates/
+./templates/cmsimple_default/
+
+./Userfiles/
+./Userfiles/_core/
+./Userfiles/co_author/
+./Userfiles/downloads/
+./Userfiles/images/
+./Userfiles/media/
+./Userfiles/plugins/
+
+
+Danach rufen Sie Ihre Website im Browser auf, sie sollte jetzt schon funktionieren. Loggen Sie sich ein und vergeben Sie ein Passwort. 
+
+Es kann sein, dass jetzt noch einige Dateien mit Schreibrechten ausgestattet werden müssen, z. B.:
+
+DATEIEN: (chmod 0666)
+
+./cmsimple/config.php
+./cmsimple/log.php
+
+./content/content.php
+./content/pagedata.php
+./content/_cmsimpleAdmin.php
+./content/_disabled_plugins.txt
+
+./templates/__cmsimple_default__/stylesheet.css
+./templates/__cmsimple_default__/template.htm 
+
+usw., CMSimple sollte sich im Backend melden, wenn eine Datei Schreibrechte benötigt.

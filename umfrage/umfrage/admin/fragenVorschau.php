@@ -96,7 +96,7 @@ if($nNr=(isset($_GET['nr'])?(int)$_GET['nr']:0)){
 <div align="center">
 <?php echo $sMeld; echo $X?>
 </div>
-<p align="center" style="margin:32px;">[ <a href="fragenListe.php<?php echo $sQs?>">zurück zur Liste</a> ]</p>
+<p align="center" style="margin:32px;">[ <a href="fragenListe.php<?php echo $sQs?>">zurï¿½ck zur Liste</a> ]</p>
 
 <?php
 echo fSeitenFuss();

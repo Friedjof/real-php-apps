@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="<?php echo $sl;?>">
+<head>
+<?php echo head();?>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+<script src="<?php echo $pth['folder']['template'];?>smoothscroll.js"></script>
+</head>
+
+<body id="body" class="body" <?php echo onload();?>>
+<!-- utf-8 check: äöüß -->
+<!-- This is the default template of CMSimple 5.14 -->
+<div id="TOP"><div id="top"></div></div>
+
+
+
+<!-- language variables for template -->
+<?php
+$tpltx_top = 'Top';
+$tpltx_content = 'Page Content';
+$tpltx_menu = 'Menu and Search';
+$tpltx_news = 'News Area';
+
+if($sl == 'de')
+{
+	$tpltx_top = 'Seitenanfang';
+	$tpltx_content = 'Seiteninhalt';
+	$tpltx_menu = 'Menü und Suche';
+	$tpltx_news = 'Newsbereich';
+}
+?>
+
+
+
+<!-- HEADER -->
+
+<?php
+if(!$edit)
+{
+	echo '<header>
+<div id="tplge_headerin" class="tplge_headerin">
+
+<a href="./"><img src="' . $pth['folder']['templateimages'] . 'header.jpg" class="tplge_headerimage" alt="headerimage"></a>
+<div class="tplge_sitename">' . sitename() . '</div>
+
+<div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div>
+</header>
+<div style="clear: both;"></div>
+';
+}
+?>
+
+<!-- END HEADER -->
+
+
+
+<!-- LOCATOR -->
+
+<?php
+if(!$edit)
+{
+	echo '<div id="tplge_locator" class="tplge_locator">
+<nav id="tplge_locatorin" class="tplge_locatorin">
+
+<span class="tplge_locatorText">' . $tx['locator']['text'] . '</span>' . locator('<span class="tplge_locatorDelimiter">&raquo;</span>') . '
+
+<div style="clear: both;"></div>
+</nav>
+<div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div>
+';
+}
+?>
+
+<!-- END LOCATOR -->
+
+
+
+<!-- MAIN CONTAINER -->
+
+<div id="tplge_main" class="tplge_main">
+<div id="tplge_mainin" class="tplge_mainin">
+
+<!-- language menu -->
+<div class="langmenu_container"><?php echo languagemenu();?></div>
+<div style="clear: both;"></div>
+
+<!--
+<?php // echo $content_path;?><br>
+<?php // echo $upload_path;?><br>
+<?php // echo $new_line_array[6];?><br>
+<?php // echo $db_path;?>
+<?php // echo $pth['folder']['base'];?>
+-->
+
+<!-- pagenav -->
+<nav id="tplge_content_anchor" class="tplge_content_anchor tplge_navintern">
+<div class="tplge_button"><a href="#top"><img src="<?php echo $pth['folder']['templateimages']; ?>top_white.gif" alt="<?php echo $tpltx_top;?>" title="<?php echo $tpltx_top;?>"></a></div>
+<div class="tplge_button_active"><a href="#tplge_content_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>contentlink.gif" class="tplge_contentlink" alt="<?php echo $tpltx_content;?>" title="<?php echo $tpltx_content;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_menu_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>menulink.gif" alt="<?php echo $tpltx_menu;?>" title="<?php echo $tpltx_menu;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_news_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>newslink.gif" alt="<?php echo $tpltx_news;?>" title="<?php echo $tpltx_news;?>"></a></div>
+<div class="tplge_clearBoth"></div>
+</nav>
+
+
+
+<!-- CONTENT -->
+
+	<div id="tplge_content" class="tplge_content">
+	<article class="tplge_contentin">
+
+<?php echo content();?>
+<?php echo submenu();?>
+<?php echo siblingsmenu();?>
+
+		<div style="clear: both;"></div>
+		<div id="tplge_prevtopnext" class="tplge_prevtopnext">
+		<nav id="tplge_prevtopnextin" class="tplge_prevtopnextin">
+<?php echo previouspage('prev.gif');?>
+<?php echo top('top.gif');?>
+<?php echo nextpage('next.gif');?>
+		<div style="clear: both;"></div>
+		</nav>
+		<div style="clear: both;"></div>
+		</div>
+
+	<div style="clear: both;"></div>
+	</article>
+	<div style="clear: both;"></div>
+	</div>
+
+<!-- END CONTENT -->
+
+
+
+<!-- SIDEBAR NAV -->
+
+	<div id="tplge_sidebar" class="tplge_sidebar">
+	<nav id="tplge_sidebarin" class="tplge_sidebarin">
+
+<!-- pagenav -->
+<nav id="tplge_menu_anchor" class="tplge_menu_anchor tplge_navintern">
+<div class="tplge_button"><a href="#top"><img src="<?php echo $pth['folder']['templateimages']; ?>top_white.gif" alt="<?php echo $tpltx_top;?>" title="<?php echo $tpltx_top;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_content_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>contentlink.gif" class="tplge_contentlink" alt="<?php echo $tpltx_content;?>" title="<?php echo $tpltx_content;?>"></a></div>
+<div class="tplge_button_active"><a href="#tplge_menu_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>menulink.gif" alt="<?php echo $tpltx_menu;?>" title="<?php echo $tpltx_menu;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_news_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>newslink.gif" alt="<?php echo $tpltx_news;?>" title="<?php echo $tpltx_news;?>"></a></div>
+<div class="tplge_clearBoth"></div>
+</nav>
+
+<!-- searchbox -->
+<div id="tplge_searchboxContainer" class="tplge_searchboxContainer">
+<?php echo str_replace('class="submit" value="' . $tx['search']['button'],'class="submit" title="' . $tx['search']['button'] . '" value="' . $tx['search']['button'],searchbox());?>
+</div>
+<div class="tplge_clearBoth"></div>
+
+<?php echo toc();?>
+<div class="tplge_clearBoth"></div>
+
+<div class="tplge_subnav">
+<?php echo homelink('homelink.gif');?>
+<?php echo printlink('printlink.gif');?>
+<?php echo sitemaplink('sitemaplink.gif');?>
+<?php echo mailformlink('mailformlink.gif');?>
+</div>
+<div class="tplge_clearBoth"></div>
+
+<?php // echo '<p class="tplge_lastupdate">' . lastupdate() . '</p>';?>
+
+	<div style="clear: both;"></div>
+	</nav>
+	<div style="clear: both;"></div>
+	</div>
+
+<!-- END SIDEBAR NAV -->
+
+
+
+<div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div>
+
+<!-- END MAIN CONTAINER --> 
+
+
+
+<!-- NEWS AREA -->
+
+<div id="tplge_newsArea" class="tplge_newsArea">
+<aside>
+
+<!-- pagenav -->
+<nav id="tplge_news_anchor" class="tplge_news_anchor tplge_navintern">
+<div class="tplge_button"><a href="#top"><img src="<?php echo $pth['folder']['templateimages']; ?>top_white.gif" alt="<?php echo $tpltx_top;?>" title="<?php echo $tpltx_top;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_content_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>contentlink.gif" class="tplge_contentlink" alt="<?php echo $tpltx_content;?>" title="<?php echo $tpltx_content;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_menu_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>menulink.gif" alt="<?php echo $tpltx_menu;?>" title="<?php echo $tpltx_menu;?>"></a></div>
+<div class="tplge_button_active"><a href="#tplge_news_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>newslink.gif" alt="<?php echo $tpltx_news;?>" title="<?php echo $tpltx_news;?>"></a></div>
+<div class="tplge_clearBoth"></div>
+</nav>
+
+<!-- newsboxes -->
+	<div class="tplge_news">
+	<div class="tplge_newsin">
+<?php echo newsbox('News01');?>
+<div style="clear: both;"></div>
+	</div>
+	</div>
+
+	<div class="tplge_news">
+	<div class="tplge_newsin">
+<?php echo newsbox('News02');?> 
+<div style="clear: both;"></div>
+	</div>
+	</div>
+
+	<div class="tplge_news">
+	<div class="tplge_newsin">
+<?php echo newsbox('News03');?>
+<div style="clear: both;"></div>
+	</div>
+	</div>
+
+<!-- pagenav -->
+<nav class="tplge_news_anchor tplge_navintern">
+<div class="tplge_button"><a href="#top"><img src="<?php echo $pth['folder']['templateimages']; ?>top_white.gif" alt="<?php echo $tpltx_top;?>" title="<?php echo $tpltx_top;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_content_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>contentlink.gif" class="tplge_contentlink" alt="<?php echo $tpltx_content;?>" title="<?php echo $tpltx_content;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_menu_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>menulink.gif" alt="<?php echo $tpltx_menu;?>" title="<?php echo $tpltx_menu;?>"></a></div>
+<div class="tplge_button"><a href="#tplge_news_anchor"><img src="<?php echo $pth['folder']['templateimages']; ?>newslink.gif" alt="<?php echo $tpltx_news;?>" title="<?php echo $tpltx_news;?>"></a></div>
+<div class="tplge_clearBoth"></div>
+</nav>
+
+<div style="clear: both;"></div>
+</aside>
+<div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div>
+
+<!-- END NEWS AREA --> 
+
+
+
+<!-- FOOTER -->
+
+<footer>
+<div id="tplge_footerin" class="tplge_footerin">
+<p>
+Powered&nbsp;by&nbsp;<a href="https://www.cmsimple.org/">CMSimple</a> | 
+Template&nbsp;by&nbsp;<a href="https://cmsimple.org/">CMSimple</a> | 
+<?php echo loginlink();?>
+</p>
+<div style="clear: both;"></div>
+</div>
+</footer>
+
+</body>
+</html>

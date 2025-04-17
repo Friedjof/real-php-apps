@@ -370,7 +370,7 @@ function fMpNeueInserate(){
      if(substr($sSefName,$j,1)=='[') if($v=strpos($sSefName,']',$j)) $sSefName=substr_replace($sSefName,'',$j,++$v-$j);
     $sSefName=trim(substr(str_replace("\n",' ',str_replace("\r",'',$sSefName)),0,50));
    }
-   if($sSefName=trim(str_replace('.','_',trim(str_replace(';','',str_replace(':','',str_replace('„','',str_replace('“','',$sSefName)))))))) $sSefName='-'.$sSefName;
+   if($sSefName=trim(str_replace('.','_',trim(str_replace(';','',str_replace(':','',str_replace('ï¿½','',str_replace('ï¿½','',$sSefName)))))))) $sSefName='-'.$sSefName;
   }else $sSefName='';
   if($bEigeneZeilen) $sZl=$sEigeneZeile; //eigenes Zeilenlayout
   for($j=($bMitID?0:1);$j<$nSpalten;$j++){ //alle Spalten
@@ -536,7 +536,7 @@ function fMpBBN($s){ //BB-Code zu HTML wandeln
  }return $v;
 }
 function fMpNormAdrN($sNam){
- $sNam=str_replace('ä','ae',str_replace('ö','oe',str_replace('ü','ue',str_replace('ß','ss',str_replace('"','',str_replace(' ','_',strtolower($sNam)))))));
+ $sNam=str_replace('ï¿½','ae',str_replace('ï¿½','oe',str_replace('ï¿½','ue',str_replace('ï¿½','ss',str_replace('"','',str_replace(' ','_',strtolower($sNam)))))));
  $sNam=str_replace('Ã„','Ae',str_replace('Ã¤','ae',str_replace('Ã–','Oe',str_replace('Ã¶','oe',str_replace('Ãœ','Ue',str_replace('Ã¼','ue',str_replace('ÃŸ','ss',$sNam)))))));
  return str_replace('%','_',str_replace('&','_',str_replace('=','_',str_replace('+','_',str_replace('#','_',str_replace('?','_',str_replace('/','_',$sNam)))))));
 }

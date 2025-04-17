@@ -6,13 +6,13 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
 
  $Et=''; $Em=''; $Es='Fehl'; $sQ=''; $bSes=false; $a1Filt=NULL; $a2Filt=NULL; $a3Filt=NULL;
 
- //SQL-Verbindung öffnen
+ //SQL-Verbindung ï¿½ffnen
  if(KAL_SQL){
   $DbO=@new mysqli(KAL_SqlHost,KAL_SqlUser,KAL_SqlPass,KAL_SqlDaBa);
   if(!mysqli_connect_errno()){$GLOBALS['oKalDbO']=$DbO; if(KAL_SqlCharSet) $DbO->set_charset(KAL_SqlCharSet);} else{$DbO=NULL; $Et=KAL_TxSqlVrbdg;}
  }
 
- //Session prüfen
+ //Session prï¿½fen
  if(!$sSes=KAL_Session) if(defined('KAL_NeuSession')) $sSes=KAL_NeuSession;
  //if(KAL_NListeAnders||KAL_NDetailAnders||KAL_NEingabeLogin||KAL_NEingabeAnders)
  if($sSes=substr($sSes,17,12)){
@@ -42,7 +42,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
    if(strlen($sIv)>0&&$sIv!=$sIntervall){$sQ.='&amp;kal_Intervall='.$sIv; $sIntervall=$sIv;}
    if($sIntervall>'0'){ //filtern
     if($sIntervall<'a'){ //Normalintervall oder Archiv oder alle
-     if($sIntervall!='@'&&$sIntervall!='[]'){ //kein Archiv oder Gesamtheit_für_InfoDetail
+     if($sIntervall!='@'&&$sIntervall!='[]'){ //kein Archiv oder Gesamtheit_fï¿½r_InfoDetail
       if($sIntervall<'A'){$i=max((KAL_IvExakt?$sIntervall-1:$sIntervall),0); $k=0;} else{$i=0; $k=ord($sIntervall)-64;} //Normalintervall 1(Tag)...L(Jahr)
       $sIntervallEnde=date('Y-m-d',@mktime(8,8,8,date('m')+$k,date('d')+$i,date('Y')));
      }else{$sIntervallEnde=($sIntervall=='@'?$sIntervallAnfang:'99'); $sIntervallAnfang='00';}
@@ -70,7 +70,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
   $aKalSpalten[$kal_ListenFeld[$i]]=($bLimit||(($t!='m'||KAL_DruckLMemo)&&$t!='g')?$i:-1); //unlimitierte Druckliste ohne Memos
   if(strlen($sSuch)==0){ //keine Schnellsuche
    if(isset($_GET['kal_'.$i.'F1'])) $s=fKalRq($_GET['kal_'.$i.'F1']); elseif(isset($_POST['kal_'.$i.'F1'])) $s=fKalRq($_POST['kal_'.$i.'F1']); else $s='';
-   if(strlen($s)){ //erstes Suchfeld ausgefüllt
+   if(strlen($s)){ //erstes Suchfeld ausgefï¿½llt
     if(KAL_Zeichensatz>0&&$_SERVER['REQUEST_METHOD']=='POST') if(KAL_Zeichensatz==2) $s=iconv('UTF-8','ISO-8859-1//TRANSLIT',$s); else $s=html_entity_decode($s);
     $sQ.='&amp;kal_'.$i.'F1='.rawurlencode($s); $Em.=', '.$sFN;
     if($t!='d'&&$t!='@') $a1Filt[$i]=($t!='u'?$s:sprintf('%0d',$s)); else{ //falls Datum
@@ -83,7 +83,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
    }elseif($t=='v'){$a1Filt[$i]=(KAL_NVerstecktSehen&&KAL_SessionOK?'':'N'); $a2Filt[$i]='';} //versteckt
    elseif($t=='u'&&$bSes&&isset($_GET['kal_Aendern'])&&!KAL_NAendernFremde){$a1Filt[$i]=substr($sSes,0,4);} //aendern fuer User
    if(isset($_GET['kal_'.$i.'F2'])) $s=fKalRq($_GET['kal_'.$i.'F2']); elseif(isset($_POST['kal_'.$i.'F2'])) $s=fKalRq($_POST['kal_'.$i.'F2']); else $s='';
-   if(strlen($s)){ //zweites Suchfeld ausgefüllt
+   if(strlen($s)){ //zweites Suchfeld ausgefï¿½llt
     if(KAL_Zeichensatz>0&&$_SERVER['REQUEST_METHOD']=='POST') if(KAL_Zeichensatz==2) $s=iconv('UTF-8','ISO-8859-1//TRANSLIT',$s); else $s=html_entity_decode($s);
     $sQ.='&amp;kal_'.$i.'F2='.rawurlencode($s); if(!strpos($Em,$sFN)) $Em.=', '.$sFN;
     if($t=='d'||$t=='@'||$t=='w'||$t=='n'||$t=='1'||$t=='2'||$t=='3'||$t=='i'||$t=='r'){if(empty($a1Filt[$i])) $a1Filt[$i]='0';}
@@ -91,7 +91,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
     if($t!='d'&&$t!='@') $a2Filt[$i]=($t!='u'?$s:sprintf('%0d',$s)); else $a2Filt[$i]=fKalNormDatum($s);
    }
    if(isset($_GET['kal_'.$i.'F3'])) $s=fKalRq($_GET['kal_'.$i.'F3']); elseif(isset($_POST['kal_'.$i.'F3'])) $s=fKalRq($_POST['kal_'.$i.'F3']); else $s='';
-   if(strlen($s)){ //drittes Suchfeld ausgefüllt
+   if(strlen($s)){ //drittes Suchfeld ausgefï¿½llt
     if(KAL_Zeichensatz>0&&$_SERVER['REQUEST_METHOD']=='POST') if(KAL_Zeichensatz==2) $s=iconv('UTF-8','ISO-8859-1//TRANSLIT',$s); else $s=html_entity_decode($s);
     $sQ.='&amp;kal_'.$i.'F3='.rawurlencode($s); if(!strpos($Em,$sFN)) $Em.=', '.$sFN;
     $a3Filt[$i]=($t!='u'?$s:sprintf('%0d',$s));
@@ -101,7 +101,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
   if($t=='z'){if($nZeitFeld==0) $nZeitFeld=$i; elseif($nZeitFeld2==0) $nZeitFeld2=$i;} //1. und 2. Zeitfeld suchen
   if($t=='j'&&strtoupper($sFN)=='WICHTIG') $nWichtigFeld=$i;
  }
- define('KAL_IFilter',$sIntervall); /*für Filteranzeige in Terminliste*/ if($sIv=='@') $sIntervall='@';
+ define('KAL_IFilter',$sIntervall); /*fï¿½r Filteranzeige in Terminliste*/ if($sIv=='@') $sIntervall='@';
  if($bSuchDat){$a1Filt[1]=$sSuch; $a2Filt[1]='';} //Schnellsuche nach Datum
  $aKalSpalten[0]=0; ksort($aKalSpalten);
  if(in_array(-1,$aKalSpalten)){$j=count($aKalSpalten); for($i=$j-1;$i>0;$i--) if($aKalSpalten[$i]<0) array_splice($aKalSpalten,$i,1);}
@@ -127,7 +127,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
  $aTmp=array(); $aIdx=array(); $sAktuId='A;'; $sLfndId='L;'; $nVPos=array_search('v',$kal_FeldType); //ListenDaten
  if(!KAL_SQL){ //Textdaten
   $aD=file(KAL_Pfad.KAL_Daten.KAL_Termine); $nSaetze=count($aD);
-  for($i=1;$i<$nSaetze;$i++){ //über alle Datensätze
+  for($i=1;$i<$nSaetze;$i++){ //ï¿½ber alle Datensï¿½tze
    $a=explode(';',rtrim($aD[$i])); $nId=(int)$a[0]; $sOnl=$a[1]; array_splice($a,1,1);
    $b=false; $sADt=substr($a[1],0,10); $sEDt=$sADt; if(KAL_AendernLoeschArt==3&&$sOnl=='3') $sOnl='1';
    if(KAL_EndeDatum&&$nDatFeld2>0) if(!$sEDt=substr($a[$nDatFeld2],0,10)) $sEDt=$sADt;
@@ -192,7 +192,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
      $aIdx[$nId]=(strlen($s)>0?$s:' ').chr(255).sprintf('%0'.KAL_NummerStellen.'d',$i);
     }
     elseif($nIndex==0) $aIdx[$nId]=sprintf('%0'.KAL_NummerStellen.'d',$nId); //nach Nr
-    if($bAktuSuche||$bLfndSuche){ //aktuelle Ereignisse prüfen
+    if($bAktuSuche||$bLfndSuche){ //aktuelle Ereignisse prï¿½fen
      if((KAL_AktuZeit||KAL_LfndZeit)&&$nZeitFeld>0) $sAZt=$a[$nZeitFeld]; else $sAZt='';
      if(KAL_AktuEnde||KAL_LfndEnde){
       if($nDatFeld2>0) $sEDt=substr($a[$nDatFeld2],0,10); else $sEDt='';
@@ -200,14 +200,14 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
      }else{$sEDt=''; $sEZt='';}
      if($bAktuSuche){
       if(KAL_AktuEnde&&$sEDt>=$sJetztDat){
-       if(KAL_AktuZeit&&$sEDt==$sJetztDat){ //Endzeit bei heute berücksichtigen
-        if($sEZt>=$sJetztUhr||$sEZt==''){ //Endzeit später oder ohne Endzeit
+       if(KAL_AktuZeit&&$sEDt==$sJetztDat){ //Endzeit bei heute berï¿½cksichtigen
+        if($sEZt>=$sJetztUhr||$sEZt==''){ //Endzeit spï¿½ter oder ohne Endzeit
          if($sADt>$sAktuDt||$sAZt>$sAktuZt) $bAktuSuche=false; else{$sAktuId.=$nId.';'; $sAktuDt=$sADt; $sAktuZt=$sAZt;}
         }
        }else{if($sADt>$sAktuDt||KAL_AktuZeit&&$sAZt>$sAktuZt) $bAktuSuche=false; else{$sAktuId.=$nId.';'; $sAktuDt=$sADt; $sAktuZt=$sAZt;}}
       }//AktuEnde
       if($sADt>=$sJetztDat){ //kommendes Anfangsdatum
-       if(KAL_AktuZeit&&$sADt==$sJetztDat){ //Zeit bei heute berücksichtigen
+       if(KAL_AktuZeit&&$sADt==$sJetztDat){ //Zeit bei heute berï¿½cksichtigen
         if($sAZt>=$sJetztUhr||$sAZt==''||KAL_AktuEnde&&$sEDt==''&&$sEZt>''&&($sEZt>=$sJetztUhr||$sEZt<$sAZt)){
          if($sADt>$sAktuDt||$sAZt>$sAktuZt) $bAktuSuche=false; else{$sAktuId.=$nId.';'; $sAktuDt=$sADt; $sAktuZt=$sAZt;}
         }
@@ -217,11 +217,11 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
       }//AktuAnfang
      }//AktuSuche
      if($bLfndSuche){
-      if($sADt<$sJetztDat){ //Anfangsdatum früher
+      if($sADt<$sJetztDat){ //Anfangsdatum frï¿½her
        if(KAL_LfndEnde) if($sEDt==$sJetztDat&&(!KAL_LfndZeit||$sEZt>=$sJetztUhr||$sEZt=='')||$sEDt==''&&$sADt==$sGestern&&$sEZt>''&&$sEZt<$sAZt&&$sEZt>=$sJetztUhr||$sEDt>$sJetztDat) $sLfndId.=$nId.';';
       }elseif($sADt==$sJetztDat){ //Anfangdatum heute
        if(!KAL_LfndZeit||$sAZt==''||$sAZt<=$sJetztUhr&&KAL_LfndEnde&&($sEDt>=$sJetztDat||$sEZt>=$sJetztUhr||($sEZt>''&&$sEZt<$sAZt))) $sLfndId.=$nId.';';
-      }else $bLfndSuche=false; //Anfangsdatum später
+      }else $bLfndSuche=false; //Anfangsdatum spï¿½ter
      }//LfndSuche
     }//AktuSuche||LfndSuche
    }//gueltig
@@ -308,7 +308,7 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
      $aIdx[$nId]=(strlen($s)>0?$s:' ').chr(255).sprintf('%0'.KAL_NummerStellen.'d',++$i);
     }
     elseif($nIndex==0) $aIdx[$nId]=sprintf('%0'.KAL_NummerStellen.'d',$nId); //nach Nr.
-    if($bAktuSuche||$bLfndSuche){ //aktuelle Ereignisse prüfen
+    if($bAktuSuche||$bLfndSuche){ //aktuelle Ereignisse prï¿½fen
      $sADt=substr($a[$nDatPos],0,10);
      if((KAL_AktuZeit||KAL_LfndZeit)&&$nZeitPos>0) $sAZt=$a[$nZeitPos]; else $sAZt='';
      if(KAL_AktuEnde||KAL_LfndEnde){
@@ -317,14 +317,14 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
      }else{$sEDt=''; $sEZt='';}
      if($bAktuSuche){
       if(KAL_AktuEnde&&$sEDt>=$sJetztDat){
-       if(KAL_AktuZeit&&$sEDt==$sJetztDat){ //Endzeit bei heute berücksichtigen
-        if($sEZt>=$sJetztUhr||$sEZt==''){ //Endzeit später oder ohne Endzeit
+       if(KAL_AktuZeit&&$sEDt==$sJetztDat){ //Endzeit bei heute berï¿½cksichtigen
+        if($sEZt>=$sJetztUhr||$sEZt==''){ //Endzeit spï¿½ter oder ohne Endzeit
          if($sADt>$sAktuDt||$sAZt>$sAktuZt) $bAktuSuche=false; else{$sAktuId.=$nId.';'; $sAktuDt=$sADt; $sAktuZt=$sAZt;}
         }
        }else{if($sADt>$sAktuDt||KAL_AktuZeit&&$sAZt>$sAktuZt) $bAktuSuche=false; else{$sAktuId.=$nId.';'; $sAktuDt=$sADt; $sAktuZt=$sAZt;}}
       }//AktuEnde
       if($sADt>=$sJetztDat){ //kommendes Anfangsdatum
-       if(KAL_AktuZeit&&$sADt==$sJetztDat){ //Zeit bei heute berücksichtigen
+       if(KAL_AktuZeit&&$sADt==$sJetztDat){ //Zeit bei heute berï¿½cksichtigen
         if($sAZt>=$sJetztUhr||$sAZt==''||KAL_AktuEnde&&$sEDt==''&&$sEZt>''&&($sEZt>=$sJetztUhr||$sEZt<$sAZt)){
          if($sADt>$sAktuDt||$sAZt>$sAktuZt) $bAktuSuche=false; else{$sAktuId.=$nId.';'; $sAktuDt=$sADt; $sAktuZt=$sAZt;}
         }
@@ -334,11 +334,11 @@ function fKalDaten($bListe,$bLimit=true){ //Daten bereitstellen
       }//AktuAnfang
      }//AktuSuche
      if($bLfndSuche){
-      if($sADt<$sJetztDat){ //Anfangsdatum früher
+      if($sADt<$sJetztDat){ //Anfangsdatum frï¿½her
        if(KAL_LfndEnde) if($sEDt==$sJetztDat&&(!KAL_LfndZeit||$sEZt>=$sJetztUhr||$sEZt=='')||$sEDt==''&&$sADt==$sGestern&&$sEZt>''&&$sEZt<$sAZt&&$sEZt>=$sJetztUhr||$sEDt>$sJetztDat) $sLfndId.=$nId.';';
       }elseif($sADt==$sJetztDat){ //Anfangdatum heute
        if(!KAL_LfndZeit||$sAZt==''||$sAZt<=$sJetztUhr&&KAL_LfndEnde&&($sEDt>=$sJetztDat||$sEZt>=$sJetztUhr||($sEZt>''&&$sEZt<$sAZt))) $sLfndId.=$nId.';';
-      }else $bLfndSuche=false; //Anfangsdatum später
+      }else $bLfndSuche=false; //Anfangsdatum spï¿½ter
      }//LfndSuche
     }//AktuSuche||LfndSuche
    }$rR->close();
@@ -426,11 +426,11 @@ function fKalSonderintervall($w){ //Sonderintervall bilden
   case 'g': $M-=(($M-1)%3); $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+2); break; //aktuelles Quartal
   case 'j': $M-=(($M-1)%6); $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+5); break; //aktuelles Halbjahr
   case 'm': $s=substr($Dt,0,5).'01-01'.substr($Dt,0,5).'12-31'; break; //aktuelles Jahr
-  case 'c': $n=8-date('w'); if($n>7) $n=1; $n=time()+$n*86400; $s=date('Y-m-d',$n).date('Y-m-d',$n+518400); break; //nächste Woche
-  case 'f': if(++$M>12){$M= 1; $J++;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M); break; //nächster Monat
-  case 'i': $M-=(($M-1)%3)-3; if($M>12){$M=1; $J++;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+2); break; //nächstes Quartal
-  case 'l': $M-=(($M-1)%6)-6; if($M>12){$M=1; $J++;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+5); break; //nächstes Halbjahr
-  case 'o': $s=sprintf('%04d-01-01%04d-12-31',++$J,$J); break; //nächstes Jahr
+  case 'c': $n=8-date('w'); if($n>7) $n=1; $n=time()+$n*86400; $s=date('Y-m-d',$n).date('Y-m-d',$n+518400); break; //nï¿½chste Woche
+  case 'f': if(++$M>12){$M= 1; $J++;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M); break; //nï¿½chster Monat
+  case 'i': $M-=(($M-1)%3)-3; if($M>12){$M=1; $J++;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+2); break; //nï¿½chstes Quartal
+  case 'l': $M-=(($M-1)%6)-6; if($M>12){$M=1; $J++;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+5); break; //nï¿½chstes Halbjahr
+  case 'o': $s=sprintf('%04d-01-01%04d-12-31',++$J,$J); break; //nï¿½chstes Jahr
   case 'b': $n=date('w')+6; if($n<7) $n=13;$n=time()-$n*86400; $s=date('Y-m-d',$n).date('Y-m-d',$n+518400); break; //vorige Woche
   case 'e': if(--$M<=0){$M=12; $J--;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M); break; //Vormonat
   case 'h': $M-=(($M-1)%3)+3; if($M<0){$M=10; $J--;} $s=sprintf('%04d-%02d-01%04d-%02d-31',$J,$M,$J,$M+2); break; //voriges Quartal

@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD']!='POST'){ //GET
    case 'z': //Uhrzeit
     if($s){$a=explode(':',str_replace('.',':',str_replace(',',':',$s))); $s=sprintf('%02d:%02d',(isset($a[0])?$a[0]:0),(isset($a[1])?$a[1]:0)); $v=$s;} break;
    case 'e': case 'c': // E-Mail, Kontakt-E-Mail
-    if($s) if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zäöü_-]+(\.[0-9a-zäöü_-]+)*\.[a-z]{2,16}$/',strtolower($s))) $aFehl[$i]=true;
+    if($s) if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zï¿½ï¿½ï¿½_-]+(\.[0-9a-zï¿½ï¿½ï¿½_-]+)*\.[a-z]{2,16}$/',strtolower($s))) $aFehl[$i]=true;
     if(!KAL_SQL) $v=fKalEnCode($s); break;
    case 'l': //Link oder E-Mail
     $v=$s; break;
@@ -113,7 +113,7 @@ if($_SERVER['REQUEST_METHOD']!='POST'){ //GET
      }else{$aFehl[$i]=true; $sFehl=str_replace('#',KAL_BildMaxKByte,KAL_TxBildGroesse);}
     }elseif(substr($UpEx,0,1)=='.'){ //falsche Endung
      $aFehl[$i]=true; $sFehl=str_replace('#',substr($UpEx,1),KAL_TxBildTyp);
-    }elseif($s>'') if(isset($_POST['kal_Dl'.$i])&&$_POST['kal_Dl'.$i]){ //hochgeladenes Bild löschen
+    }elseif($s>'') if(isset($_POST['kal_Dl'.$i])&&$_POST['kal_Dl'.$i]){ //hochgeladenes Bild lï¿½schen
      $p=strrpos($s,'.'); @unlink(KAL_Pfad.'temp/-'.$s); @unlink(KAL_Pfad.'temp/_'.$s);
      if(strtolower(substr($s,$p))!='.jpg'){
       @unlink(KAL_Pfad.'temp/-'.substr($s,0,$p).'.jpg'); @unlink(KAL_Pfad.'temp/_'.substr($s,0,$p).'.jpg');
@@ -134,7 +134,7 @@ if($_SERVER['REQUEST_METHOD']!='POST'){ //GET
      }else{$aFehl[$i]=true; $sFehl=str_replace('#',KAL_DateiMaxKByte,KAL_TxDateiGroesse);}
     }elseif(substr($UpEx,0,1)=='.'){ //falsche Endung
      $aFehl[$i]=true; $sFehl=str_replace('#',substr($UpEx,1),KAL_TxDateiTyp);
-    }elseif($s>'') if(isset($_POST['kal_Dl'.$i])&&$_POST['kal_Dl'.$i]){ //hochgeladene Datei löschen
+    }elseif($s>'') if(isset($_POST['kal_Dl'.$i])&&$_POST['kal_Dl'.$i]){ //hochgeladene Datei lï¿½schen
      @unlink(KAL_Pfad.'temp/'.$s); $s=''; $v=''; $aOh[$i]='';
     }
     break;
@@ -359,7 +359,7 @@ if($nBreit>25) $nBreit=25; $nBreit=round(0.65*$nBreit,0);
    if(KAL_FormatCode) echo NL.'   <div title="'.KAL_TxBB_X.'">'.NL.fKalBBToolbar($i).NL; else echo NL.'   <div>';
    echo $sZ.'<textarea name="kal_F'.$i.'" style="width:99%" cols="80" rows="10">'.$v.'</textarea></div>'.NL.'   </div>';
    break;
-  case 'a': case 'k': case 's': //Aufzählung/Kategorie
+  case 'a': case 'k': case 's': //Aufzï¿½hlung/Kategorie
    reset($aHlp); $sO=''; foreach($aHlp as $w) $sO.='<option value="'.$w.'"'.($v==$w?' selected="selected"':'').'>'.$w.'</option>';
    echo $sZ.'<select name="kal_F'.$i.'" size="1"><option value="">---</option>'.substr($sO,strpos($sO,'<option',9)).'</select></div>';
    break;
@@ -470,10 +470,10 @@ if($nBreit>25) $nBreit=25; $nBreit=round(0.65*$nBreit,0);
 ?>
 
 </table>
-<p class="admSubmit"><?php if(!$bOK){?><input class="admSubmit" type="submit" value="Eintragen"><?php }else{?>[ <a href="eingabe.php">nächster Termin</a> ]<?php }?></p>
+<p class="admSubmit"><?php if(!$bOK){?><input class="admSubmit" type="submit" value="Eintragen"><?php }else{?>[ <a href="eingabe.php">nï¿½chster Termin</a> ]<?php }?></p>
 </form>
 <?php
-if(file_exists('liste.php')) echo '<p class="admSubmit">[ <a href="liste.php">zurück zur Liste</a> ]</p>'.NL.NL;
+if(file_exists('liste.php')) echo '<p class="admSubmit">[ <a href="liste.php">zurï¿½ck zur Liste</a> ]</p>'.NL.NL;
 
 if($bMitBild && KAL_BildResize){
  echo "\n".'<script src="'.$sHttp.'kalEingabeBild.js" type="text/javascript"></script>';
@@ -493,7 +493,7 @@ if($bMitBild && KAL_BildResize){
 echo fSeitenFuss();
 
 function fKalDateiname($s){
- $s=str_replace('Ä','Ae',str_replace('Ö','Oe',str_replace('Ü','Ue',str_replace('ß','ss',str_replace('ä','ae',str_replace('ö','oe',str_replace('ü','ue',$s)))))));
+ $s=str_replace('ï¿½','Ae',str_replace('ï¿½','Oe',str_replace('ï¿½','Ue',str_replace('ï¿½','ss',str_replace('ï¿½','ae',str_replace('ï¿½','oe',str_replace('ï¿½','ue',$s)))))));
  $s=str_replace('Ã„','Ae',str_replace('Ã–','Oe',str_replace('Ãœ','Ue',str_replace('ÃŸ','ss',str_replace('Ã¤','ae',str_replace('Ã¶','oe',str_replace('Ã¼','ue',$s)))))));
  return str_replace('ï¿½','_',str_replace('%','_',str_replace('&','_',str_replace('=','_',str_replace('+','_',str_replace(' ','_',$s))))));
 }

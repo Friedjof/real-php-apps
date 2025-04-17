@@ -1,0 +1,5 @@
+XSS:
+http://localhost/?Welcome_to_CMSimple_5&restored=1&restore_cf=%3Cbr%3E
+http://localhost/?deleted_of=%3Cbr%3E
+
+http://localhost/?file=config&action=array

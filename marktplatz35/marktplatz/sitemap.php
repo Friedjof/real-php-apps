@@ -114,8 +114,8 @@ if(isset($_GET['mp'])){
    if(!MP_Sef) $sSefName='';
    else{ //SEF-Dateinamen bilden
     $sSefName=$sMpSegName;
-    if($nTitPos>0&&($s=$a[$nTitPos])) $sSefName=fMpDtS(str_replace('„','',str_replace('“','',$s))); //zusaetzliche Titelspalte
-    elseif($nSefPos) $sSefName=fMpDtS(str_replace('„','',str_replace('“','',$a[$nSefPos]))); //SEF-Suchen
+    if($nTitPos>0&&($s=$a[$nTitPos])) $sSefName=fMpDtS(str_replace('ï¿½','',str_replace('ï¿½','',$s))); //zusaetzliche Titelspalte
+    elseif($nSefPos) $sSefName=fMpDtS(str_replace('ï¿½','',str_replace('ï¿½','',$a[$nSefPos]))); //SEF-Suchen
     for($k=strlen($sSefName)-1;$k>=0;$k--) //BB-Code weg
      if(substr($sSefName,$k,1)=='[') if($v=strpos($sSefName,']',$k)) $sSefName=substr_replace($sSefName,'',$k,++$v-$k);
     $sSefName=trim(substr(str_replace("\n",' ',str_replace("\r",'',$sSefName)),0,50));
@@ -166,7 +166,7 @@ function fMpDtS($s){ //DatenKodierung
  return str_replace('\n ','<br />',$s);
 }
 function fMpNormAdrS($sNam){
- $sNam=str_replace('Ä','Ae',str_replace('ä','ae',str_replace('ö','oe',str_replace('ü','ue',str_replace('ß','ss',str_replace('"','',str_replace(' ','_',strtolower($sNam))))))));
+ $sNam=str_replace('ï¿½','Ae',str_replace('ï¿½','ae',str_replace('ï¿½','oe',str_replace('ï¿½','ue',str_replace('ï¿½','ss',str_replace('"','',str_replace(' ','_',strtolower($sNam))))))));
  $sNam=str_replace('Ã„','Ae',str_replace('Ã¤','ae',str_replace('Ã–','Oe',str_replace('Ã¶','oe',str_replace('Ãœ','Ue',str_replace('Ã¼','ue',str_replace('ÃŸ','ss',$sNam)))))));
  return str_replace('%','_',str_replace('&','_',str_replace('=','_',str_replace('+','_',str_replace('#','_',str_replace('?','_',str_replace('/','_',$sNam)))))));
 }

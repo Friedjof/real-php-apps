@@ -164,7 +164,7 @@ function fKalPflichtFelder($aV,$nFelder){
  $aFe=array(); $aNPfl=$kal_NutzerPflicht; array_splice($aNPfl,1,1);
  if(strlen($aV[2])<4||strlen($aV[2])>25) $aFe[2]=true; //Benutzer
  if(strlen($aV[3])<4||strlen($aV[3])>16) $aFe[3]=true; //Passwort
- if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zäöü_-]+(\.[0-9a-zäöü_-]+)*\.[a-z]{2,16}$/',strtolower($aV[4]))) $aFe[4]=true; //eMail
+ if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zï¿½ï¿½ï¿½_-]+(\.[0-9a-zï¿½ï¿½ï¿½_-]+)*\.[a-z]{2,16}$/',strtolower($aV[4]))) $aFe[4]=true; //eMail
  for($j=5;$j<$nFelder;$j++) if($aNPfl[$j]==1&&empty($aV[$j])) $aFe[$j]=true;
  return $aFe;
 }

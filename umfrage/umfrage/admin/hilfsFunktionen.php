@@ -73,8 +73,8 @@ function fSeitenKopf($sTitel='',$sHead='',$sBar=''){
 <div id="navig"><div id="navpad"><!-- Navigation -->
 <form action="index.php" method="get">
 <ul id="menu">
-<li class="rubrik">Administrator-Menü</li>
-<li<?php if($sBar=='Idx') echo' class="aktiv"'?>><a href="index.php<?php if(KONF>0)echo'?konf='.KONF?>">Übersicht</a></li>
+<li class="rubrik">Administrator-Menï¿½</li>
+<li<?php if($sBar=='Idx') echo' class="aktiv"'?>><a href="index.php<?php if(KONF>0)echo'?konf='.KONF?>">ï¿½bersicht</a></li>
 <?php if(defined('ADU_MitLogin')&&ADU_MitLogin){?>
 <li<?php if($sBar=='Log') echo' class="aktiv"'?>><a href="adminLogin.php">Login/Logout</a></li>
 <?php }?>
@@ -167,7 +167,7 @@ function fUmfDeCode($w){
 }
 function fSetzUmfWert($w,$n,$t){
  global $sWerte, ${'us'.$n};
- if($t=="'") $w=str_replace("'",'´',$w); ${'us'.$n}=$w;
+ if($t=="'") $w=str_replace("'",'ï¿½',$w); ${'us'.$n}=$w;
  if($w!=constant('UMF_'.$n)){
   $p=strpos($sWerte,'UMF_'.$n."',"); $e=strpos($sWerte,');',$p);
   if($p>0&&$e>$p){//Zeile gefunden

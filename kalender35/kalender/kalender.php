@@ -19,7 +19,7 @@ if(!strstr($sKalSelf,'/kalender.php')){ //includierter Aufruf
    $sKalHtmlVor=(!$bKalFrei?(!$bKalDruck?(!$bKalPopup?'kalSeite.htm':'kalPopup.htm'):'kalDruck.htm'):'kalFreischalt.htm');
    $sKalHtmlNach=(file_exists(KAL_Pfad.$sKalHtmlVor)?implode('',file(KAL_Pfad.$sKalHtmlVor)):'');
    if($nKalJ=strpos($sKalHtmlNach,'{Inhalt}')){
-    $sKalHtmlVor=substr($sKalHtmlNach,0,$nKalJ); $sKalHtmlNach=substr($sKalHtmlNach,$nKalJ+8); //Seitenkopf, Seitenfuß
+    $sKalHtmlVor=substr($sKalHtmlNach,0,$nKalJ); $sKalHtmlNach=substr($sKalHtmlNach,$nKalJ+8); //Seitenkopf, Seitenfuï¿½
    }else{$sKalHtmlVor='<p style="color:#AA0033;">HTML-Layout-Schablone <i>'.$sKalHtmlVor.'</i> nicht gefunden oder fehlerhaft!</p>'; $sKalHtmlNach='';}
   }else{ //ohne Seitenschablone
    echo "\n\n".'<link rel="stylesheet" type="text/css" href="'.$sKalHttp.KAL_Www.'kalStyles.css">'."\n\n";
@@ -87,7 +87,7 @@ if($bKalOK){ //Konfiguration eingelesen
    $sKalAendAktion='aendern'; $sKalAendParam=$sKalNummer; break; //Detail
   case 'suche': include(KAL_Pfad.'kalSuche.php'); break; //Suchformular
   case 'eingabe': include(KAL_Pfad.'kalEingabe.php'); break; //Termineingabe
-  case 'aendern': include(KAL_Pfad.'kalAendern.php'); break; //Terminänderungen
+  case 'aendern': include(KAL_Pfad.'kalAendern.php'); break; //Terminï¿½nderungen
   case 'kopieren': include(KAL_Pfad.'kalKopieren.php'); break; //Terminkopie
   case 'druck': include(KAL_Pfad.'kalDaten.php'); fKalDaten(true,false); include(KAL_Pfad.'kalDruck.php'); break; // ListenDruck
   case 'druckmonat': include(KAL_Pfad.'kalDruckMonat.php'); break; // Monatsdruck

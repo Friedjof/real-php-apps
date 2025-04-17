@@ -1,0 +1,9 @@
+<h1 class="_level1_page_">News01</h1>
+<h4>Newsbox News01</h4>
+<p>This box shows the content of the hidden page "News01".</p>
+<p>More information about newsboxes can be found in the documentation on</p>
+<p style="text-align: right;"><a href="https://www.cmsimple.org/doku/en/?Working_with_CMSimple___Newsboxes">cmsimple.org »</a></p>
+<hr>
+<p>Diese Box zeigt den Inhalt der versteckten Seite "News01".</p>
+<p>Mehr Informationen zum Thema Newsboxen gibt es in der Dokumentation auf</p>
+<p style="text-align: right;"><a href="https://www.cmsimple.org/doku/?Arbeiten_mit_CMSimple___Newsboxen">cmsimple.org »</a></p>

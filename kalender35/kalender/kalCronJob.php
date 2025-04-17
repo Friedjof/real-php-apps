@@ -13,7 +13,7 @@ if(isset($_GET['kal'])){
  // --- Anfang Cronjob ---
  $sRes='Kalender-Cron-Job gestartet: '.date('H:i:s')."\n"; $aT=array(); $nSaetze=0; $bDo=false;
 
- // alte abgelaufene Termine löschen
+ // alte abgelaufene Termine lï¿½schen
  $aLsch=array(); if(!$sRefDat=@date('Y-m-d',time()-86400*KAL_HalteAltesNochTage)) $sRefDat=''; $nFelder=count($kal_FeldName);
  $nDtPos2=0; for($i=1;$i<$nFelder;$i++) if($kal_FeldType[$i]=='d') if($nDtPos2<2) $nDtPos2=$i;
  if(!KAL_SQL){ //ohne SQL
@@ -29,7 +29,7 @@ if(isset($_GET['kal'])){
   if($n=count($aLsch)){ $bDo=true;
    if($f=@fopen(KAL_Pfad.KAL_Daten.KAL_Termine,'w')){ //Termine neu schreiben
     fwrite($f,rtrim(str_replace("\r",'',implode('',$aT)))."\n"); fclose($f);
-    $sRes.="\nTermindatei: $n abgelaufene Termine gelöscht"; $bDo=true;
+    $sRes.="\nTermindatei: $n abgelaufene Termine gelï¿½scht"; $bDo=true;
     $aD=file(KAL_Pfad.KAL_Daten.KAL_Erinner); $nD=count($aD); $b=false; //Erinnerungen bereinigen
     for($i=1;$i<$nD;$i++){
      $s=substr($aD[$i],11,8); $n=(int)substr($s,0,strpos($s,';')); if(isset($aLsch[$n])&&$aLsch[$n]){$aD[$i]=''; $b=true;}
@@ -51,24 +51,24 @@ if(isset($_GET['kal'])){
      }
      if($b) if($f=fopen(KAL_Pfad.KAL_Daten.KAL_Zusage,'w')){
       fwrite($f,rtrim(str_replace("\r",'',implode('',$aD)))."\n"); fclose($f);
-   }}}else $sRes.="\nTermindatei: keine Erlaubnis zum Löschen von $n Terminen";
+   }}}else $sRes.="\nTermindatei: keine Erlaubnis zum Lï¿½schen von $n Terminen";
  }}elseif($DbO){ //bei SQL
   $sDtFld2=''; if(KAL_EndeDatum&&($nDtPos2>1)) $sDtFld2=' AND kal_'.$nDtPos2.'<"'.$sRefDat.'"'; $sD='';
   if($rR=$DbO->query('SELECT id FROM '.KAL_SqlTabT.' WHERE kal_1<"'.$sRefDat.'"'.$sDtFld2)){
    while($a=$rR->fetch_row()){$aLsch[(int)$a[0]]=true; $sD.=' OR termin="'.$a[0].'"';} $rR->close();
    if($n=count($aLsch)){$bDo=true;
     if($DbO->query('DELETE FROM '.KAL_SqlTabT.' WHERE kal_1<"'.$sRefDat.'"'.$sDtFld2)){
-     $sRes.="\nTermintabelle: $n abgelaufene Termine gelöscht"; $sD=substr($sD,4);
+     $sRes.="\nTermintabelle: $n abgelaufene Termine gelï¿½scht"; $sD=substr($sD,4);
      $DbO->query('DELETE FROM '.KAL_SqlTabE.' WHERE '.$sD);
      $DbO->query('DELETE FROM '.KAL_SqlTabB.' WHERE '.$sD);
      $DbO->query('DELETE FROM '.KAL_SqlTabZ.' WHERE '.$sD);
-    }else $sRes.="\nTermintabelle: Löschen von $n Terminen gescheitert";
+    }else $sRes.="\nTermintabelle: Lï¿½schen von $n Terminen gescheitert";
   }}else $sRes.="\nTermintabelle: Abfragefehler bei alten Terminen";
  }
  if($n=count($aLsch)&&(in_array('b',$kal_FeldType)||in_array('f',$kal_FeldType))){ //veraltete Bilder und Dateien
   if($f=opendir(KAL_Pfad.substr(KAL_Bilder,0,-1))){
    $aD=array(); while($s=readdir($f)) if($i=(int)$s) if(isset($aLsch[$i])) $aD[]=$s; closedir($f);
-   if($n=count($aD)) $sRes.="\nBilder-Verzeichnis: $n Bilder und Dateien zu abgelaufenen Terminen gelöscht";
+   if($n=count($aD)) $sRes.="\nBilder-Verzeichnis: $n Bilder und Dateien zu abgelaufenen Terminen gelï¿½scht";
    foreach($aD as $s) @unlink(KAL_Pfad.KAL_Bilder.$s);
  }}
 
@@ -82,7 +82,7 @@ if(isset($_GET['kal'])){
  }elseif($DbO){ //bei SQL
   if($DbO->query('DELETE FROM '.KAL_SqlTabE.' WHERE datum<"'.$sRefDat.'"')) $n=$DbO->affected_rows; else $n=0;
  }
- if($n>0) $sRes.="\nErinnerungen: $n alte verwaiste Erinnerungen gelöscht.";
+ if($n>0) $sRes.="\nErinnerungen: $n alte verwaiste Erinnerungen gelï¿½scht.";
 
  //TerminErinnerungen versenden
  if(KAL_ListenErinn>=0||KAL_DetailErinn>=0){
@@ -159,7 +159,7 @@ if(isset($_GET['kal'])){
       fwrite($f,rtrim(str_replace("\r",'',implode('',$aD)))."\n"); fclose($f);
      }
     }elseif($DbO) $DbO->query('DELETE FROM '.KAL_SqlTabE.' WHERE datum<="'.$sRefDat.'"');
-    $sRes.="\nErinnerungen: Erinnerungsliste um $n Einträge gekürzt.";
+    $sRes.="\nErinnerungen: Erinnerungsliste um $n Eintrï¿½ge gekï¿½rzt.";
    }
   }else $sRes.="\nErinnerungen: keine Erinnerungen zum Versand anstehend.";
  }
@@ -172,12 +172,12 @@ if(isset($_GET['kal'])){
   if($nLsch>0){ $bDo=true;
    if($f=@fopen(KAL_Pfad.KAL_Daten.KAL_MailAdr,'w')){ //Adressen neu schreiben
     fwrite($f,rtrim(implode('',$aD))."\n"); fclose($f);
-    $sRes.="\nE-Mail-Adressen: $nLsch nicht freigeschaltete Adressen gelöscht.";
+    $sRes.="\nE-Mail-Adressen: $nLsch nicht freigeschaltete Adressen gelï¿½scht.";
    }else $sRes.="\nE-Mail-Adressen: kein Schreibzugriff auf ".KAL_Daten.KAL_MailAdr.".";
   }
  }elseif($DbO){ //mit SQL
   $DbO->query('DELETE FROM '.KAL_SqlTabM.' WHERE email LIKE "%;%" AND email<"'.$nAlt.'"');
-  if($nLsch=$DbO->affected_rows){$sRes.="\nE-Mail-Adressen: $nLsch nicht freigeschaltete Adressen gelöscht."; $bDo=true;}
+  if($nLsch=$DbO->affected_rows){$sRes.="\nE-Mail-Adressen: $nLsch nicht freigeschaltete Adressen gelï¿½scht."; $bDo=true;}
  }
 
  // temp bereinigen

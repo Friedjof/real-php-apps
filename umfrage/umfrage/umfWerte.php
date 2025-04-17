@@ -25,9 +25,9 @@ define('UMF_SqlTabT','umf_teilnahme');
 define('UMF_Schluessel','00');
 
 // Administration
-define('ADU_MitLogin',false);
+define('ADU_MitLogin',true);
 define('ADU_Admin','admin');
-define('ADU_Passwort','484449413F');
+define('ADU_Passwort','');
 define('ADU_AuthLogin',false);
 define('ADU_Author','autor');
 define('ADU_AuthPass','4C4A50523F');

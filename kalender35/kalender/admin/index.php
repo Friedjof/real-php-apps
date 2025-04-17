@@ -1,6 +1,6 @@
 <?php
 include 'hilfsFunktionen.php';
-echo fSeitenKopf('Übersicht','','Idx');
+echo fSeitenKopf('ï¿½bersicht','','Idx');
 
 if($bHttp=(($f=@fopen($sHttp.'grafik/icon_Kopie.gif','r'))?true:false)) fclose($f);
 $sIcon=($bHttp?$sHttp:KALPFAD).'grafik/icon_Aendern.gif';
@@ -18,22 +18,22 @@ if($sRcv){$sRcv=str_replace("\r",'',trim($sRcv)); if($p=strpos($sRcv,"\n\n")) $s
 <p class="admMeld">Kalender-Script-Administration - Version <?php $kalVersion='???'; @include(KALPFAD.'kalVersion.php'); echo trim(substr($kalVersion,0,3)).' ('.trim(substr($kalVersion,4).')');?></p>
 <?php if(strlen(KAL_Www)==0){?>
 <div class="admBox"><p class="admFehl">Setup-Warnung:</p>
-Bitte rufen Sie jetzt unbedingt den Menüpunkt <a href="konfSetup.php"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="Setup ausführen"></a>
+Bitte rufen Sie jetzt unbedingt den Menï¿½punkt <a href="konfSetup.php"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="Setup ausfï¿½hren"></a>
 <a href="konfSetup.php" title="Setup">Setup</a> auf, um das Programm einzurichten.</div><br />
 <?php } if($kalVersion!=KAL_Version){?>
 <div class="admBox"><p class="admFehl">Versions-Warnung:</p>
 Die Dateien zur Version <?php echo $kalVersion?> sind bereits auf Ihrem Server vorhanden,
-jedoch ist die Variablen- und Einstelldatei <i>kalWerte.php</i> noch auf dem früheren Stand <?php echo KAL_Version?>.
-Bitte rufen Sie jetzt unbedingt den Menüpunkt <a href="konfUpdate.php"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="Update einpflegen"></a>
-<a href="konfUpdate.php" title="Update">Update</a> auf, um die erneuerte Version endgültig einzupflegen.</div><br />
+jedoch ist die Variablen- und Einstelldatei <i>kalWerte.php</i> noch auf dem frï¿½heren Stand <?php echo KAL_Version?>.
+Bitte rufen Sie jetzt unbedingt den Menï¿½punkt <a href="konfUpdate.php"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="Update einpflegen"></a>
+<a href="konfUpdate.php" title="Update">Update</a> auf, um die erneuerte Version endgï¿½ltig einzupflegen.</div><br />
 <?php } else if($sNewVer!='???'&&$sNewVer!=trim(substr($kalVersion,4))){?>
 <div class="admBox"><p class="admErfo">Versions-Hinweis:</p>
 Sie verwenden derzeit Version <?php echo $kalVersion?>.
-Für registrierte Lizenznehmer ist Version <?php echo $sNewVer?> verfügbar.
-Bitte informieren Sie sich, ob diese Version für Sie <a href="https://<?php echo $sHost?>/version3.html" target="_blank">nützliche Neuerungen</a> enthält.</div><br />
+Fï¿½r registrierte Lizenznehmer ist Version <?php echo $sNewVer?> verfï¿½gbar.
+Bitte informieren Sie sich, ob diese Version fï¿½r Sie <a href="https://<?php echo $sHost?>/version3.html" target="_blank">nï¿½tzliche Neuerungen</a> enthï¿½lt.</div><br />
 <?php }?>
 
-<p class="admMeld">Überblick zur Datenstatistik</p>
+<p class="admMeld">ï¿½berblick zur Datenstatistik</p>
 <?php
  $nT=0; $nV=0; $nF=0; $nD=0; $nN=0; $nM=0; $nE=0; $nB=0; $nZ=0;
  if(!KAL_SQL){
@@ -56,12 +56,12 @@ Bitte informieren Sie sich, ob diese Version für Sie <a href="https://<?php echo
   if($rR=$DbO->query('SELECT COUNT(id) FROM '.KAL_SqlTabE)){if($a=$rR->fetch_row()) $nE=$a[0]; $rR->close();}
   if($rR=$DbO->query('SELECT COUNT(id) FROM '.KAL_SqlTabB)){if($a=$rR->fetch_row()) $nB=$a[0]; $rR->close();}
   if($rR=$DbO->query('SELECT COUNT(nr) FROM '.KAL_SqlTabZ)){if($a=$rR->fetch_row()) $nZ=$a[0]; $rR->close();}
- }else echo '<p class="admFehl">MySQL-Datenbank nicht geöffnet!</p>';
+ }else echo '<p class="admFehl">MySQL-Datenbank nicht geï¿½ffnet!</p>';
 ?>
 <table class="admTabl" border="0" cellpadding="2" cellspacing="1">
 <tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="liste.php?kal_Onl=1&amp;kal_Ofl=0&amp;kal_Vmk=0" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Terminliste</td>
-<td><?php echo $nT?> veröffentlichte Termine in <i><?php echo (!KAL_SQL?KAL_Termine:KAL_SqlTabT)?></i></td>
+<td><?php echo $nT?> verï¿½ffentlichte Termine in <i><?php echo (!KAL_SQL?KAL_Termine:KAL_SqlTabT)?></i></td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="freigabe.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Terminliste</td>
 <td><?php echo $nV?> vorgeschlagene Termine in <i><?php echo (!KAL_SQL?KAL_Termine:KAL_SqlTabT)?></i></td>
@@ -69,20 +69,20 @@ Bitte informieren Sie sich, ob diese Version für Sie <a href="https://<?php echo
 <td class="admSpa1" style="width:14em"><a href="liste.php?kal_Ofl=1&amp;kal_Onl=0&amp;kal_Vmk=0" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Terminliste</td>
 <td><?php echo $nF?> deaktivierte Termine in <i><?php echo (!KAL_SQL?KAL_Termine:KAL_SqlTabT)?></i></td>
 </tr><tr class="admTabl">
-<td class="admSpa1" style="width:14em"><a href="terminLoeschung.php" title="löschen"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Terminliste</td>
-<td><?php echo $nD?> zu löschende Termine in <i><?php echo (!KAL_SQL?KAL_Termine:KAL_SqlTabT)?></i></td>
+<td class="admSpa1" style="width:14em"><a href="terminLoeschung.php" title="lï¿½schen"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Terminliste</td>
+<td><?php echo $nD?> zu lï¿½schende Termine in <i><?php echo (!KAL_SQL?KAL_Termine:KAL_SqlTabT)?></i></td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="nutzerListe.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Benutzerliste</td>
 <td><?php echo $nN?> registrierte Benutzer in <i><?php echo (!KAL_SQL?KAL_Nutzer:KAL_SqlTabN)?></i></td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="nachrListen.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Mail-Adressen</td>
-<td><?php echo $nM?> Adressen für Erinnerungen/Benachrichtigungen in <i><?php echo (!KAL_SQL?KAL_MailAdr:KAL_SqlTabM)?></i></td>
+<td><?php echo $nM?> Adressen fï¿½r Erinnerungen/Benachrichtigungen in <i><?php echo (!KAL_SQL?KAL_MailAdr:KAL_SqlTabM)?></i></td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="nachrListen.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Erinnerungen</td>
-<td><?php echo $nE?> Erinnerungswünsche zu anstehenden Terminen in <i><?php echo (!KAL_SQL?KAL_Erinner:KAL_SqlTabE)?></i></td>
+<td><?php echo $nE?> Erinnerungswï¿½nsche zu anstehenden Terminen in <i><?php echo (!KAL_SQL?KAL_Erinner:KAL_SqlTabE)?></i></td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="nachrListen.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Benachrichtigungen</td>
-<td><?php echo $nB?> Benachrichtigungswünsche zu Terminänderungen in <i><?php echo (!KAL_SQL?KAL_Benachr:KAL_SqlTabB)?></i></td>
+<td><?php echo $nB?> Benachrichtigungswï¿½nsche zu Terminï¿½nderungen in <i><?php echo (!KAL_SQL?KAL_Benachr:KAL_SqlTabB)?></i></td>
 </tr><?php if(defined('KAL_ZusageSystem')&&KAL_ZusageSystem){?>
 <tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="zusageListe.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Zusagen</td>
@@ -114,11 +114,11 @@ Bitte informieren Sie sich, ob diese Version für Sie <a href="https://<?php echo
 <p class="admMeld">Programmwartung</p>
 <table class="admTabl" border="0" cellpadding="2" cellspacing="1">
 <tr class="admTabl">
-<td class="admSpa1" style="width:14em"><a href="konfAllgemein.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Geheimschlüssel</td>
-<td><?php echo KAL_Schluessel?> - Niemals verändern!<div class="admMini">(Nur notieren für eine eventuelle Neuinstallation des Programms bei vorhandenen Daten.)</div></td>
+<td class="admSpa1" style="width:14em"><a href="konfAllgemein.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bearbeiten"></a> Geheimschlï¿½ssel</td>
+<td><?php echo KAL_Schluessel?> - Niemals verï¿½ndern!<div class="admMini">(Nur notieren fï¿½r eine eventuelle Neuinstallation des Programms bei vorhandenen Daten.)</div></td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="delTemp.php" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="bereinigen"></a> Bereinigung</td>
-<td>temporäre Dateien löschen, falls die regelmäßige automatische Löschung Reste hinterlassen hat</td>
+<td>temporï¿½re Dateien lï¿½schen, falls die regelmï¿½ï¿½ige automatische Lï¿½schung Reste hinterlassen hat</td>
 </tr><tr class="admTabl">
 <td class="admSpa1" style="width:14em"><a href="<?php echo ($bHttp?$sHttp:KALPFAD)?>kalCronJob.php?kal=<?php echo KAL_Schluessel?>"  target="hilfe" onclick="hlpWin(this.href);return false;" title="bearbeiten"><img src="<?php echo $sIcon?>" width="12" height="13" border="0" alt="aufrufen"></a> CronJob</td>
 <td>Programm <i>kalCronJob.php</i> im Besucherordner probeweise von Hand aufrufen.</td>
@@ -133,12 +133,12 @@ Bitte informieren Sie sich, ob diese Version für Sie <a href="https://<?php echo
 <p class="admMeld">Sicherheit</p>
 <div class="admBox">
 <p>Sie haben momentan den scriptbasierten Zugangsschutz
-zur Administration eingeschaltet und verwenden ausdrücklich nicht
+zur Administration eingeschaltet und verwenden ausdrï¿½cklich nicht
 den als sicher geltenden serverseitigen Zugangsschutz zum Administrationsordner.</p>
 <?php if(file_exists('info.php')){?><p>Ausserdem ist die Datei <a href="info.php" target="hilfe" onclick="hlpWin(this.href);return false;">info.php</a> in der Administration vorhanden,
 die nicht vom Zugangsschutz gesichert wird.
-Falls Ihnen diese ungeschützte Datei als Sicherheitsrisiko erscheint,
-so löschen Sie die Datei bitte.</p><?php }?>
+Falls Ihnen diese ungeschï¿½tzte Datei als Sicherheitsrisiko erscheint,
+so lï¿½schen Sie die Datei bitte.</p><?php }?>
 </div>
 
 <?php

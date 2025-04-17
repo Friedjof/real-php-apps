@@ -14,7 +14,7 @@ define('MP_Struktur','struktur.txt');
 define('MP_Nutzer','nutzer00.txt');
 define('MP_MailAdr','mailadr00.txt');
 define('MP_Benachr','benachr00.txt');
-define('MP_SQL',false);
+define('MP_SQL',true);
 define('MP_SqlHost','mysql');
 define('MP_SqlDaBa','marktplatz');
 define('MP_SqlUser','root');

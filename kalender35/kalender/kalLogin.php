@@ -180,8 +180,8 @@ function fKalLogSeite(){ //Benutzerverwaltung
         $a[$j]=str_replace('`,',';',$a[$j]);
         if(KAL_LZeichenstz>0) if(KAL_LZeichenstz==2) $a[$j]=iconv('UTF-8','ISO-8859-1//TRANSLIT',$a[$j]); else $a[$j]=html_entity_decode($a[$j]);
        }
-       if($a!=$aW){ //verändert
-        if($a[2]==$aW[2]||!strpos($sNam,';'.fKalInCode($aW[2]).';')){ //Benutzername unverändert oder frei
+       if($a!=$aW){ //verï¿½ndert
+        if($a[2]==$aW[2]||!strpos($sNam,';'.fKalInCode($aW[2]).';')){ //Benutzername unverï¿½ndert oder frei
          if($a[1]=='1') $sSes=sprintf('%04d%08d',$sId,(time()+(60*KAL_SessionZeit))>>6); //aktiv, Session erzeugen, ca. 40 Minuten
          $s=$sId.';'.($sSes?substr($sSes,4):$sOldSes).';'.$a[1].';'.fKalInCode($aW[2]).';'.fKalInCode($aW[3]).';'.fKalInCode($aW[4]);
          for($j=5;$j<$nFelder;$j++) $s.=';'.str_replace(';','`,',fKalDtCode($aW[$j])); $aD[$k]=$s."\n";
@@ -218,7 +218,7 @@ function fKalLogSeite(){ //Benutzerverwaltung
            $i=$rR->num_rows; $rR->close();
           }else $i=1;
          }else $i=0;
-         if($i==0){ //Benutzername unverändert oder frei
+         if($i==0){ //Benutzername unverï¿½ndert oder frei
           if($a[1]=='1'){$sSes=sprintf('%04d%08d',$sId,(time()+(60*KAL_SessionZeit))>>6); $s.=', session="'.substr($sSes,4).'"';} //aktiv, Session erzeugen ca. 40 Minuten
           if($DbO->query('UPDATE IGNORE '.KAL_SqlTabN.' SET '.substr($s,2).' WHERE nr="'.$sId.'"')){
            $Et=KAL_TxNutzerGeaendert; $Es='Erfo'; $sPw=$aW[3];
@@ -557,7 +557,7 @@ function fKalPflichtFelder($aV,$nFelder){
  $aFe=array(); $aNPfl=$kal_NutzerPflicht; array_splice($aNPfl,1,1);
  if(strlen($aV[2])<4||strlen($aV[2])>25) $aFe[2]=true; //Benutzer
  if(strlen($aV[3])<4||strlen($aV[3])>16) $aFe[3]=true; //Passwort
- if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zäöü_-]+(\.[0-9a-zäöü_-]+)*\.[a-z]{2,16}$/',strtolower($aV[4]))) $aFe[4]=true; //eMail
+ if(!preg_match('/^([0-9a-z~_-]+\.)*[0-9a-z~_-]+@[0-9a-zï¿½ï¿½ï¿½_-]+(\.[0-9a-zï¿½ï¿½ï¿½_-]+)*\.[a-z]{2,16}$/',strtolower($aV[4]))) $aFe[4]=true; //eMail
  for($j=5;$j<$nFelder;$j++) if($aNPfl[$j]==1&&empty($aV[$j])) $aFe[$j]=true;
  return $aFe;
 }

@@ -1,0 +1,83 @@
+services:
+  usbwebserver:
+    build: root
+    image: usbwebserver
+    volumes:
+      - ./root:/var/www/html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.usbwebserver.rule=Host(`localhost`)"
+      - "traefik.http.services.usbwebserver.loadbalancer.server.port=80"
+    restart: unless-stopped
+    networks:
+      usbwebserver:
+        ipv4_address: 172.112.0.2
+
+  webserver:
+    image: nginx:alpine
+    volumes:
+      - ./web:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webserver.rule=Host(`web.localhost`)"
+      - "traefik.http.services.webserver.loadbalancer.server.port=80"
+    networks:
+      usbwebserver:
+        ipv4_address: 172.112.0.3
+
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8081:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      usbwebserver:
+        ipv4_address: 172.112.0.4
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: usbwebserver
+      MYSQL_USER: usbwebserver
+      MYSQL_PASSWORD: usbwebserver
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=false"
+    networks:
+      usbwebserver:
+        ipv4_address: 172.112.0.5
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PMA_ARBITRARY: 1
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`db.localhost`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+    networks:
+      usbwebserver:
+        ipv4_address: 172.112.0.6
+
+networks:
+  usbwebserver:
+    name: usbwebserver
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.112.0.0/24
